@@ -281,7 +281,7 @@
 <h2 id="promise-상태"><a class="header-anchor" href="#promise-상태"></a>Promise 상태</h2>
 <p>Promise 객체는 비동기 처리에 대한 <strong>상태</strong>를 가집니다.<br>
 개념상 <strong>이행되지 않은 상태</strong>와 <strong>이행 또는 거부 완료된 상태</strong>로 분류할 수 있으며 실제로 이행되지 않고 대기중인 상태는 <code>pending</code>, 이행된 상태는 <code>fulfilled</code>, 거부된 상태는 <code>reject</code> 가 됩니다.</p>
-<p>&lt;div class=“table__custom”&gt;</p>
+<div class="table__custom">
 <table>
 <thead>
 <tr>
@@ -308,7 +308,7 @@
 </tr>
 </tbody>
 </table>
-<p>&lt;/div&gt;</p>
+</div>
 <p><code>pending</code> 상태에서 <code>settled</code> 상태로 변경되면 더이상 값도 상태도 변경되지 않으며 <code>then</code> 메서드에 의해 대기열에 올라 처리됩니다.</p>
 <h2 id="promise-처리-메소드"><a class="header-anchor" href="#promise-처리-메소드"></a>Promise 처리 메소드</h2>
 <p>Promise 객체는 생성되는 시점에는 알수 없는 값, 즉 비동기 처리를 위한 연산이 종료된 이후의 값을 처리하기 위한 <code>then</code>, <code>catch</code>, <code>finally</code> 와 같은 함수를 제공하며 <code>then</code>, <code>catch</code> 메서드는 Promise 객체를 반환하기 때문에 <strong>Chaning</strong>이 가능합니다.</p>
@@ -319,7 +319,7 @@
 <li><strong>onFulfilled</strong> : Promise가 수행될 때 호출되는 Function으로, 이행 값(fulfillment value) 하나를 인수로 받습니다.</li>
 <li><strong>onRejected</strong> : Promise가 거부될 때 호출되는 Function으로, 거부 이유(rejection reason) 하나를 인수로 받습니다.</li>
 </ul>
-<p>&lt;!–￼0–&gt;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// onFulfilled 실행</span></span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(onFulfilled, onRejected)</span><br><span class="line"><span class="comment">// onRejected 실행</span></span><br><span class="line"><span class="built_in">Promise</span>.rejected().then(onFulfilled, onRejected)</span><br></pre></td></tr></table></figure>
 <p>Promise 가 fulfilled 상태이거나 rejected 상태일 때, 각각에 해당하는 핸들러 함수(onFulfilled, onRejected) 가 실행되며 <strong>settled 상태와 함께 함수가 반환하는 값을 가지는 Promise 객체를 반환</strong>합니다. <strong>값을 반환하지 않을 경우 fulfilled 상태와 함께 undefined 를 값으로 가지는 Promise 객체를 반환</strong>합니다.</p>
 <h3 id="catch"><a class="header-anchor" href="#catch"></a>catch</h3>
 <p><code>Promise.prototype.catch</code> 는 Promise 수행 결과의 <strong>상태가 rejected 인 경우에만 실행</strong>됩니다. <code>Promise.prototype.then(undefined, onRejected)</code> 코드와 동일하며 실제로 catch 도 내부적으로 해당 코드를 호출합니다. <strong>fulfilled 상태를 가진 Promise 객체를 반환</strong>하며 Promise 를 반환하기 때문에 Chaning 이 가능합니다.</p>

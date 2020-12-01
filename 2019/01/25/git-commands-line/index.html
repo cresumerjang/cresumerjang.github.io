@@ -277,49 +277,49 @@
 <h1>.gitignore</h1>
 <blockquote>
 <p>버전관리 대상에서 제외하고싶은 파일 및 폴더 관리<br>
-.gitignore 파일 생성 후 아래와 같이 추가하여 버전관리 대상에서 제외할 수 있습니다.<br>
-&lt;!–￼0–&gt;</p>
+.gitignore 파일 생성 후 아래와 같이 추가하여 버전관리 대상에서 제외할 수 있습니다.</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*.js # 해당 확장파일 모두 제외</span><br><span class="line">tmp/ # 해당 폴더하위 모두 제외</span><br></pre></td></tr></table></figure>
 <h1>git config</h1>
 <blockquote>
-<p>–global 옵션 없이 선언하면 설정값은 해당 저장소에만 유효합니다. 프로젝트마다 다른 name, email 을 사용하고 싶으면 --global 옵션 제거하고 설정합니다.<br>
-&lt;!–￼1–&gt;</p>
+<p>–global 옵션 없이 선언하면 설정값은 해당 저장소에만 유효합니다. 프로젝트마다 다른 name, email 을 사용하고 싶으면 --global 옵션 제거하고 설정합니다.</p>
 </blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global --list # 전체 설정값 확인</span><br><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"jaewon"</span> # <span class="builtin-name">set</span><span class="built_in"> user </span>name</span><br><span class="line">git<span class="built_in"> config </span>--global user.name # <span class="builtin-name">get</span><span class="built_in"> user </span>name</span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"j@gamil.com"</span> # <span class="builtin-name">set</span><span class="built_in"> user </span>email</span><br><span class="line">git<span class="built_in"> config </span>--global user.email # <span class="builtin-name">get</span><span class="built_in"> user </span>email</span><br></pre></td></tr></table></figure>
 <h1>remote</h1>
 <blockquote>
-<p>최초에 github과 같은 서비스에서 remote 저장소를 생성성(git init)하여 clone 받을 수 도 있지만, 로컬에서 저장소를 생성하여 리모트로 푸시하거나 로컬에서 리모트 저장소의 주소나 이름, 브랜치등 삭제등을 수행할 수 있습니다.<br>
-&lt;!–￼2–&gt;</p>
+<p>최초에 github과 같은 서비스에서 remote 저장소를 생성성(git init)하여 clone 받을 수 도 있지만, 로컬에서 저장소를 생성하여 리모트로 푸시하거나 로컬에서 리모트 저장소의 주소나 이름, 브랜치등 삭제등을 수행할 수 있습니다.</p>
 </blockquote>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git </span><span class="string">remote </span><span class="string">add </span>저장소이름 <span class="string">https:</span>// <span class="comment"># 로컬에 리모트 저장소에대한 참조 추가</span></span><br><span class="line"><span class="string">git </span><span class="string">remote </span><span class="string">rename </span>저장소이름 새저장소이름 <span class="comment"># 로컬의 리모트 저장소 이름변경</span></span><br><span class="line"><span class="string">git </span><span class="string">remote </span><span class="string">rm </span>저장소이름 <span class="comment"># 로컬의 리모트저장소 삭제</span></span><br><span class="line"><span class="string">git </span><span class="string">remote </span><span class="string">update </span><span class="string">origin </span>–<span class="string">prune </span><span class="comment"># 리모트 브랜치 기준 로컬브랜치 싱크 맞추기</span></span><br><span class="line"><span class="string">git </span><span class="string">remote </span><span class="built_in">set-url</span> <span class="string">remote저</span>장소이름 리모트<span class="string">url </span><span class="comment"># 리모트 저장소 변경</span></span><br><span class="line"><span class="string">git </span><span class="string">push </span><span class="string">remote저</span>장소이름 로컬브랜치</span><br><span class="line"><span class="string">git </span><span class="string">push </span><span class="string">remote저</span>장소이름 로컬브랜치:뉴브랜치이름 <span class="comment"># 리모트 브랜치생성</span></span><br><span class="line"><span class="string">git </span><span class="string">push </span><span class="string">origin </span>–<span class="string">delete </span>리모트브랜치명 <span class="comment"># 리모트 브랜치삭제</span></span><br><span class="line"><span class="string">git </span><span class="string">pull </span>( <span class="string">fetch[</span>저장소에서 변경사항 가져오기] + <span class="string">merge[</span>가져와서 브랜치합치기] )</span><br><span class="line"><span class="string">git </span><span class="string">clone </span>리모트 저장소경로 <span class="comment"># 리모트 저장소 로컬에 받기</span></span><br><span class="line"><span class="string">git </span><span class="string">checkout </span>-t <span class="string">origin/</span>리모트 브랜치 이름 <span class="comment"># 리모트저장소의 브랜치 받기</span></span><br><span class="line"><span class="string">git </span><span class="string">branch </span>-r <span class="comment"># 리모트 저장소 보기</span></span><br></pre></td></tr></table></figure>
 <h1>diff</h1>
-<p>&lt;!–￼3–&gt;</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git diff <span class="comment">// 워킹 디렉토리와 스테이지간 비교</span></span><br><span class="line">git diff –-cached <span class="comment">// 스테이지와 저장소에 커밋된 파일 비교</span></span><br><span class="line">git diff HEAD~<span class="number">1</span> <span class="comment">// HEAD 에서 이전 1개 커밋과의 diff 보기</span></span><br><span class="line">git diff 체크섬<span class="number">1</span> 체크섬<span class="number">2</span> <span class="comment">// 두 체크섬간 diff 비교</span></span><br></pre></td></tr></table></figure>
 <h1>log</h1>
-<p>&lt;!–￼4–&gt;</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> -p fileName <span class="meta"># fileName을 해당 path에 맞춰 사용하면 파일에대한 diff만 확인할 수 있다.</span></span><br><span class="line">git <span class="built_in">log</span> –since=yyyy-mm-dd –<span class="keyword">until</span>=yyyy-mm-dd <span class="meta"># 날짜사이의 로그 필터링</span></span><br><span class="line">git <span class="built_in">log</span> –since=&lt;<span class="built_in">date</span>&gt;, –after=&lt;<span class="built_in">date</span>&gt; <span class="meta"># Show commits more recent than a specific date.</span></span><br><span class="line">git <span class="built_in">log</span> –<span class="keyword">until</span>=&lt;<span class="built_in">date</span>&gt;, –before=&lt;<span class="built_in">date</span>&gt; <span class="meta"># Show commits older than a specific date.</span></span><br><span class="line">git <span class="built_in">log</span> –grep=<span class="string">"검색할 str"</span>; <span class="meta"># 대소문자구문</span></span><br><span class="line">git <span class="built_in">log</span> –grep=<span class="string">"검색할 str"</span> -i; <span class="meta"># 대소문자구분없음 </span></span><br><span class="line">git <span class="built_in">log</span> –<span class="keyword">graph</span> <span class="meta"># 커맨드라인에서 그래프로 보여줌</span></span><br><span class="line">git <span class="built_in">log</span> –<span class="keyword">graph</span> –all <span class="meta"># 모든 branch의 그래프를 보여줌</span></span><br><span class="line">git <span class="built_in">log</span> –author =<span class="string">"jw9651″ #커미터 검색</span></span><br><span class="line"><span class="string">git shortlog # 저장소에 참여한 모든 사용자가 만들어낸 커밋의 숫자를 알파벳 순서로 정렬하여 출력</span></span><br><span class="line"><span class="string">git shortlog -n # 알파벳 순이아닌 커밋 횟수순</span></span><br><span class="line"><span class="string">git shortlog -e # 작업자 이름옆에 이메일 메타데이터 출력</span></span><br><span class="line"><span class="string">git shortlog -s # 스테이지/커밋 숫자들만 출력</span></span><br><span class="line"><span class="string">ex)</span></span><br><span class="line"><span class="string">git log –grep="</span>SDU<span class="number">-5054</span>″ -i –author=<span class="string">"jw9651″</span></span><br><span class="line"><span class="string">history | grep "</span><span class="keyword">push</span><span class="string">"</span></span><br><span class="line"><span class="string">git reflog | grep merge | grep 5054</span></span><br></pre></td></tr></table></figure>
 <h1>merge</h1>
 <p>일반적인 master의 HEAD 포인터를(컨플릭트시 병합하여) 가장 앞의 커밋으로 옮기는 fast-forward 방식의 merge 입니다. 변경 이력을 모두 확인할 수 있습니다.</p>
-<p>&lt;!–</p>
-<h1>rebase</h1>
-<p>merge 할 토픽 브랜치를 master 브랜치 기반의 새로운 패치를 만들어 기준 브랜치의 맨 앞으로 병합합니다. // git rebase master기준브랜치<br>
-그 다음 master 브랜치로 checkout 한 다음 git rebase 토픽 브랜치 (master브랜치에 젤 앞에 있는 커밋 == 임시패치)를 하면 master가 rebase 의 패치로 HEAD를 가리키게됩니다.<br>
-이 방법은 전체적인 이력을 확인하기가 어렵기 때문에 적절히(local 브랜치) 사용하는게 좋습니다.<br>
-rebase는 예를들어 non fast forward한 경우 topic브랜치에서 git rebase master를 할 경우 master의 HEAD를 new base로 지정하고 topic브랜치에서 발생한 커밋들을 쌓아가는것.<br>
-자르고 붙이는 느낌이 강하다.<br>
-–&gt;</p>
+<!--
+# rebase
+merge 할 토픽 브랜치를 master 브랜치 기반의 새로운 패치를 만들어 기준 브랜치의 맨 앞으로 병합합니다. // git rebase master기준브랜치
+그 다음 master 브랜치로 checkout 한 다음 git rebase 토픽 브랜치 (master브랜치에 젤 앞에 있는 커밋 == 임시패치)를 하면 master가 rebase 의 패치로 HEAD를 가리키게됩니다.
+이 방법은 전체적인 이력을 확인하기가 어렵기 때문에 적절히(local 브랜치) 사용하는게 좋습니다.
+rebase는 예를들어 non fast forward한 경우 topic브랜치에서 git rebase master를 할 경우 master의 HEAD를 new base로 지정하고 topic브랜치에서 발생한 커밋들을 쌓아가는것. 
+자르고 붙이는 느낌이 강하다. 
+-->
 <h1>reset</h1>
-<p>&lt;!–￼5–&gt;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> 파일명 // stage -&gt; unstage로변경, <span class="keyword">add</span>취소</span><br><span class="line">git <span class="keyword">reset</span> –hard하면 이전으로만 돌아감</span><br><span class="line"></span><br><span class="line">git <span class="keyword">reset</span> –soft 식별<span class="keyword">id</span>: <span class="comment"># add 는 된상태로 </span></span><br><span class="line">git <span class="keyword">reset</span> –mixed 식별<span class="keyword">id</span>: <span class="comment"># add하기 전 untracted 로 </span></span><br><span class="line">git <span class="keyword">reset</span> –hard 식별<span class="keyword">id</span>: <span class="comment"># 해당 커밋 로그 untracted 파일 까지 삭제</span></span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard origin/master # </span></span><br><span class="line">git <span class="keyword">reset</span> a.txt // a.txt 파일만 스테이지에서 워킹디렉토리로( tracked -&gt; untracted )</span><br></pre></td></tr></table></figure>
 <h1>commit</h1>
-<p>&lt;!–￼6–&gt;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">commit</span> -m <span class="string">"commit message here"</span></span><br><span class="line">git <span class="keyword">commit</span> –amend // 커밋했는데 빠진 파일이나 수정한파일이 있거나, 커밋 메시지 수정하고 싶을 때 사용, 커밋 이력은 추가되지 않는다.</span><br></pre></td></tr></table></figure>
 <h1>branch</h1>
-<p>&lt;!–￼7–&gt;</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="comment">// 사용가능한 브랜치 목록</span></span><br><span class="line">git branch 브랜치명 <span class="comment">// 브랜치생성 헤더는 기존 브랜치에 유지</span></span><br><span class="line">git checkout -<span class="selector-tag">b</span> 브랜치명 <span class="comment">// git branch 브랜치명 + git checkout 브랜치명 과동일</span></span><br><span class="line">git checkout 브랜치명 <span class="comment">// 해당 브랜치로 이동</span></span><br><span class="line">git checkout 체크섬 <span class="comment">// 치면 해당 커밋시점으로 돌아감</span></span><br><span class="line">git branch -d 브랜치명 <span class="comment">//브랜치삭제</span></span><br></pre></td></tr></table></figure>
 <h1>stash</h1>
 <blockquote>
-<p>워킹 디렉토리에 unstaged 파일들을 백업하고 워킹디렉토리를 깨끗한 상태 즉 HEAD의 상태로 만듭니다.<br>
-&lt;!–￼8–&gt;</p>
+<p>워킹 디렉토리에 unstaged 파일들을 백업하고 워킹디렉토리를 깨끗한 상태 즉 HEAD의 상태로 만듭니다.</p>
 </blockquote>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="comment">// unstaged파일 백업, 워킹디렉토리 head 상태</span></span><br><span class="line">git stash <span class="built_in">list</span> <span class="comment">// stash 리스트 보기</span></span><br><span class="line">git stash <span class="built_in">apply</span> <span class="comment">// stash 꺼내서 적용</span></span><br><span class="line">git stash <span class="built_in">drop</span> stash@&#123;<span class="number">0</span>&#125; <span class="comment">// stash삭제</span></span><br><span class="line">git stash pop <span class="comment">// 스태시 적용하고 적용한 스태시 삭제</span></span><br><span class="line">git stash clear <span class="comment">// 전체 stash list를 삭제</span></span><br></pre></td></tr></table></figure>
 <h1>revert</h1>
 <blockquote>
 <p>remote 저장소에 원치 않는 커밋이 푸시되었을 경우 가장 확실하게 복구할 수 있는 거의 유일한 방법입니다.</p>
 </blockquote>
-<p>&lt;!–￼9–&gt;</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">revert </span>체크섬 # 해당 커밋에 대한 <span class="keyword">revert만 </span>수행</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">revert </span>체크섬.. # 체크섬 바로 이전 커밋까지 <span class="keyword">revert </span>커밋로그 남기며 <span class="keyword">revert </span>수행</span><br></pre></td></tr></table></figure>
 <p>revert를 사용하게 되는 경우 크게 아래 두가지 형상이 있을 수 있습니다.</p>
 <ol>
 <li>remote 저장소의 head~ revert 하고싶은 커밋 사이에 <strong>나의 이력만</strong> 있는 경우</li>
@@ -329,26 +329,27 @@ rebase는 예를들어 non fast forward한 경우 topic브랜치에서 git rebas
 <p>아무튼 작업자가 여러명인 저장소의 경우는 매우 골치아픈 상황이 발생할 수 있기 때문에 원격 저장소에 푸시시 신중하도록 하며, 혹시 모를 상황에 대비하여 로컬 저장소에서 rebase 사용하여 원격 저장소의 이력을 깔끔하게 관리할 수 있게 하는게 좋은 것 같습니다.</p>
 <h1>cherry-pick</h1>
 <blockquote>
-<p>다른 브랜치의 원하는 커밋만 뽑아서 현재 브랜치에 merge 시킬 수 있는 아주 유용한 기능입니다.<br>
-&lt;!–￼10–&gt;</p>
+<p>다른 브랜치의 원하는 커밋만 뽑아서 현재 브랜치에 merge 시킬 수 있는 아주 유용한 기능입니다.</p>
 </blockquote>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> cherry-pick 체크섬</span><br></pre></td></tr></table></figure>
 <h1>alias</h1>
 <p>.config 파일의 alias 를 수정합니다. .config 는 .git/ 디렉토리에 있으며 프로젝트, 저장소의 정의 설정파일입니다.<br>
-여기서 자주 사용하는 명령에 대한 alias 를 생성할 수 있습니다.<br>
-&lt;!–￼11–&gt;</p>
+여기서 자주 사용하는 명령에 대한 alias 를 생성할 수 있습니다.</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--local alias.ad add</span><br><span class="line">git<span class="built_in"> config </span>--gloabl alias.st status</span><br></pre></td></tr></table></figure>
 <p>위와 같이 각각 로컬, 글로벌에 <code>add -&gt; ad</code>, <code>status -&gt; st</code> 로 alias를 선언해 주었습니다.<br>
-.config 파일을 열어보면 아래와 같이 추가되어 있는 것을 확인하실 수 있습니다.<br>
-&lt;!–￼12–&gt;</p>
+.config 파일을 열어보면 아래와 같이 추가되어 있는 것을 확인하실 수 있습니다.</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">alias</span>]</span><br><span class="line">    ad = <span class="keyword">add</span></span><br><span class="line"><span class="keyword"> </span>   st = status</span><br></pre></td></tr></table></figure>
 <h1>delete file</h1>
 <p>tracking 대상인 파일 삭제시 그냥 지우면(rm -rf) <code>Change but not updated</code> 라고 계속 뜹니다.<br>
 <code>git rm a.txt</code> 를 사용하여 파일을 삭제하면 working directory 에서 삭제되고 삭제된 파일은 git 의 deleted 목록에 있습니다. 이 상태에서 commit 하면 tracted 목록에서 삭제됩니다.<br>
 이미 파일을 stage에 추가했다면 다음과 같은 애러가 출력됩니다. <code>error: the following file has changes staged in the index:</code> 이럴경우 -f 옵션을 주어( <code>git rm -f a.txt</code> ) 강제로 삭제할 수 있습니다.</p>
-<p>&lt;!–<br>
-ssh-agent -s<br>
-ssh-key 등록<br>
-멀티 키 등록</p>
-<p>ssh public key 등록<br>
-–&gt;</p>
+<!--
+ssh-agent -s
+ssh-key 등록 
+멀티 키 등록 
+
+ssh public key 등록
+-->
 
 
                 
