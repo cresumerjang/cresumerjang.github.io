@@ -269,7 +269,7 @@
 <p>저 처럼 하나의 컴퓨터에서 n개 이상의 github 계정을 사용하는 경우 별도의 설정 없이 ssh-key 생성하여 github 에 등록하면 예상하지 못 한 <code>Permission</code> 에러를 마주하게 됩니다.<br>
 public key 를 등록 했는데도 말이죠.</p>
 <p>이를 해결하기 위한 방법을 하나씩 알아보도록 하겠습니다.</p>
-<h3 id="step-overview"><a class="header-anchor" href="#step-overview">¶</a>Step &amp; Overview</h3>
+<h3 id="step-overview"><a class="header-anchor" href="#step-overview"></a>Step &amp; Overview</h3>
 <ol>
 <li>github 계정별 ssh-key 생성</li>
 <li>생성된 ssh-key github 에 등록</li>
@@ -294,7 +294,7 @@ public key 를 등록 했는데도 말이죠.</p>
 </ul>
 </li>
 </ul>
-<h3 id="step-1-github-계정별-ssh-key-생성"><a class="header-anchor" href="#step-1-github-계정별-ssh-key-생성">¶</a>STEP 1 - github 계정별 ssh-key 생성</h3>
+<h3 id="step-1-github-계정별-ssh-key-생성"><a class="header-anchor" href="#step-1-github-계정별-ssh-key-생성"></a>STEP 1 - github 계정별 ssh-key 생성</h3>
 <p>ssh 로 github 을 사용하기 위한 ssh-key 를 아래 CLI 를 통해 생성할 수 있습니다.<br>
 &lt;!–￼0–&gt;</p>
 <p>참고로 ssh-key 는 <code>./ssh</code> 위치에 생성해야 하며 해당 directory 없다면 직접 생성해 줍니다.<br>
@@ -308,19 +308,19 @@ public key 를 등록 했는데도 말이죠.</p>
 <p>동일한 방법으로 Account B 를 위한 ssh-key 도 생성한 후 <code>ls</code> 명령어를 통해 확인해 보면 아래와 같이 ssh-key 가 생성된 것을 확인하실 수 있습니다.</p>
 <p>&lt;!–￼4–&gt;</p>
 <p><code>*.pub</code> 확장자가 붙은 파일은 <strong>public key</strong> 이며, 붙지 않은 파일은 <strong>private key</strong> 입니다. <strong>private key</strong> 는 공개되지 않게 잘 관리해야하며, 개인 장비가 아니라면 key 생성시 비밀번호를 입력하는게 좋습니다.</p>
-<h3 id="step-2-생성된-ssh-key-github-에-등록"><a class="header-anchor" href="#step-2-생성된-ssh-key-github-에-등록">¶</a>STEP 2 - 생성된 ssh-key github 에 등록</h3>
+<h3 id="step-2-생성된-ssh-key-github-에-등록"><a class="header-anchor" href="#step-2-생성된-ssh-key-github-에-등록"></a>STEP 2 - 생성된 ssh-key github 에 등록</h3>
 <p>이전 STEP 에서 정상적으로 key 가 생성된 것을 확인 하셨다면 github 사이트에 각 계정마다 public key 를 등록해 줘야합니다.<br>
 &lt;!–￼5–&gt;</p>
 <p>위 명령어를 통해 <code>*.pub</code> 확장자가 붙은 <code>id_rsa_github_user-a.pub</code>, <code>id_rsa_github_user-b.pub</code> 키를 각각 복사하여 해당 github 계정에 에 등록해<br>
 줍니다.</p>
 <p>ssh-key 등록하는 방법은 <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">Adding a new SSH key to your GitHub account</a><br>
 를 참고해서 진행합니다. 참고로 이미 등록된 key 는 계정이 다르더라도 등록하실 수 없습니다.</p>
-<h3 id="step-3-ssh-config-파일에-설정값-추가"><a class="header-anchor" href="#step-3-ssh-config-파일에-설정값-추가">¶</a>STEP 3 - ssh config 파일에 설정값 추가</h3>
+<h3 id="step-3-ssh-config-파일에-설정값-추가"><a class="header-anchor" href="#step-3-ssh-config-파일에-설정값-추가"></a>STEP 3 - ssh config 파일에 설정값 추가</h3>
 <p>이전 STEP 에서 github 에 public key 등록해 줬으니 이제 사용하는 장비의 ssh config 파일에 private key 를 등록할 차례입니다.<br>
 &lt;!-- ssh 를 통해 각각의 계정의 github 저장소 사용시 해당 계정에 등록한 public key 와 매칭되는 key 가 사용되도록 하기 위해 ssh config 파일을 작성해 줘야합니다. --&gt;<br>
 &lt;!–￼6–&gt;</p>
 <p>위와 같이 ssh config 를 작성해 줍니다. 여기서 <code>Host</code> 에 작성된 값이 중요한데, git config 작성시 remote url 값을 해당 호스트 명으로 작성하지 않으면 Host 를 찾을 수 없다거나 Permission 에러가 발생할 수 있습니다.</p>
-<h3 id="step-4-저장소별-git-config-파일-수정"><a class="header-anchor" href="#step-4-저장소별-git-config-파일-수정">¶</a>STEP 4 - 저장소별 git config 파일 수정</h3>
+<h3 id="step-4-저장소별-git-config-파일-수정"><a class="header-anchor" href="#step-4-저장소별-git-config-파일-수정"></a>STEP 4 - 저장소별 git config 파일 수정</h3>
 <p>서로 다른 계정의 github 저장소로 push 를 할 경우 github 에 등록된 public key 와 쌍이되는 private key 가 사용될 수 있도록 설정해 줘야합니다. 이를 위해 이전 STEP 에서 ssh config 에 Host 명과 사용될 private key 를 등록해 주었습니다.</p>
 <p>이번 STEP 에서는 private key 사용을 위해 git config 파일의 remote url 도메인을 ssh 에 등록된 Host 값으로 변경해 줍니다. Host 명을 참조하여 어떤 private key 를 사용할지 결정하기 때문에 ssh config 에 작성한 Host 명과 동일한 이름을 작성해 줘야합니다.</p>
 <p>&lt;!–￼7–&gt;</p>
@@ -338,7 +338,7 @@ public key 를 등록 했는데도 말이죠.</p>
 <li>git config 에 사용할 Host 등록</li>
 </ol>
 <p>사실 여기까지만 진행해도 해당 포스팅의 목적인 여러개의 github 계정을 사용하실 수 있습니다. 하지만 ssh key 에 비밀번호가 걸려있고 본인만 private 하게 사용하는 장비에서 좀 더 편리하게 사용하고 싶다면 다음 STEP 을 적용해 보시면 됩니다. 더이상 다른 설정은 필요하지 않으시다면 STEP6 로 넘어가시면 됩니다.</p>
-<h3 id="step-5-ssh-agent-에-ssh-key-등록"><a class="header-anchor" href="#step-5-ssh-agent-에-ssh-key-등록">¶</a>STEP 5 - ssh-agent 에 ssh-key 등록</h3>
+<h3 id="step-5-ssh-agent-에-ssh-key-등록"><a class="header-anchor" href="#step-5-ssh-agent-에-ssh-key-등록"></a>STEP 5 - ssh-agent 에 ssh-key 등록</h3>
 <p>ssh-agent 를 사용하면 매번 비밀번호를 입력하지 않고도 자유롭게 fetch, push 를 할수 있습니다. 참고로 ssh-agent 가 실행중이라면 한번이라도 push 를 할 경우 자동으로 key 가 등록되며, 사용하려는 key 에 비밀번호가 있는 경우 최초 한번만 아래와 같이 패스워드를 요구합니다.<br>
 &lt;!–￼11–&gt;</p>
 <p>성공하면 마찬가지로 ssh-agent 에 key 가 등록되어 이후 부터는 비밀번호 입력 없이 사용할 수 있게 됩니다.</p>
@@ -350,7 +350,7 @@ public key 를 등록 했는데도 말이죠.</p>
 &lt;!–￼14–&gt;</p>
 <p>아래와 같이 등록한 key 들이 출력되면 정상입니다.<br>
 &lt;!–￼15–&gt;</p>
-<h3 id="step-6-connection-테스트"><a class="header-anchor" href="#step-6-connection-테스트">¶</a>STEP 6 - connection 테스트</h3>
+<h3 id="step-6-connection-테스트"><a class="header-anchor" href="#step-6-connection-테스트"></a>STEP 6 - connection 테스트</h3>
 <p>마지막으로 잘 연결 되는지 테스트해 볼 차례입니다.<br>
 아래 명령어로 연결이 되는지 테스트해 볼 수 있습니다.<br>
 &lt;!–￼16–&gt;</p>
@@ -360,18 +360,18 @@ public key 를 등록 했는데도 말이죠.</p>
 &lt;!–￼18–&gt;</p>
 <p>실행 결과로 위와 같은 내용이 출력되었다면 정상적으로 연결 된 것으로 모든 설정은 끝이 났습니다.<br>
 서로 다른 계정의 저장소 별로 작업 후 push 해 github 저장소에 정상적으로 반영되는지 확인해 봅니다.</p>
-<h3 id="errors"><a class="header-anchor" href="#errors">¶</a>Errors</h3>
+<h3 id="errors"><a class="header-anchor" href="#errors"></a>Errors</h3>
 <p>위 STEP 들을 모두 마치면 정상적으로 n 개의 계정을 이용할 수 있어야 하지만 살다보면 예상하지 못한 경우들이 발생하기 마련입니다.</p>
 <p>아래는 제가 설정하면서 만났던 에러 메시들 입니다. 혹시나 여러 계정으로 push 가 안된다면 아래 동일한 메시지가 있는지 참고하셔서 문제를 해결해 보시면 좋을 것 같습니다.</p>
-<h4 id="hostname-error"><a class="header-anchor" href="#hostname-error">¶</a>Hostname error</h4>
+<h4 id="hostname-error"><a class="header-anchor" href="#hostname-error"></a>Hostname error</h4>
 <p>git remote url 에 등록된 도메인이 ssh config 에 없을 경우 아래와 같은 error message 가 출력 됩니다.<br>
 &lt;!–￼19–&gt;</p>
 <p>이 경우 STEP3 를 참고하여 ssh config 에 설정을 추가해 줍니다.</p>
-<h4 id="permission-error"><a class="header-anchor" href="#permission-error">¶</a>Permission error</h4>
+<h4 id="permission-error"><a class="header-anchor" href="#permission-error"></a>Permission error</h4>
 <p>STEP6 에서 성공 메시지가 뜨더라도 ssh config Host 명과 git remote url 도메인이 다르면 fetch, push 간 permission 에러 메시지가 뜰 수 있습니다.<br>
 &lt;!–￼20–&gt;</p>
 <p>혹시 Permission error 를 마주하게 된다면 STEP4 를 참고하여 ssh config Host 명과 git remote url 이 일치 하도록 수정해 줍니다.</p>
-<h3 id="end"><a class="header-anchor" href="#end">¶</a>End</h3>
+<h3 id="end"><a class="header-anchor" href="#end"></a>End</h3>
 <p>궁금한 점이나 잘 못된 내용이 있으면 피드백 부탁드립니다.<br>
 읽어주셔서 감사합니다.</p>
 

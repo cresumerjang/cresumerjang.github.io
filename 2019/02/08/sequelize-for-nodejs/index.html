@@ -267,18 +267,18 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h1>Sequelize</h1>
 <p><code>Sequelize</code>는 Node에서 데이터베이스 접속시 편리하게 작업할 수 있도록 도와주는 라이브러리입니다. <code>ORM</code>(Object-relational Mapping)으로 자바스크립트 객체와 데이터베이스 릴레이션을 맵핑해 주고 자바스크립트 구문을 알아서 SQL로 바꾸어 질의하기 때문에 SQL 문법을 몰라도 데이터베이스를 다룰 수 있게 도와줍니다. 더욱이 <code>MySql, MariaDB, PostgreSQL, SQLite, MSSQL</code>등 다른 데이터베이스도 같이 쓸 수 있기 때문에 유용하게 활용할 수 있습니다.</p>
-<h2 id="sequelize-설치"><a class="header-anchor" href="#sequelize-설치">¶</a>Sequelize 설치</h2>
+<h2 id="sequelize-설치"><a class="header-anchor" href="#sequelize-설치"></a>Sequelize 설치</h2>
 <p><code>Sequelize</code>와 <code>mysql</code>을 설치하고 sequelize 커맨드를 사용하기위해 <code>sequelize-cli</code> 를 전역으로 설치합니다. 설치 완료후 <code>sequelize init</code> 명령어를 실행해 줍니다.<br>
 &lt;!–￼0–&gt;</p>
-<h2 id="model-생성"><a class="header-anchor" href="#model-생성">¶</a>Model 생성</h2>
+<h2 id="model-생성"><a class="header-anchor" href="#model-생성"></a>Model 생성</h2>
 <p><code>sequelize init</code> 명령으로 생성된 <code>models/</code> 폴더에 <code>sequelize.define</code> 메소드를 사용하여 mysql table과 대응되는 sequelize model을 추가해 줍니다.</p>
 <blockquote>
 <p>sequelize는 기본적으로 model이름은 단수로 생성하며, 단수 모델명의 복수형 이름을 테이블 명으로 사용합니다. 그리고 id를 기본키로 연결하므로 id컬럼을 추가할 필요는 없습니다.</p>
 </blockquote>
 <p>&lt;!–￼1–&gt;</p>
-<h4 id="models-user-js"><a class="header-anchor" href="#models-user-js">¶</a>models/user.js</h4>
+<h4 id="models-user-js"><a class="header-anchor" href="#models-user-js"></a>models/user.js</h4>
 <p>&lt;!–￼2–&gt;</p>
-<h4 id="datatype"><a class="header-anchor" href="#datatype">¶</a>dataType</h4>
+<h4 id="datatype"><a class="header-anchor" href="#datatype"></a>dataType</h4>
 <blockquote>
 <p>sequelize.define를 사용하여 column 선언시 속성의 dataType은 SQL문 dataType과는 조금 다른 이름으로 선언합니다.</p>
 </blockquote>
@@ -293,14 +293,14 @@
 <li>UNIQUE: <strong>UNIQUE</strong></li>
 <li>기본값: <strong>defaultValue</strong></li>
 </ul>
-<h4 id="options"><a class="header-anchor" href="#options">¶</a>options</h4>
+<h4 id="options"><a class="header-anchor" href="#options"></a>options</h4>
 <ul>
 <li><strong>timestamps</strong>: true 일 경우 createdAt, updatedAt 컬럼을 자동으로 추가하고 row가 생성, 수정될 때 시간이 자동으로 입력됩니다.</li>
 <li><strong>paranoid</strong>: timestamps 가 true 경우에만 사용가능합니다. deletedAt 이라는 컬럼이 추가되며 row 삭제하는 sequelize 명령 내릴 경우 deletedAt에 제거 날짜를 입력합니다.</li>
 <li><strong>underscored</strong>: sequelize가 자동으로 생성해주는 컬럼명을 스네이크 형식으로 변경합니다. createdAt, updatedAt, deletedAt 컬럼을 각각 created_at, updated_at, deleted_at으로 변경해 줍니다.</li>
 <li><strong>tableName</strong>: sequelize는 자동으로 define 메소드 첫번째 인자(모델명)를 복수형으로 만들어 테이블명으로 사용합니다. 테이블 명을 다른 것으로 지정하고 싶을 때 해당 옵션을 사용합니다.</li>
 </ul>
-<h2 id="model-간-관계-선언"><a class="header-anchor" href="#model-간-관계-선언">¶</a>Model 간 관계 선언</h2>
+<h2 id="model-간-관계-선언"><a class="header-anchor" href="#model-간-관계-선언"></a>Model 간 관계 선언</h2>
 <p>아래 메소드들을 사용하여 table에 해당하는 model간 관계를 맺어줍니다.</p>
 <blockquote>
 <p><a href="http://docs.sequelizejs.com/class/lib/associations/base.js~Association.html" target="_blank" rel="noopener">doc associations</a></p>
@@ -311,38 +311,38 @@
 <li><strong>BelongsTo</strong>: One-to-one association</li>
 <li><strong>BelongsToMany</strong>: Many-to-many association with a join table.</li>
 </ul>
-<h4 id="1-1"><a class="header-anchor" href="#1-1">¶</a>1:1</h4>
+<h4 id="1-1"><a class="header-anchor" href="#1-1"></a>1:1</h4>
 <p>1:1 경우 hasOne, belongTo가 반대여도 상관없습니다.<br>
 &lt;!–￼3–&gt;</p>
-<h4 id="1-n"><a class="header-anchor" href="#1-n">¶</a>1:N</h4>
+<h4 id="1-n"><a class="header-anchor" href="#1-n"></a>1:N</h4>
 <p>foreginKey 를 사용하여 관계를 맺어줄 경우 hasMany는 sourceKey, belongTo는 targetKey를 사용합니다.<br>
 &lt;!–￼4–&gt;</p>
-<h4 id="n-m"><a class="header-anchor" href="#n-m">¶</a>N:M</h4>
+<h4 id="n-m"><a class="header-anchor" href="#n-m"></a>N:M</h4>
 <p>새로운 릴레이션으로 사용될 이름을 through 속성의 값으로 넣어줍니다.<br>
 &lt;!–￼5–&gt;</p>
-<h2 id="설정-및-데이터베이스-연동"><a class="header-anchor" href="#설정-및-데이터베이스-연동">¶</a>설정 및 데이터베이스 연동</h2>
-<h4 id="config-config-json"><a class="header-anchor" href="#config-config-json">¶</a>config/config.json</h4>
+<h2 id="설정-및-데이터베이스-연동"><a class="header-anchor" href="#설정-및-데이터베이스-연동"></a>설정 및 데이터베이스 연동</h2>
+<h4 id="config-config-json"><a class="header-anchor" href="#config-config-json"></a>config/config.json</h4>
 <blockquote>
 <p>데이터베이스 연동을 위한 정보를 담을 config 파일을 생성합니다.<br>
 &lt;!–￼6–&gt;</p>
 </blockquote>
-<h4 id="models-index-js"><a class="header-anchor" href="#models-index-js">¶</a>models/index.js</h4>
+<h4 id="models-index-js"><a class="header-anchor" href="#models-index-js"></a>models/index.js</h4>
 <blockquote>
 <p><code>sequelize init</code> 명령으로 생성된 <code>models/index.js</code> 파일을 열어 수정합니다.<br>
 &lt;!–￼7–&gt;</p>
 </blockquote>
 <p><code>model/index.js</code> 에서 <code>config.json</code> 파일을 불러와 sequelize 인스턴스를 생성하고 정의된 <code>model</code>간 관계를 선언합니다.</p>
-<h4 id="app-js"><a class="header-anchor" href="#app-js">¶</a>app.js</h4>
+<h4 id="app-js"><a class="header-anchor" href="#app-js"></a>app.js</h4>
 <blockquote>
 <p><code>sequelize.sync()</code> 메소드를 호출하여 데이터베이스완 연동합니다.<br>
 &lt;!–￼8–&gt;</p>
 </blockquote>
-<h2 id="crud"><a class="header-anchor" href="#crud">¶</a>CRUD</h2>
+<h2 id="crud"><a class="header-anchor" href="#crud"></a>CRUD</h2>
 <blockquote>
 <p>findAll, destroy, update 같은 메소드들을 사용하여 database에 질의할 수 있습니다. 좀 더 자세한 사용은 아래 링크를 참조해 주세요.<br>
 <a href="http://docs.sequelizejs.com/manual/tutorial/querying.html" target="_blank" rel="noopener">doc querying</a></p>
 </blockquote>
-<h4 id="조회-option-객체"><a class="header-anchor" href="#조회-option-객체">¶</a>조회 Option 객체</h4>
+<h4 id="조회-option-객체"><a class="header-anchor" href="#조회-option-객체"></a>조회 Option 객체</h4>
 <ul>
 <li>attribute</li>
 <li>where</li>
@@ -350,7 +350,7 @@
 <li>limit : // find 메소드랑 동일</li>
 <li>offset</li>
 </ul>
-<h4 id="sequelize-op-연산자"><a class="header-anchor" href="#sequelize-op-연산자">¶</a>Sequelize Op 연산자</h4>
+<h4 id="sequelize-op-연산자"><a class="header-anchor" href="#sequelize-op-연산자"></a>Sequelize Op 연산자</h4>
 <ul>
 <li><a href="http://Op.gt" target="_blank" rel="noopener">Op.gt</a> : 초과</li>
 <li>Op.gte : 이상</li>
@@ -364,9 +364,9 @@
 <blockquote>
 <p>Controller 사용 예</p>
 </blockquote>
-<h4 id="routes-index-js"><a class="header-anchor" href="#routes-index-js">¶</a>routes/index.js</h4>
+<h4 id="routes-index-js"><a class="header-anchor" href="#routes-index-js"></a>routes/index.js</h4>
 <p>&lt;!–￼9–&gt;</p>
-<h3 id="read"><a class="header-anchor" href="#read">¶</a>READ</h3>
+<h3 id="read"><a class="header-anchor" href="#read"></a>READ</h3>
 <p>&lt;!–￼10–&gt;</p>
 <p>&lt;!–￼11–&gt;</p>
 <p>&lt;!–￼12–&gt;</p>
@@ -377,9 +377,9 @@
 <p>N:M 관계에서 테이블 조회(get, set, add + 모델명의 복수형 메소드 사용 가능)<br>
 &lt;!–￼16–&gt;</p>
 </blockquote>
-<h3 id="update"><a class="header-anchor" href="#update">¶</a>UPDATE</h3>
+<h3 id="update"><a class="header-anchor" href="#update"></a>UPDATE</h3>
 <p>&lt;!–￼17–&gt;</p>
-<h3 id="delete"><a class="header-anchor" href="#delete">¶</a>DELETE</h3>
+<h3 id="delete"><a class="header-anchor" href="#delete"></a>DELETE</h3>
 <p>&lt;!–￼18–&gt;</p>
 <p>Sequelize는 ORM으로써 편리하게 사용할 수 있지만 모델링 및 SQL 문에 대한 이해를 가지고 사용하는 것이 좋을 것 같습니다. 좀 더 자세한 사용법은 <a href="http://docs.sequelizejs.com/" target="_blank" rel="noopener">Sequelize API</a> 문서를 참고해 주세요.</p>
 
