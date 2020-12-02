@@ -9,7 +9,15 @@
 
     <url>
         <loc>http://cresumerjang.github.io/2020/12/01/javascript-promise/</loc>
-        <lastmod>2020-12-02T07:00:27.334Z</lastmod>
+        <lastmod>2020-12-02T07:07:14.584Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://cresumerjang.github.io/2019/06/20/javascript-prototype/</loc>
+        <lastmod>2020-12-02T07:03:49.322Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -34,14 +42,6 @@
     <url>
         <loc>http://cresumerjang.github.io/2019/02/08/sequelize-for-nodejs/</loc>
         <lastmod>2020-11-26T07:25:54.122Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://cresumerjang.github.io/2019/06/20/javascript-prototype/</loc>
-        <lastmod>2020-11-26T07:25:54.121Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
