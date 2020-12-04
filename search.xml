@@ -15,6 +15,8 @@
           
           <category> dev </category>
           
+          <category> frontend </category>
+          
       </categories>
       
       
@@ -173,6 +175,8 @@
           
           <category> dev </category>
           
+          <category> frontend </category>
+          
       </categories>
       
       
@@ -181,8 +185,6 @@
             <tag> HTML5 </tag>
             
             <tag> Canvas </tag>
-            
-            <tag> Frontend </tag>
             
         </tags>
       

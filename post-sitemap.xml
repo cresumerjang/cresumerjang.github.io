@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>http://cresumerjang.github.io/2019/02/20/html5-canvas/</loc>
+        <lastmod>2020-12-04T02:58:29.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://cresumerjang.github.io/2020/12/01/javascript-promise/</loc>
-        <lastmod>2020-12-02T11:12:40.069Z</lastmod>
+        <lastmod>2020-12-04T02:27:53.807Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -42,14 +50,6 @@
     <url>
         <loc>http://cresumerjang.github.io/2019/02/08/sequelize-for-nodejs/</loc>
         <lastmod>2020-11-26T07:25:54.122Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://cresumerjang.github.io/2019/02/20/html5-canvas/</loc>
-        <lastmod>2020-11-26T07:25:54.115Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

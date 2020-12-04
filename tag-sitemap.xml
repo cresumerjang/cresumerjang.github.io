@@ -52,27 +52,6 @@
     </url>
 
     <url>
-        <loc>http://cresumerjang.github.io/tags/HTML5/</loc>
-        <lastmod>2020-11-26T07:25:54.115Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://cresumerjang.github.io/tags/Canvas/</loc>
-        <lastmod>2020-11-26T07:25:54.115Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://cresumerjang.github.io/tags/Frontend/</loc>
-        <lastmod>2020-11-26T07:25:54.115Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://cresumerjang.github.io/tags/github/</loc>
         <lastmod>2020-11-26T07:25:54.122Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -130,14 +109,28 @@
 
     <url>
         <loc>http://cresumerjang.github.io/tags/javascript/</loc>
-        <lastmod>2020-12-02T11:12:40.069Z</lastmod>
+        <lastmod>2020-12-04T02:27:53.807Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://cresumerjang.github.io/tags/promise/</loc>
-        <lastmod>2020-12-02T11:12:40.069Z</lastmod>
+        <lastmod>2020-12-04T02:27:53.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://cresumerjang.github.io/tags/HTML5/</loc>
+        <lastmod>2020-12-04T02:58:29.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://cresumerjang.github.io/tags/Canvas/</loc>
+        <lastmod>2020-12-04T02:58:29.892Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
