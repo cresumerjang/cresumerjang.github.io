@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000"/>
+
+    <!-- for NAVER search index -->
+    <meta name="naver-site-verification" content="08d0b9b1265a02d27eb8c25208f88e86d1681974" />
+    <!-- for Google Search Console -->
+    <meta name="google-site-verification" content="T73c2s_bs7sgnZsES1d9GN7taHGu6BhjE_Q_8EtUwtE" />
+    
+    <!--Description-->
+
+    
+
+
+     
+
+
+        
+        <meta name="description" content="ESLint, Prettier 로 프로젝트 관리하기 - 2편 | config, eslint, prettier"/>
+    
+
+    <meta name="keywords" content="html, css, javascript, frontend, backend, web developer, ui developer, server developer, reactjs, vuejs, redux, mobx, css in js, nodejs, postgresql, mysql, mariadb, mongodb, nosql, graphql, typescript, es6, ecma, ecma script">
+
+    <!--Author-->
+    
+        <meta name="author" content="Jang Jae Won"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="ESLint, Prettier 프로젝트에 적용하기"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="웹 개발자 기술 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+    <!-- Title -->
+    
+
+    
+        <title>ESLint, Prettier 프로젝트에 적용하기</title>
+    
+    
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400|Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3917275028032933",
+          enable_page_level_ads: true
+     });
+</script>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-132451532-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/favicon.ico"/>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">cresumerjang.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <div id="site_search">
+                            <div class="form-group">
+                                <input type="text" id="local-search-input" name="q" results="0" autocomplete="off" placeholder="search" class="st-search-input st-default-search-input form-control"/>
+                            </div>  
+                            <div id="local-search-result"></div>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/hexo_main-bg.jpg')">
+    <div class="page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>ESLint, Prettier 프로젝트에 적용하기</h1>
+                        
+                        <h2 class="post-subheading">
+                            ESLint, Prettier 로 프로젝트 관리하기 - 2편
+                        </h2>
+                        
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            
+                            
+                                2022-05-03
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+                <div class="post-tag-category-box">
+                    <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-categories">
+                        
+                            
+
+<a class="text--article-category icon category-dev" href="/categories/dev/">dev</a> <a class="text--article-category icon category-frontend" href="/categories/dev/frontend/">frontend</a>
+
+                        
+                    </div>
+            
+                    <div class="col-lg-4 col-md-5 post-tags">
+                        
+                            
+
+
+<a class="text--article-tag icon tag-config" href="/tags/config/">#config</a> <a class="text--article-tag icon tag-eslint" href="/tags/eslint/">#eslint</a> <a class="text--article-tag icon tag-prettier" href="/tags/prettier/">#prettier</a>
+
+
+                        
+                    </div>
+                </div>
+             
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>이전 편에서 코드 퀄리티 관리를 위한 ESLint 와 코드 포맷팅을 위한 Prettier 에 대해 알아봤습니다. 이번 편에서는 프로젝트에 ESLint 와 Prettier 를 적용하는 방법에 대해서 알아보도록 하겠습니다.</p>
+<h1>프로젝트에 ESLint, Prettier 적용하기</h1>
+<p>코드 퀄리티와 포맷팅은 함께 사용할 때 프로젝트를 좀 더 효율적으로 관리할 수 있고 작업자들의 생산성을 높여줄 수 있습니다.</p>
+<p>하지만 이전 편에서 언급했듯이 코드 퀄리티를 담당하는 ESLint로도 코드 포맷팅 규칙도 설정할 수 있기 때문에 Prettier 를 적용하기 전에 ESLint 의 포맷팅 규칙을 off 해 주는 것이 좋습니다.</p>
+<img src="img/eslint-prettier-rules.png" width="480"/>
+<h2 id="ESLint-의-포맷팅-규칙-off-하기"><a class="header-anchor" href="#ESLint-의-포맷팅-규칙-off-하기"></a>ESLint 의 포맷팅 규칙 off 하기</h2>
+<p>ESLint 에서 포맷팅 규칙을 off 하기 위해서는 <code>eslint-config-prettier</code>패키지를 사용합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .eslintrc.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&quot;airbnb&quot;</span>], <span class="comment">// eslint-config-airbnb eslint configuration</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>해당 패키지는 <code>eslint-config-airbnb</code>와 같이 ESLint 설정 파일의 <code>extends</code>에 미리 선언된 ESLint규칙 세트에 대한 포맷팅 규칙을 일괄 off 처리하는 역할을 합니다.</p>
+<h3 id="Install-3"><a class="header-anchor" href="#Install-3"></a>Install</h3>
+<p>eslint-config-prettier 를 프로젝트의 <code>devDependencies</code> 패키지로 설치합니다.</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install </span>-D eslint-<span class="built_in">config</span>-prettier</span><br></pre></td></tr></table></figure>
+<h3 id="Configuration-File-3"><a class="header-anchor" href="#Configuration-File-3"></a>Configuration File</h3>
+<p><code>.eslintrc.js</code> 파일의 extends 객체의 값으로써 배열 마지막 요소에 <code>&quot;prettier&quot;</code> 를 추가해 줍니다. 정상적인 포맷팅 규칙 off 를 위해서 꼭 배열의 마지막 요소로 추가되어야 합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [</span><br><span class="line">    <span class="string">&quot;aribnb&quot;</span>, <span class="comment">// 이런 config 의 포맷팅 규칙을 off 하는거지</span></span><br><span class="line">    <span class="string">&quot;prettier&quot;</span>,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="attr">semi</span>: [<span class="string">&quot;error&quot;</span>, <span class="string">&quot;always&quot;</span>], <span class="comment">// 이런건 off 시키지 못 한다.</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>참고로 해당 패키지는 <code>extends</code> 에 추가된 규칙에 대해서만 동작합니다. 즉 <code>extends</code> 에 별도로 추가한 설정이 없다면 꼭 사용할 필요는 없으며, <code>rules</code> 에 직접 포맷팅 관련 옵션을 추가한 경우는 해당 패키지로 off 처리할 수 없습니다.</p>
+<p>하지만 <code>rules</code> 에 직접 선언된 포맷팅 규칙까지 off 시켜주지 못 한다면 반쪽짜리 설정이 되어버리기 때문에 <code>eslint-config-prettier</code> 에서 제공하는 <code>CLI</code> 를 활용하여 ESLint 에 포맷팅 규칙이 포함되지 않도록 해줄 수 있습니다.</p>
+<blockquote>
+<p>Finally, run the CLI helper tool to find problems in the “rules” section of your .eslintrc.* file. (Remember “rules” always “wins” over “extends”!)</p>
+</blockquote>
+<blockquote>
+<p><code>npx eslint-config-prettier src/**/*.js</code></p>
+</blockquote>
+<p>해당 명령어는 ESLint 에 선언된 포맷팅 규칙이 있는지 여부를 검사하고 출력하는 역할을 합니다. (Prettier의 포맷팅 규칙과 무관하게 ESLint 의 포맷팅 규칙을 찾아내기 때문에 안심하고 사용할 수 있습니다.) 위 설정 파일에는 <code>rules</code> 에 포맷팅 규칙인 <code>semi</code> 가 포함되어 있기 때문에 해당 명령어 실행시 아래와 같이 결과가 출력됩니다.</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx eslint-<span class="built_in">config</span>-prettier src<span class="comment">/**/</span>*.<span class="keyword">js</span></span><br><span class="line"><span class="keyword"></span>The following rules are unnecessary <span class="keyword">or </span>might conflict with Prettier:</span><br><span class="line">- semi</span><br></pre></td></tr></table></figure>
+<p>출력된 내용을 보고 <code>rules</code> 에서 <code>semi</code> 포맷팅 규칙을 제거해 줍니다. 안타깝게도 자동으로 제거되진 않기 때문에 직접 제거해 줘야 하는데 다행히 package scripts 작성시 eslint 실행전에 포맷팅 규칙 중복 검사를 수행시킬 수 있습니다. 자세한 설정은 뒤에서 한번 더 알아보도록 하겠습니다.</p>
+<h2 id="ESLint-와-함께-Prettier적용하기"><a class="header-anchor" href="#ESLint-와-함께-Prettier적용하기"></a>ESLint 와 함께 Prettier적용하기</h2>
+<p>ESLint 의 포맷팅 규칙은 off 했기 때문에 이제 안전하게 Prettier 를 적용할 수 있습니다.<br>
+퀄리티 관련 규칙은 <code>.eslintrc.js</code> 에, 포맷팅 관련 규칙은 <code>.prettierrc.js</code> 에 작성하여 관리하면 됩니다. 아래에서 ESLint 와 Prettier 를 함께 사용할 수 있는 방법에 대해 알아보도록 하겠습니다.</p>
+<!-- 알아보고 관련 설정파일까지 작성해 보도록 하겠습니다. -->
+<h3 id="Prettier-를-ESLint-의-플러그인으로-등록하여-사용하는-방법"><a class="header-anchor" href="#Prettier-를-ESLint-의-플러그인으로-등록하여-사용하는-방법"></a>Prettier 를 ESLint 의 플러그인으로 등록하여 사용하는 방법</h3>
+<p>Prettier 를 별도로 실행하지 않고 ESLint 의 플러그인으로 등록하여 실행하는 방법으로 ESLint 실행 만으로 코드 포맷팅까지 처리할 수 있기 때문에 많이 사용되는 방법중 하나입니다. <code>eslint-plugin-prettier</code> 라는 패키지를 설치하고 ESLint 설정 파일에 해당 플러그인 설정을 추가하면 사용할 수 있습니다.</p>
+<h4 id="Install-4"><a class="header-anchor" href="#Install-4"></a>Install</h4>
+<p><code>eslint-plugin-prettier</code> 를 프로젝트의 <code>devDependencies</code> 패키지로 설치합니다.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -D eslint-plugin-prettier</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="Configuration-File-4"><a class="header-anchor" href="#Configuration-File-4"></a>Configuration File</h4>
+<p>ESLint 설정 파일의 <code>plugins</code> 객체의 값으로 <code>&quot;prettier&quot;</code> 를 추가해주고 <code>rules</code> 에 <code>&quot;prettier/prettier&quot;: &quot;error&quot;</code> 도 함께 추가해 줍니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&quot;prettier&quot;</span>], <span class="comment">// prettier 를 eslint 가 실행시키도록 하는 플러그인 설정</span></span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&quot;prettier/prettier&quot;</span>: <span class="string">&quot;error&quot;</span>, <span class="comment">// prettier 의 포맷팅 에러를 lint 에러 리포팅으로 볼 수 있도록 하는 규칙</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>plugins</code> 에 추가한 <code>&quot;prettier&quot;</code> 는 prettier 를 ESLint 의 플러그인으로써 동작하기 위한 설정이고, <code>rules</code> 에 추가한 <code>&quot;prettier/prettier&quot;: &quot;error&quot;</code> 는 prettier의 포맷팅 이슈를 ESLint 의 에러 리포팅으로 출력하기 위한 설정입니다. 두 설정은 세트로 작성되지 않으면 prettier가 동작하지 않기 때문에 꼭 세트로 작성합니다.</p>
+<p>ESLint 의 포맷팅 규칙을 off 하고 Prettier 를 플러그인으로 적용한 버전의 최종 설정 파일은 아래와 같습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&quot;airbnb&quot;</span>, <span class="string">&quot;prettier&quot;</span>],</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&quot;prettier&quot;</span>],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&quot;prettier/prettier&quot;</span>: <span class="string">&quot;error&quot;</span>,</span><br><span class="line">    <span class="string">&quot;arrow-body-style&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">    <span class="string">&quot;prefer-arrow-callback&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>rules</code> 에 보면 <code>&quot;prettier/prettier&quot;: &quot;error&quot;</code> 외 처음 보는 <code>&quot;arrow-body-style&quot;</code>, <code>&quot;prefer-arrow-callback&quot;</code> 규칙이 추가된 것을 볼 수 있는데 정상적인 포맷팅을 위해서는 추가해 주는게 좋습니다. 자세한 내용은 해당 규칙 <a target="_blank" rel="noopener" href="https://github.com/prettier/eslint-plugin-prettier#arrow-body-style-and-prefer-arrow-callback-issue">이슈</a>를 확인해 주세요.</p>
+<p>위 설정은 아래 한줄로 대체할 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&quot;plugin:prettier/recommended&quot;</span>],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>참고로 앞서 살펴본 방법을 사용하면 ESLint 와 Prettier 를 프로젝트에 적용할 수 있지만 포맷팅 문제도 ESLint 의 에러 리포팅에 포함되게 됩니다. 때문에 오류 메시지가 지나치게 많아지고 실제 퀄리티 관련 에러를 보기 어렵게 한다는 단점이 있습니다.</p>
+<p>그리고 ESLint, Prettier 설정 파일에 같은 옵션이 설정되어도 설정값이 같으면 충돌이나지 않습니다. 즉, 같은 옵션에 대해 설정값이 다른 경우만 에러를 리포팅하고 그렇지 않은 경우 포맷팅이 정상적으로 적용됩니다.</p>
+<p>아래는 두 패키지에서 포맷팅 규칙인 세미콜론(<code>&quot;semi&quot;</code>)규칙에 대한 설정 값이 다르게 선언된 경우 입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .eslintrc.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&quot;airbnb&quot;</span>, <span class="string">&quot;prettier&quot;</span>],</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&quot;prettier&quot;</span>],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&quot;prettier/prettier&quot;</span>: [<span class="string">&quot;error&quot;</span>],</span><br><span class="line">    <span class="attr">semi</span>: [<span class="string">&quot;error&quot;</span>, <span class="string">&quot;never&quot;</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .prettierrc.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">semi</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>위 처럼 설정 파일이 작성되었을 경우 ESLint를 실행하면 아래와 같이 ESLint Error가 리포팅 됩니다.</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1:35  <span class="built_in">error</span>  Extra semicolon  semi</span><br></pre></td></tr></table></figure>
+<p>하지만 ESLint 의 semi 규칙이 'never’가 아닌 'always’로 변경되면 아무런 ESLint Error 없이 ESLint(+prettier)가 실행되고 실제 코드에는 <code>;</code> 이 붙게됩니다.</p>
+<h3 id="Prettier와-ESLint가-순차적으로-실행되도록-npm-script를-작성하는-방법"><a class="header-anchor" href="#Prettier와-ESLint가-순차적으로-실행되도록-npm-script를-작성하는-방법"></a>Prettier와 ESLint가 순차적으로 실행되도록 npm script를 작성하는 방법</h3>
+<p>Prettier 를 사용하는 다른 방법은 ESLint, Prettier 를 순차적으로 직접 실행하는 것 입니다. ESLint 설정 파일에 extends 배열의 마지막 요소로 <code>&quot;prettier&quot;</code> 를 추가했기 때문에 rules에 선언된 포맷팅 규칙을 제외한 나머지 규칙은 더 이상 신경쓸 필요가 없습니다.</p>
+<p>하지만 ESLint 와 Prettier 를 직접 실행시 rules에 선언된 포맷팅 규칙은 별도로 체크하지 않으면 포맷팅이 두번 적용되어 마지막 규칙으로 코드가 변경될 수 있기 때문에 반드시 포맷팅 규칙 체크가 선행되어야 합니다.</p>
+<p>다행이 앞서 살펴본 <code>eslint-config-prettier</code> 패키지에서 ESLint 의 포맷팅 규칙을 검사할 수 있는 CLI 를 제공해 주기 때문에 이를 활용하여 npm scripts를 준비하도록 합니다.</p>
+<p>실제로 필요한 npm scripts 는 아래와 같습니다.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;check-conflict-formatting-rules&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npx eslint-config-prettier &#x27;./src/**/*.&#123;js,jsx,ts,tsx&#125;&#x27;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;lint:fix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;eslint --fix &#x27;./src/**/*.&#123;js,jsx,ts,tsx&#125;&#x27;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;prettier:fix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;prettier --write &#x27;./src/**/*.&#123;js,jsx,ts,tsx&#125;&#x27;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;integrated-code-manager&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npm run check-conflict-formatting-rules &amp;&amp; npm run prettier:fix &amp;&amp; npm run lint:fix&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>실행될 스크립트를 간략하게 살펴보겠습니다.</p>
+<ul>
+<li><strong>check-conflict-formatting-rules</strong>: ESLint 포맷팅 규칙 유무 검사</li>
+<li><strong>lint:fix</strong>: ESLint 실행</li>
+<li><strong>prettier:fix</strong>: Prettier 실행</li>
+<li><strong>integrated-code-manager</strong>: ESLint 포맷팅 규칙 유무 검사 -&gt; Prettier -&gt; ESLint 순차적으로 실행</li>
+</ul>
+<p>실제로 호출될 스크립트는 <code>integrated-code-manager</code> 스크립트이며 ESLint 의 포맷팅 규칙 유무에 따라 Prettier, ESLint 스크립트를 순차적으로 호출하게 됩니다.</p>
+<p>참고로 <code>&amp;&amp;</code> 연산자는 이전 동작 수행이 정상적으로 되면 다음 스크립트를 실행해주는 연산자라고 생각하시면됩니다.</p>
+<ul>
+<li><code>&amp;&amp;</code>: sequential execution.</li>
+<li><code>&amp;</code>: parallel execution.</li>
+</ul>
+<p>만약 ESLint <code>rules</code> 에 포맷팅 규칙이 있다면 아래와 같은 메시지를 출력후 다음 스크립트는 실행되지 않습니다.</p>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">The following rules are unnecessary or might conflict with Prettier</span><span class="punctuation">:</span></span><br><span class="line"><span class="punctuation"></span></span><br><span class="line"><span class="bullet">-</span> <span class="string">semi</span></span><br></pre></td></tr></table></figure>
+<p><code>integrated-code-manager</code> 스크립트 실행시 위와 같은 메시지가 출력되면 ESLint 설정 파일에서 직접 선언된 포맷팅 규칙을 제거해 줍니다.</p>
+<h1>End</h1>
+<p>지금까지 프로젝트에 ESLint 와 Prettier 를 적용하는 방법에 대해서 알아봤습니다.<br>
+다음 편에서는 husky, lint-staged 패키지를 활용하여 이를 자동화하는 방법에 대해 알아보도록 하겠습니다.</p>
+<p>궁금한 점이나 잘 못된 내용이 있으면 피드백 부탁드립니다.<br>
+읽어주셔서 감사합니다.</p>
+
+
+                
+            </div>
+
+            <div class="google-ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- adForPostDisplay -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3917275028032933"
+                    data-ad-slot="6434864533"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- Google Adsense Module -->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <!--<h3>코멘트:</h3>-->
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.linkedin.com/in/jaewon-jang-104836113/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:jw9651@naver.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Jang Jae Won<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="button__top">TOP</a>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Search -->
+
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'cresumerjang-github-io';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
