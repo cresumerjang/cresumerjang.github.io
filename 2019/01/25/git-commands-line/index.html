@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000"/>
+
+    <!-- for NAVER search index -->
+    <meta name="naver-site-verification" content="08d0b9b1265a02d27eb8c25208f88e86d1681974" />
+    <!-- for Google Search Console -->
+    <meta name="google-site-verification" content="T73c2s_bs7sgnZsES1d9GN7taHGu6BhjE_Q_8EtUwtE" />
+    
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <meta name="keywords" content="html, css, javascript, frontend, backend, web developer, ui developer, server developer, reactjs, vuejs, redux, mobx, css in js, nodejs, postgresql, mysql, mariadb, mongodb, nosql, graphql, typescript, es6, ecma, ecma script">
+
+    <!--Author-->
+    
+        <meta name="author" content="Jang Jae Won"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="알아두면 도움이 되는 Git 명령어"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="웹 개발자 기술 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+    <!-- Title -->
+    
+
+    
+        <title>알아두면 도움이 되는 Git 명령어</title>
+    
+    
+    <!-- config 
+    itle_tag: "Superjang's Dev Talk",
+    keywords: '웹개발, 프론트개발, UI개발',
+    title: '웹 개발자 기술 블로그',
+    subtitle: '개발해서 내집 장만',
+    description: '웹 개발이 즐거운 개발자의 개발 이야기',
+    author: 'Jang Jae Won', -->
+    <!--  -->
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400|Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3917275028032933",
+          enable_page_level_ads: true
+     });
+</script>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-132451532-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/favicon.ico"/>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">cresumerjang.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <div id="site_search">
+                            <div class="form-group">
+                                <input type="text" id="local-search-input" name="q" results="0" autocomplete="off" placeholder="search" class="st-search-input st-default-search-input form-control"/>
+                            </div>  
+                            <div id="local-search-result"></div>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/common/cover/github-common.png')">
+    <div class="page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>알아두면 도움이 되는 Git 명령어</h1>
+                        
+                        <h2 class="post-subheading">
+                            git command line
+                        </h2>
+                        
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            
+                            
+                                2019-01-25
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+                <div class="post-tag-category-box">
+                    <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-categories">
+                        
+                            
+
+<a class="text--article-category icon category-dev" href="/categories/dev/">dev</a>
+
+                        
+                    </div>
+            
+                    <div class="col-lg-4 col-md-5 post-tags">
+                        
+                            
+
+
+<a class="text--article-tag icon tag-git" href="/tags/git/">#git</a> <a class="text--article-tag icon tag-git command line" href="/tags/git-command-line/">#git command line</a>
+
+
+                        
+                    </div>
+                </div>
+             
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>현실 세계에 시간 여행이 가능한 마법이 있다면 사람들은 전 재산을 걸어서라도 배우려고 할 것 입니다. 하지만 개발자라면 전 재산을 걸 필요가 없죠. git 을 알고 있다면 얼마든지 시간여행을 할 수 있습니다.</p>
+<p>해당 포스트 에서는 git 사용간 알아두면 유용한 Git Commands Line 에 대해 다룹니다. 개인적으로 필요한 부분만 정리해 두었기 때문에 자세한 내용은 <a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2">git-scm.com/book/ko/v2</a>를 참조해 주세요.</p>
+<h1>용어정리</h1>
+<ul>
+<li><strong>HEAD</strong> : 현재 브랜치를 가르키는 포인터로, 현재 브랜치 마지막 커밋의 스냅샷 이라고 생각하시면 됩니다.</li>
+<li><strong>체크섬</strong> : Git에서 체크섬은 SHA-1 해시를 사용하여 만들어진 40자 길이의 16진수 문자열(<code>1f05a945f06e84c32232d4eb7305b9eecd22df4c</code>)입니다. 파일의 내용이나 디렉토리 구조를 이용하여 체크섬을 구합니다.</li>
+<li><strong>Fast Forward</strong> : Fast Forward는 Merge할 브랜치가 가리키는 commit이 현재의 (기준)브랜치보다 앞선(뭔가가 더 수정된) commit이기 때문에 현재 브랜치의 최신 커밋(HEAD)이 merge할 브랜치의 최신 커밋을 가르키는 merge를 말합니다.</li>
+<li><strong>Non Fast Forward</strong> : master(기준)브랜치가 merge할 브랜치가 생성된 시점 이후로 새로운 commit이 발생하여 merge할 브랜치와 master브랜치와의 merge commit가 실행되어 master브랜치로 통합되는 것 fast forward가 가능한 경우라도  non fast forward옵션을 지정하여merge할 브랜치를 그대로 보존할 수 있습니다.</li>
+</ul>
+<h1>.gitignore</h1>
+<blockquote>
+<p>버전관리 대상에서 제외하고싶은 파일 및 폴더 관리<br>
+.gitignore 파일 생성 후 아래와 같이 추가하여 버전관리 대상에서 제외할 수 있습니다.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*.js # 해당 확장파일 모두 제외</span><br><span class="line">tmp/ # 해당 폴더하위 모두 제외</span><br></pre></td></tr></table></figure>
+<h1>git config</h1>
+<blockquote>
+<p>–global 옵션 없이 선언하면 설정값은 해당 저장소에만 유효합니다. 프로젝트마다 다른 name, email 을 사용하고 싶으면 --global 옵션 제거하고 설정합니다.</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global --list # 전체 설정값 확인</span><br><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">&quot;jaewon&quot;</span> # <span class="built_in">set</span><span class="built_in"> user </span>name</span><br><span class="line">git<span class="built_in"> config </span>--global user.name # <span class="built_in">get</span><span class="built_in"> user </span>name</span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">&quot;j@gamil.com&quot;</span> # <span class="built_in">set</span><span class="built_in"> user </span>email</span><br><span class="line">git<span class="built_in"> config </span>--global user.email # <span class="built_in">get</span><span class="built_in"> user </span>email</span><br></pre></td></tr></table></figure>
+<h1>remote</h1>
+<blockquote>
+<p>최초에 github과 같은 서비스에서 remote 저장소를 생성성(git init)하여 clone 받을 수 도 있지만, 로컬에서 저장소를 생성하여 리모트로 푸시하거나 로컬에서 리모트 저장소의 주소나 이름, 브랜치등 삭제등을 수행할 수 있습니다.</p>
+</blockquote>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git</span> <span class="string">remote</span> <span class="string">add</span> 저장소이름 <span class="string">https</span>:// <span class="comment"># 로컬에 리모트 저장소에대한 참조 추가</span></span><br><span class="line"><span class="string">git</span> <span class="string">remote</span> <span class="string">rename</span> 저장소이름 새저장소이름 <span class="comment"># 로컬의 리모트 저장소 이름변경</span></span><br><span class="line"><span class="string">git</span> <span class="string">remote</span> <span class="string">rm</span> 저장소이름 <span class="comment"># 로컬의 리모트저장소 삭제</span></span><br><span class="line"><span class="string">git</span> <span class="string">remote</span> <span class="string">update</span> <span class="string">origin</span> –<span class="string">prune</span> <span class="comment"># 리모트 브랜치 기준 로컬브랜치 싱크 맞추기</span></span><br><span class="line"><span class="string">git</span> <span class="string">remote</span> <span class="built_in">set-url</span> <span class="string">remote</span>저장소이름 리모트<span class="string">url</span> <span class="comment"># 리모트 저장소 변경</span></span><br><span class="line"><span class="string">git</span> <span class="string">push</span> <span class="string">remote</span>저장소이름 로컬브랜치</span><br><span class="line"><span class="string">git</span> <span class="string">push</span> <span class="string">remote</span>저장소이름 로컬브랜치:뉴브랜치이름 <span class="comment"># 리모트 브랜치생성</span></span><br><span class="line"><span class="string">git</span> <span class="string">push</span> <span class="string">origin</span> –<span class="string">delete</span> 리모트브랜치명 <span class="comment"># 리모트 브랜치삭제</span></span><br><span class="line"><span class="string">git</span> <span class="string">pull</span> ( <span class="string">fetch</span>[저장소에서 변경사항 가져오기] + <span class="string">merge</span>[가져와서 브랜치합치기] )</span><br><span class="line"><span class="string">git</span> <span class="string">clone</span> 리모트 저장소경로 <span class="comment"># 리모트 저장소 로컬에 받기</span></span><br><span class="line"><span class="string">git</span> <span class="string">checkout</span> -<span class="string">t</span> <span class="string">origin</span>/리모트 브랜치 이름 <span class="comment"># 리모트저장소의 브랜치 받기</span></span><br><span class="line"><span class="string">git</span> <span class="string">branch</span> -<span class="string">r</span> <span class="comment"># 리모트 저장소 보기</span></span><br></pre></td></tr></table></figure>
+<h1>diff</h1>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git diff <span class="regexp">//</span> 워킹 디렉토리와 스테이지간 비교</span><br><span class="line">git diff –-cached <span class="regexp">//</span> 스테이지와 저장소에 커밋된 파일 비교</span><br><span class="line">git diff HEAD~<span class="number">1</span> <span class="regexp">//</span> HEAD 에서 이전 <span class="number">1</span>개 커밋과의 diff 보기</span><br><span class="line">git diff 체크섬<span class="number">1</span> 체크섬<span class="number">2</span> <span class="regexp">//</span> 두 체크섬간 diff 비교</span><br></pre></td></tr></table></figure>
+<h1>log</h1>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> -p fileName <span class="comment"># fileName을 해당 path에 맞춰 사용하면 파일에대한 diff만 확인할 수 있다.</span></span><br><span class="line">git <span class="built_in">log</span> –<span class="keyword">since</span>=yyyy-mm-dd –<span class="keyword">until</span>=yyyy-mm-dd <span class="comment"># 날짜사이의 로그 필터링</span></span><br><span class="line">git <span class="built_in">log</span> –<span class="keyword">since</span>=&lt;<span class="built_in">date</span>&gt;, –<span class="keyword">after</span>=&lt;<span class="built_in">date</span>&gt; <span class="comment"># Show commits more recent than a specific date.</span></span><br><span class="line">git <span class="built_in">log</span> –<span class="keyword">until</span>=&lt;<span class="built_in">date</span>&gt;, –<span class="keyword">before</span>=&lt;<span class="built_in">date</span>&gt; <span class="comment"># Show commits older than a specific date.</span></span><br><span class="line">git <span class="built_in">log</span> –grep=<span class="string">&quot;검색할 str&quot;</span>; <span class="comment"># 대소문자구문</span></span><br><span class="line">git <span class="built_in">log</span> –grep=<span class="string">&quot;검색할 str&quot;</span> -i; <span class="comment"># 대소문자구분없음 </span></span><br><span class="line">git <span class="built_in">log</span> –graph <span class="comment"># 커맨드라인에서 그래프로 보여줌</span></span><br><span class="line">git <span class="built_in">log</span> –graph –all <span class="comment"># 모든 branch의 그래프를 보여줌</span></span><br><span class="line">git <span class="built_in">log</span> –author =<span class="string">&quot;jw9651″ #커미터 검색</span></span><br><span class="line"><span class="string">git shortlog # 저장소에 참여한 모든 사용자가 만들어낸 커밋의 숫자를 알파벳 순서로 정렬하여 출력</span></span><br><span class="line"><span class="string">git shortlog -n # 알파벳 순이아닌 커밋 횟수순</span></span><br><span class="line"><span class="string">git shortlog -e # 작업자 이름옆에 이메일 메타데이터 출력</span></span><br><span class="line"><span class="string">git shortlog -s # 스테이지/커밋 숫자들만 출력</span></span><br><span class="line"><span class="string">ex)</span></span><br><span class="line"><span class="string">git log –grep=&quot;</span>SDU<span class="number">-5054</span>″ -i –author=<span class="string">&quot;jw9651″</span></span><br><span class="line"><span class="string">history | grep &quot;</span>push<span class="string">&quot;</span></span><br><span class="line"><span class="string">git reflog | grep merge | grep 5054</span></span><br></pre></td></tr></table></figure>
+<h1>merge</h1>
+<p>일반적인 master의 HEAD 포인터를(컨플릭트시 병합하여) 가장 앞의 커밋으로 옮기는 fast-forward 방식의 merge 입니다. 변경 이력을 모두 확인할 수 있습니다.</p>
+<!--
+# rebase
+merge 할 토픽 브랜치를 master 브랜치 기반의 새로운 패치를 만들어 기준 브랜치의 맨 앞으로 병합합니다. // git rebase master기준브랜치
+그 다음 master 브랜치로 checkout 한 다음 git rebase 토픽 브랜치 (master브랜치에 젤 앞에 있는 커밋 == 임시패치)를 하면 master가 rebase 의 패치로 HEAD를 가리키게됩니다.
+이 방법은 전체적인 이력을 확인하기가 어렵기 때문에 적절히(local 브랜치) 사용하는게 좋습니다.
+rebase는 예를들어 non fast forward한 경우 topic브랜치에서 git rebase master를 할 경우 master의 HEAD를 new base로 지정하고 topic브랜치에서 발생한 커밋들을 쌓아가는것. 
+자르고 붙이는 느낌이 강하다. 
+-->
+<h1>reset</h1>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> 파일명 // stage -&gt; unstage로변경, add취소</span><br><span class="line">git <span class="keyword">reset</span> –hard하면 이전으로만 돌아감</span><br><span class="line"></span><br><span class="line">git <span class="keyword">reset</span> –soft 식별id: <span class="comment"># add 는 된상태로 </span></span><br><span class="line">git <span class="keyword">reset</span> –mixed 식별id: <span class="comment"># add하기 전 untracted 로 </span></span><br><span class="line">git <span class="keyword">reset</span> –hard 식별id: <span class="comment"># 해당 커밋 로그 untracted 파일 까지 삭제</span></span><br><span class="line">git <span class="keyword">reset</span> --hard origin/master <span class="comment"># </span></span><br><span class="line">git <span class="keyword">reset</span> a.txt // a.txt 파일만 스테이지에서 워킹디렉토리로( tracked -&gt; untracted )</span><br></pre></td></tr></table></figure>
+<h1>commit</h1>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;commit message here&quot;</span></span><br><span class="line">git commit –amend <span class="regexp">//</span> 커밋했는데 빠진 파일이나 수정한파일이 있거나, 커밋 메시지 수정하고 싶을 때 사용, 커밋 이력은 추가되지 않는다.</span><br></pre></td></tr></table></figure>
+<h1>branch</h1>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="regexp">//</span> 사용가능한 브랜치 목록</span><br><span class="line">git branch 브랜치명 <span class="regexp">//</span> 브랜치생성 헤더는 기존 브랜치에 유지</span><br><span class="line">git checkout -b 브랜치명 <span class="regexp">//</span> git branch 브랜치명 + git checkout 브랜치명 과동일</span><br><span class="line">git checkout 브랜치명 <span class="regexp">//</span> 해당 브랜치로 이동</span><br><span class="line">git checkout 체크섬 <span class="regexp">//</span> 치면 해당 커밋시점으로 돌아감</span><br><span class="line">git branch -d 브랜치명 <span class="regexp">//</span>브랜치삭제</span><br></pre></td></tr></table></figure>
+<h1>stash</h1>
+<blockquote>
+<p>워킹 디렉토리에 unstaged 파일들을 백업하고 워킹디렉토리를 깨끗한 상태 즉 HEAD의 상태로 만듭니다.</p>
+</blockquote>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="regexp">//</span> unstaged파일 백업, 워킹디렉토리 head 상태</span><br><span class="line">git stash list <span class="regexp">//</span> stash 리스트 보기</span><br><span class="line">git stash apply <span class="regexp">//</span> stash 꺼내서 적용</span><br><span class="line">git stash drop stash@&#123;<span class="number">0</span>&#125; <span class="regexp">//</span> stash삭제</span><br><span class="line">git stash pop <span class="regexp">//</span> 스태시 적용하고 적용한 스태시 삭제</span><br><span class="line">git stash clear <span class="regexp">//</span> 전체 stash list를 삭제</span><br></pre></td></tr></table></figure>
+<h1>revert</h1>
+<blockquote>
+<p>remote 저장소에 원치 않는 커밋이 푸시되었을 경우 가장 확실하게 복구할 수 있는 거의 유일한 방법입니다.</p>
+</blockquote>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">revert</span> 체크섬 # 해당 커밋에 대한 <span class="built_in">revert</span>만 수행</span><br><span class="line">git <span class="built_in">revert</span> 체크섬.. # 체크섬 바로 이전 커밋까지 <span class="built_in">revert</span> 커밋로그 남기며 <span class="built_in">revert</span> 수행</span><br></pre></td></tr></table></figure>
+<p>revert를 사용하게 되는 경우 크게 아래 두가지 형상이 있을 수 있습니다.</p>
+<ol>
+<li>remote 저장소의 head~ revert 하고싶은 커밋 사이에 <strong>나의 이력만</strong> 있는 경우</li>
+<li>remote 저장소의 head~ revert 하고싶은 커밋 사이에 <strong>나의 이력</strong>과 <strong>다른 작업자의 이력</strong>이 함께 남아있는 경우</li>
+</ol>
+<p>두 경우 모두 revert 커밋 로그를 revert 마다 하나씩 남기는 <code>git revert 체크섬..</code> 방법을 추천합니다. 각 커밋에 대한 revert 이력을 남길 수 있어 저장소의 히스토리를 놓치지 않고 파악할 수 있습니다. 그리고 컨플릭을 해소할 경우에도 한번에 많은 해소 보다는 각 revert 시 발생하는 컨플릭에 대해서만 해소해 주면 되기 때문에 revert 후 혹 문제가 생겼을 경우 수습할 범위도 줄어들게 됩니다.</p>
+<p>아무튼 작업자가 여러명인 저장소의 경우는 매우 골치아픈 상황이 발생할 수 있기 때문에 원격 저장소에 푸시시 신중하도록 하며, 혹시 모를 상황에 대비하여 로컬 저장소에서 rebase 사용하여 원격 저장소의 이력을 깔끔하게 관리할 수 있게 하는게 좋은 것 같습니다.</p>
+<h1>cherry-pick</h1>
+<blockquote>
+<p>다른 브랜치의 원하는 커밋만 뽑아서 현재 브랜치에 merge 시킬 수 있는 아주 유용한 기능입니다.</p>
+</blockquote>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> cherry-pick 체크섬 </span><br></pre></td></tr></table></figure>
+<h1>alias</h1>
+<p>.config 파일의 alias 를 수정합니다. .config 는 .git/ 디렉토리에 있으며 프로젝트, 저장소의 정의 설정파일입니다.<br>
+여기서 자주 사용하는 명령에 대한 alias 를 생성할 수 있습니다.</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">config</span> --<span class="keyword">local</span> <span class="keyword">alias</span><span class="variable">.ad</span> add</span><br><span class="line">git <span class="keyword">config</span> --gloabl <span class="keyword">alias</span><span class="variable">.st</span> status</span><br></pre></td></tr></table></figure>
+<p>위와 같이 각각 로컬, 글로벌에 <code>add -&gt; ad</code>, <code>status -&gt; st</code> 로 alias를 선언해 주었습니다.<br>
+.config 파일을 열어보면 아래와 같이 추가되어 있는 것을 확인하실 수 있습니다.</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[alias]</span></span><br><span class="line">    <span class="attr">ad</span> = add</span><br><span class="line">    <span class="attr">st</span> = status</span><br></pre></td></tr></table></figure>
+<h1>delete file</h1>
+<p>tracking 대상인 파일 삭제시 그냥 지우면(rm -rf) <code>Change but not updated</code> 라고 계속 뜹니다.<br>
+<code>git rm a.txt</code> 를 사용하여 파일을 삭제하면 working directory 에서 삭제되고 삭제된 파일은 git 의 deleted 목록에 있습니다. 이 상태에서 commit 하면 tracted 목록에서 삭제됩니다.<br>
+이미 파일을 stage에 추가했다면 다음과 같은 애러가 출력됩니다. <code>error: the following file has changes staged in the index:</code> 이럴경우 -f 옵션을 주어( <code>git rm -f a.txt</code> ) 강제로 삭제할 수 있습니다.</p>
+<!--
+ssh-agent -s
+ssh-key 등록 
+멀티 키 등록 
+
+ssh public key 등록
+-->
+
+
+                
+            </div>
+
+            <div class="google-ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- adForPostDisplay -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3917275028032933"
+                    data-ad-slot="6434864533"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- Google Adsense Module -->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <!--<h3>코멘트:</h3>-->
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.linkedin.com/in/jaewon-jang-104836113/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:jw9651@naver.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Jang Jae Won<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="button__top">TOP</a>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Search -->
+
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'cresumerjang-github-io';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

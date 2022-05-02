@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000"/>
+
+    <!-- for NAVER search index -->
+    <meta name="naver-site-verification" content="08d0b9b1265a02d27eb8c25208f88e86d1681974" />
+    <!-- for Google Search Console -->
+    <meta name="google-site-verification" content="T73c2s_bs7sgnZsES1d9GN7taHGu6BhjE_Q_8EtUwtE" />
+    
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <meta name="keywords" content="html, css, javascript, frontend, backend, web developer, ui developer, server developer, reactjs, vuejs, redux, mobx, css in js, nodejs, postgresql, mysql, mariadb, mongodb, nosql, graphql, typescript, es6, ecma, ecma script">
+
+    <!--Author-->
+    
+        <meta name="author" content="Jang Jae Won"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Hexo Disqus 댓글 기능 추가하기"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="웹 개발자 기술 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://cresumerjang.github.io/img/contact-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://cresumerjang.github.io/img/contact-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+
+    
+        <title>Hexo Disqus 댓글 기능 추가하기</title>
+    
+    
+    <!-- config 
+    itle_tag: "Superjang's Dev Talk",
+    keywords: '웹개발, 프론트개발, UI개발',
+    title: '웹 개발자 기술 블로그',
+    subtitle: '개발해서 내집 장만',
+    description: '웹 개발이 즐거운 개발자의 개발 이야기',
+    author: 'Jang Jae Won', -->
+    <!--  -->
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400|Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3917275028032933",
+          enable_page_level_ads: true
+     });
+</script>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-132451532-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/favicon.ico"/>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">cresumerjang.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <div id="site_search">
+                            <div class="form-group">
+                                <input type="text" id="local-search-input" name="q" results="0" autocomplete="off" placeholder="search" class="st-search-input st-default-search-input form-control"/>
+                            </div>  
+                            <div id="local-search-result"></div>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('./disqus-main.png')">
+    <div class="page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Hexo Disqus 댓글 기능 추가하기</h1>
+                        
+                        <h2 class="post-subheading">
+                            소통 블로그를 향한 첫 걸음, 블로그에 댓글 기능을 달아보자
+                        </h2>
+                        
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            
+                            
+                                2019-11-17
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+                <div class="post-tag-category-box">
+                    <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-categories">
+                        
+                            
+
+<a class="text--article-category icon category-dev" href="/categories/dev/">dev</a>
+
+                        
+                    </div>
+            
+                    <div class="col-lg-4 col-md-5 post-tags">
+                        
+                            
+
+
+<a class="text--article-tag icon tag-hex" href="/tags/hex/">#hex</a> <a class="text--article-tag icon tag-blog" href="/tags/blog/">#blog</a>
+
+
+                        
+                    </div>
+                </div>
+             
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>방문자와의 소통을 위해서 블로그의 댓글 기능은 매우 유용하고 필요한 기능입니다. 직접 만들어 쓰려면 손이 꽤 많이가는 기능이기도 하죠.</p>
+<p>예전에 django 로 블로그 만들기를 시도해 봤는데 django 가 워낙 잘 만들어진 웹 프레임워크라 그나마 손 쉽게 작업을 할 수 있었지만 방문자들과의 소통이 목적이라고 한다면 지금 설명드리려는 설치형 댓글 시스템에 비하면 엄청나게 비효율 적인 선택이었다고 생각합니다.</p>
+<p>다행히 설치형 댓글 서비스를 제공해주는 업체들이 있습니다. 많은 서비스중 <strong>Disqus</strong> 라는 댓글 서비스를 hexo 블로그에 적용하는 방법을 소개하려고 합니다. Disqus 경우 hexo 의 설정 파일을 통해 손쉽게 적용할 수 있지만 <strong>아쉽게도 hexo 설정 파일이 아닌 theme 의 설정 파일</strong>을 수정해 줘야 합니다.</p>
+<p>제가 사용중인 <strong>clean-blog</strong> 테마의 경우 <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog/blob/master/layout/_partial/comments.ejs">comments.ejs</a> 파일에 disqus, facebook 댓글 관련 코드가 작성되어 있는 것을 볼 수 있는데, 이것은 theme 마다 설정 방법이 다를 수 있음을 의미합니다.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span>(page.comments &amp;&amp; theme.comments &amp;&amp; theme.comments.disqus_shortname)&#123; %&gt;</span><br><span class="line">    &lt;hr /&gt;</span><br><span class="line">    &lt;h3&gt;&lt;%- <span class="title function_ invoke__">__</span>(<span class="string">&#x27;comment&#x27;</span>)%&gt;:&lt;/h3&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;disqus_thread&quot;</span>&gt;</span><br><span class="line">        &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=<span class="string">&quot;//disqus.com/?ref_noscript&quot;</span>&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">&lt;% <span class="keyword">if</span>(page.comments &amp;&amp; theme.comments &amp;&amp; theme.comments.facebook &amp;&amp; theme.comments.facebook.appid) &#123; %&gt;</span><br><span class="line">    &lt;hr /&gt;</span><br><span class="line">    &lt;h3&gt;&lt;%- <span class="title function_ invoke__">__</span>(<span class="string">&#x27;comment&#x27;</span>)%&gt;:&lt;/h3&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;fb-root&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        (<span class="function"><span class="keyword">function</span>(<span class="params">d, s, id</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> js, fjs = d.<span class="title function_ invoke__">getElementsByTagName</span>(s)[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">if</span> (d.<span class="title function_ invoke__">getElementById</span>(id)) <span class="keyword">return</span>;</span><br><span class="line">            js = d.<span class="title function_ invoke__">createElement</span>(s); js.id = id;</span><br><span class="line">            js.src = <span class="string">&quot;//connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=&lt;%= theme.comments.facebook.appid %&gt;&quot;</span>;</span><br><span class="line">            fjs.parentNode.<span class="title function_ invoke__">insertBefore</span>(js, fjs);</span><br><span class="line">        &#125;(document, <span class="string">&#x27;script&#x27;</span>, <span class="string">&#x27;facebook-jssdk&#x27;</span>));</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span>=&quot;<span class="title">fb</span>-<span class="title">comments</span>&quot; <span class="title">data</span>-<span class="title">href</span>=&quot;&lt;%= <span class="title">url</span> %&gt;&quot; <span class="title">data</span>-<span class="title">num</span>-<span class="title">posts</span>=&quot;&lt;%= <span class="title">theme</span>.<span class="title">comments</span>.<span class="title">facebook</span>.<span class="title">comment_count</span> %&gt;&quot; <span class="title">data</span>-<span class="title">width</span>=&quot;100%&quot; <span class="title">data</span>-<span class="title">colorscheme</span>=&quot;&lt;%= <span class="title">theme</span>.<span class="title">comments</span>.<span class="title">facebook</span>.<span class="title">comment_colorscheme</span> %&gt;&quot;&gt;&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class">&lt;% &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+<p>처음 사용하는 theme 경우 앞서 언급한 <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog/blob/master/layout/_partial/comments.ejs">comments.ejs</a> 와 같은 파일을 통해 어떤 댓글 서비스를 지원하는지 파악하기가 쉽지 않습니다. 그럼 내가 선택한 theme 가 어떤 댓글 서비스를 지원하는지는 어떻게 알 수 있을까요?</p>
+<h2 id="Theme-Disqus-support"><a class="header-anchor" href="#Theme-Disqus-support"></a>Theme Disqus support</h2>
+<p>내가 선택한 theme 가 어떤 댓글 서비스를 지원하는지 확인하는 가장 좋은 방법은 theme 의 저장소를 방문하는 것 입니다. 보통 잘 만들어진 테마 경우 저장소에 주요 기능에 대한 설명이 상세히 작성된 파일을 가지고 있습니다.</p>
+<p>제가 사용중인 <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">clean-blog</a> theme 의 경우 역시 <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog/blob/master/README.md">README.md</a> 에 지원하는 기능에 대해 상세히 기술하고 있으며 <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog#comments">comments</a> 섹션 에서 <code>Disqus</code>, <code>Facebook</code> 의 댓글 지원에 대한 설명을 확인할 수 있습니다.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Comments. Choose one by filling up the information</span></span><br><span class="line"><span class="attr">comments:</span></span><br><span class="line">  <span class="comment"># Disqus comments</span></span><br><span class="line">  <span class="attr">disqus_shortname:</span> <span class="string">klugjotest</span></span><br><span class="line">  <span class="comment"># Facebook comments</span></span><br><span class="line">  <span class="attr">facebook:</span></span><br><span class="line">    <span class="attr">appid:</span> <span class="number">123456789012345</span></span><br><span class="line">    <span class="attr">comment_count:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">comment_colorscheme:</span> <span class="string">light</span></span><br></pre></td></tr></table></figure>
+<p>위와 같은 방법을 사용하면 저와 다른 theme 를 사용하시더라도 해당 theme 에서 지원하는 댓글 서비스 확인에 도움이 되지 않을까 싶습니다.</p>
+<p>저는 Disqus 를 사용할 것이기 때문에 Facebook 관련 설정은 주석처리 합니다. 이제 <code>disqus_shortname</code> 에 값만 넣어주면 댓글을 사용할 수 있을 것 같은데요. 해당 값은 어디서 알 수 있을까요?</p>
+<h2 id="Disqus-settings"><a class="header-anchor" href="#Disqus-settings"></a>Disqus settings</h2>
+<p><code>disqus_shortname</code> 값은 <a target="_blank" rel="noopener" href="https://disqus.com">Disqus</a> 에서 확인할 수 있습니다. 아이디가 없으신 분들은 먼저 회원 가입을 하시고 아래 순서대로 진행합니다.</p>
+<ul>
+<li>
+<p>회원 가입 후 메인 화면의 <strong><a target="_blank" rel="noopener" href="https://disqus.com/profile/signup/intent/">GET STARTED</a></strong> 버튼을 클릭합니다.</p>
+<p><img src="disqus-step-1.png" alt="disqus"></p>
+</li>
+<li>
+<p>아래 보이는 GET STARTED 페이지에서 <strong>I want to install Disqus on my site</strong> 를 <a target="_blank" rel="noopener" href="https://disqus.com/admin/create/">클릭</a>합니다.</p>
+<p><img src="disqus-step-2.png" alt="disqus"></p>
+</li>
+<li>
+<p>아래 이미지와 같은 <strong>Create a new site</strong> 화면을 볼 수 있습니다.<br>
+<strong>Website Name</strong> 란을 작성하셔서 아래에 Your unique disqus url will be : <code>test-0pisjqhoqo.disqus.com</code> 와 같은 URL 이 표시됨을 확인합니다. 나머지 <strong>category</strong>, <strong>language</strong> 값 선택 후 <strong>Create Site</strong> 버튼을 클릭합니다.</p>
+<p><img src="disqus-step-3.png" alt="disqus"></p>
+</li>
+<li>
+<p>plan 선택 페이지가 나오는데 저는 <strong>무료</strong> 사용을 위해 <code>Basic</code> 을 선택했습니다.</p>
+<p><img src="disqus-step-4.png" alt="disqus"></p>
+</li>
+<li>
+<p>다음으로 댓글을 붙일 웹 사이트의 <strong>platform</strong> 을 선택해야 합니다. 아쉽게도 저희가 사용하는 hexo 는 보이지 않기 때문에 코드를 직접 삽입하기 위해 가장 아래에 있는 <strong>I don’t see my platform listed, install manually with Universal Code</strong> 를 선택합니다.<br>
+<code>clean-blog 경우 theme 에서 Disqus 설정을 지원하기 때문에 코드를 직접 삽입하지는 않습니다.</code></p>
+<p><img src="disqus-step-5.png" alt="disqus"></p>
+</li>
+<li>
+<p>코드를 직접 삽입하는 방법을 가이드하는 페이지가 나옵니다. 가이드가 생각보다 친절하기 때문에 지원하는 platform 에 없다고 실망하시지 않으셔도 됩니다. 가이드는 <strong>댓글을 사용을 위한 코드 삽입(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Dr6pSdeJgkA">Youtube</a>)</strong>, <strong>댓글 노출을 위한 코드 삽입(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EalamXPZFeY">Youtube</a>)</strong> 두가지를 설명해 줍니다.<br>
+저희는 직접 코드를 삽입하지 않기 때문에 아래 <strong>Configure</strong> 버튼을 클릭해 줍니다.</p>
+<p><img src="disqus-step-6.png" alt="disqus"></p>
+</li>
+<li>
+<p>설정 페이지가 나옵니다. Website URL 및 필요한 설정을 완료 후 <strong>Complete Setup</strong> 버튼을 클릭합니다.</p>
+<p><img src="disqus-step-7.png" alt="disqus"></p>
+</li>
+<li>
+<p>설정이 완료되면 아래와 같은 화면이 나오며 Disqus 설치 완료 후 할 일에대해 안내(<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wTRsNa8kzTw&amp;t=111s">6 Things To Do After Installing Disqus</a>)해 줍니다. 저희는 <code>disqus_shortname</code> 값 확인을 위해 화면 가운데 위치한 <strong>Configure your site’s community settings</strong> 버튼을 클릭합니다.</p>
+<p><img src="disqus-step-8.png" alt="disqus"></p>
+</li>
+<li>
+<p>Configure Disqus for your site 페이지로 이동합니다. 설정 페이지에서 <strong>Shortname</strong> 을 확인할 수 있습니다. 해당 값을 복사하여 clean-blog 테마의 <code>disqus_shortname</code> 값으로 넣어줍니다. 해당 페이지에서 추가로 설정할 부분이 있으면 설정하고 <strong>Save</strong> 버튼을 누르면 끝 입니다.</p>
+<p><img src="disqus-step-9.png" alt="disqus"></p>
+</li>
+<li>
+<p>hexo 서버를 다시 실행하고 post 페이지로 가보면 아래와 같이 Disqus 댓글 UI 가 노출되는 것을 확인하실 수 있습니다.</p>
+<p><img src="disqus-step-10.png" alt="disqus"></p>
+</li>
+</ul>
+<p>절차가 조금 복잡하긴 하지만 생각보다 쉽게 댓글 기능을 추하였습니다. 이제 블로그 방문자들과 소통할 일만 남았습니다. 좋은 컨텐츠를 제공하고 방문자들과 함께 컨텐츠를 소비하고 소통하는 일은 사소하지만 생각보다 즐겁고 새로운 경험을 제공해 줍니다.</p>
+<p>아직 댓글 기능을 달지 않은 분들은 꼭 한번 달아보시길 바라며 궁금한 점 있으시면 댓글 남겨주시면 감사하겠습니다.</p>
+
+
+                
+            </div>
+
+            <div class="google-ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- adForPostDisplay -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3917275028032933"
+                    data-ad-slot="6434864533"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- Google Adsense Module -->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <!--<h3>코멘트:</h3>-->
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.linkedin.com/in/jaewon-jang-104836113/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:jw9651@naver.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Jang Jae Won<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="button__top">TOP</a>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Search -->
+
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'cresumerjang-github-io';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

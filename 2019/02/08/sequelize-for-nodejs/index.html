@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000"/>
+
+    <!-- for NAVER search index -->
+    <meta name="naver-site-verification" content="08d0b9b1265a02d27eb8c25208f88e86d1681974" />
+    <!-- for Google Search Console -->
+    <meta name="google-site-verification" content="T73c2s_bs7sgnZsES1d9GN7taHGu6BhjE_Q_8EtUwtE" />
+    
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <meta name="keywords" content="html, css, javascript, frontend, backend, web developer, ui developer, server developer, reactjs, vuejs, redux, mobx, css in js, nodejs, postgresql, mysql, mariadb, mongodb, nosql, graphql, typescript, es6, ecma, ecma script">
+
+    <!--Author-->
+    
+        <meta name="author" content="Jang Jae Won"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="NodeJS 에서 Sequelize 사용하기"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="웹 개발자 기술 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+    <!-- Title -->
+    
+
+    
+        <title>NodeJS 에서 Sequelize 사용하기</title>
+    
+    
+    <!-- config 
+    itle_tag: "Superjang's Dev Talk",
+    keywords: '웹개발, 프론트개발, UI개발',
+    title: '웹 개발자 기술 블로그',
+    subtitle: '개발해서 내집 장만',
+    description: '웹 개발이 즐거운 개발자의 개발 이야기',
+    author: 'Jang Jae Won', -->
+    <!--  -->
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400|Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3917275028032933",
+          enable_page_level_ads: true
+     });
+</script>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-132451532-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/favicon.ico"/>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">cresumerjang.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <div id="site_search">
+                            <div class="form-group">
+                                <input type="text" id="local-search-input" name="q" results="0" autocomplete="off" placeholder="search" class="st-search-input st-default-search-input form-control"/>
+                            </div>  
+                            <div id="local-search-result"></div>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/hexo_main-bg.jpg')">
+    <div class="page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>NodeJS 에서 Sequelize 사용하기</h1>
+                        
+                        <h2 class="post-subheading">
+                            Sequelize for NodeJS
+                        </h2>
+                        
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            
+                            
+                                2019-02-08
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+                <div class="post-tag-category-box">
+                    <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-categories">
+                        
+                            
+
+<a class="text--article-category icon category-dev" href="/categories/dev/">dev</a> <a class="text--article-category icon category-backend" href="/categories/dev/backend/">backend</a>
+
+                        
+                    </div>
+            
+                    <div class="col-lg-4 col-md-5 post-tags">
+                        
+                            
+
+
+<a class="text--article-tag icon tag-nodejs" href="/tags/nodejs/">#nodejs</a> <a class="text--article-tag icon tag-sequelize" href="/tags/sequelize/">#sequelize</a> <a class="text--article-tag icon tag-orm" href="/tags/orm/">#orm</a>
+
+
+                        
+                    </div>
+                </div>
+             
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1>Sequelize</h1>
+<p><code>Sequelize</code>는 Node에서 데이터베이스 접속시 편리하게 작업할 수 있도록 도와주는 라이브러리입니다. <code>ORM</code>(Object-relational Mapping)으로 자바스크립트 객체와 데이터베이스 릴레이션을 맵핑해 주고 자바스크립트 구문을 알아서 SQL로 바꾸어 질의하기 때문에 SQL 문법을 몰라도 데이터베이스를 다룰 수 있게 도와줍니다. 더욱이 <code>MySql, MariaDB, PostgreSQL, SQLite, MSSQL</code>등 다른 데이터베이스도 같이 쓸 수 있기 때문에 유용하게 활용할 수 있습니다.</p>
+<h2 id="Sequelize-설치"><a class="header-anchor" href="#Sequelize-설치"></a>Sequelize 설치</h2>
+<p><code>Sequelize</code>와 <code>mysql</code>을 설치하고 sequelize 커맨드를 사용하기위해 <code>sequelize-cli</code> 를 전역으로 설치합니다. 설치 완료후 <code>sequelize init</code> 명령어를 실행해 줍니다.</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> i sequelize mysql2</span><br><span class="line"><span class="built_in">npm</span> i -g sequelize-cli</span><br><span class="line">sequelize init</span><br></pre></td></tr></table></figure>
+<h2 id="Model-생성"><a class="header-anchor" href="#Model-생성"></a>Model 생성</h2>
+<p><code>sequelize init</code> 명령으로 생성된 <code>models/</code> 폴더에 <code>sequelize.define</code> 메소드를 사용하여 mysql table과 대응되는 sequelize model을 추가해 줍니다.</p>
+<blockquote>
+<p>sequelize는 기본적으로 model이름은 단수로 생성하며, 단수 모델명의 복수형 이름을 테이블 명으로 사용합니다. 그리고 id를 기본키로 연결하므로 id컬럼을 추가할 필요는 없습니다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequelize.<span class="title function_">define</span>(<span class="string">&#x27;modelName&#x27;</span>, column, option);</span><br></pre></td></tr></table></figure>
+<h4 id="models-user-js"><a class="header-anchor" href="#models-user-js"></a>models/user.js</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="function">(<span class="params">&#123;sequelize, DataTypes = Sequelize&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> sequelize.<span class="title function_">define</span>(</span><br><span class="line">        <span class="comment">// model name</span></span><br><span class="line">        <span class="string">&#x27;user&#x27;</span>, </span><br><span class="line">        <span class="comment">// column</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">name</span>: &#123;</span><br><span class="line">                <span class="attr">type</span>: <span class="title class_">DataTypes</span>.<span class="title function_">STRING</span>(<span class="number">20</span>),</span><br><span class="line">                <span class="attr">allowNull</span>: <span class="literal">false</span>,</span><br><span class="line">                <span class="attr">unique</span>: <span class="literal">true</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">age</span>: &#123;</span><br><span class="line">                <span class="attr">type</span>: <span class="title class_">DataTypes</span>.<span class="property">INTEGER</span>.<span class="property">UNSIGNED</span>,</span><br><span class="line">                <span class="attr">allowNull</span>: <span class="literal">false</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">created_at</span>: &#123;</span><br><span class="line">                <span class="attr">type</span>: <span class="title class_">DataTypes</span>.<span class="property">DATE</span>,</span><br><span class="line">                <span class="attr">allowNull</span>: <span class="literal">false</span>,</span><br><span class="line">                <span class="attr">defalutValue</span>: sequelize.<span class="title function_">literal</span>(<span class="string">&#x27;now()&#x27;</span>),</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// options</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">timestamps</span>: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="dataType"><a class="header-anchor" href="#dataType"></a>dataType</h4>
+<blockquote>
+<p>sequelize.define를 사용하여 column 선언시 속성의 dataType은 SQL문 dataType과는 조금 다른 이름으로 선언합니다.</p>
+</blockquote>
+<ul>
+<li>VARCHAR: <strong>STRING</strong></li>
+<li>INT: <strong>INTEGER</strong></li>
+<li>UNSIGNED 옵션이 적용된 INT: <strong>INTEGER.UNSIGNED</strong></li>
+<li>ZEROFILL옵션: <strong>INTEGER.UNSIGNED.ZEROFILL</strong></li>
+<li>TINYINT: <strong>BOOLEAN</strong></li>
+<li>DATETIME: <strong>DATE</strong></li>
+<li>NOT NULL: <strong>allowNull</strong></li>
+<li>UNIQUE: <strong>UNIQUE</strong></li>
+<li>기본값: <strong>defaultValue</strong></li>
+</ul>
+<h4 id="options"><a class="header-anchor" href="#options"></a>options</h4>
+<ul>
+<li><strong>timestamps</strong>: true 일 경우 createdAt, updatedAt 컬럼을 자동으로 추가하고 row가 생성, 수정될 때 시간이 자동으로 입력됩니다.</li>
+<li><strong>paranoid</strong>: timestamps 가 true 경우에만 사용가능합니다. deletedAt 이라는 컬럼이 추가되며 row 삭제하는 sequelize 명령 내릴 경우 deletedAt에 제거 날짜를 입력합니다.</li>
+<li><strong>underscored</strong>: sequelize가 자동으로 생성해주는 컬럼명을 스네이크 형식으로 변경합니다. createdAt, updatedAt, deletedAt 컬럼을 각각 created_at, updated_at, deleted_at으로 변경해 줍니다.</li>
+<li><strong>tableName</strong>: sequelize는 자동으로 define 메소드 첫번째 인자(모델명)를 복수형으로 만들어 테이블명으로 사용합니다. 테이블 명을 다른 것으로 지정하고 싶을 때 해당 옵션을 사용합니다.</li>
+</ul>
+<h2 id="Model-간-관계-선언"><a class="header-anchor" href="#Model-간-관계-선언"></a>Model 간 관계 선언</h2>
+<p>아래 메소드들을 사용하여 table에 해당하는 model간 관계를 맺어줍니다.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://docs.sequelizejs.com/class/lib/associations/base.js~Association.html">doc associations</a></p>
+</blockquote>
+<ul>
+<li><strong>HasOne</strong>: One-to-one association</li>
+<li><strong>HasMany</strong>: One-to-many association</li>
+<li><strong>BelongsTo</strong>: One-to-one association</li>
+<li><strong>BelongsToMany</strong>: Many-to-many association with a join table.</li>
+</ul>
+<h4 id="1-1"><a class="header-anchor" href="#1-1"></a>1:1</h4>
+<p>1:1 경우 hasOne, belongTo가 반대여도 상관없습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">User</span>.<span class="title function_">hasOne</span>(db.<span class="property">Info</span>, &#123; <span class="attr">foreginKey</span>:<span class="string">&quot;user_id&quot;</span>, <span class="attr">sourceKey</span>:<span class="string">&quot;id&quot;</span>&#125;);</span><br><span class="line">db.<span class="property">Info</span>.<span class="title function_">belongTo</span>(db.<span class="property">User</span>, &#123; <span class="attr">foreginKey</span>:<span class="string">&quot;user_id&quot;</span>, <span class="attr">tarketKey</span>:<span class="string">&quot;id&quot;</span>&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="1-N"><a class="header-anchor" href="#1-N"></a>1:N</h4>
+<p>foreginKey 를 사용하여 관계를 맺어줄 경우 hasMany는 sourceKey, belongTo는 targetKey를 사용합니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">User</span>.<span class="title function_">hasMany</span>(<span class="title class_">Comment</span>, &#123; <span class="attr">foreginKey</span>:<span class="string">&quot;commenter&quot;</span>, <span class="attr">sourceKey</span>: <span class="string">&quot;id&quot;</span>&#125;); </span><br><span class="line"><span class="title class_">Comment</span>.<span class="title function_">belongTo</span>(<span class="title class_">User</span>, &#123; <span class="attr">foreginKey</span>:<span class="string">&quot;commenter&quot;</span>, <span class="attr">targetKey</span>: <span class="string">&quot;id&quot;</span>&#125;); <span class="comment">// User 모델의 id를 Comment 모델의 commenter 컬럼에 넣습니다.</span></span><br></pre></td></tr></table></figure>
+<h4 id="N-M"><a class="header-anchor" href="#N-M"></a>N:M</h4>
+<p>새로운 릴레이션으로 사용될 이름을 through 속성의 값으로 넣어줍니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Post</span>.<span class="title function_">belongToMany</span>(<span class="title class_">HashTag</span>, &#123; <span class="attr">through</span>:<span class="string">&quot;PostHashTag&quot;</span>&#125;);</span><br><span class="line"><span class="title class_">HashTag</span>.<span class="title function_">belongToMany</span>(<span class="title class_">Post</span>, &#123; <span class="attr">through</span>:<span class="string">&quot;PostHashTag&quot;</span>&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="설정-및-데이터베이스-연동"><a class="header-anchor" href="#설정-및-데이터베이스-연동"></a>설정 및 데이터베이스 연동</h2>
+<h4 id="config-config-json"><a class="header-anchor" href="#config-config-json"></a>config/config.json</h4>
+<blockquote>
+<p>데이터베이스 연동을 위한 정보를 담을 config 파일을 생성합니다.</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;development&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;root&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;password&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;database&quot;</span><span class="punctuation">:</span> <span class="string">&quot;nodejs&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;host&quot;</span><span class="punctuation">:</span> <span class="string">&quot;127.0.0.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;dialect&quot;</span><span class="punctuation">:</span> <span class="string">&quot;mysql&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;operatorsAliases&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span> <span class="comment">// 보안에 취약한 연산자를 사용할지 여부</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;production&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>...<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>...<span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="models-index-js"><a class="header-anchor" href="#models-index-js"></a>models/index.js</h4>
+<blockquote>
+<p><code>sequelize init</code> 명령으로 생성된 <code>models/index.js</code> 파일을 열어 수정합니다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Sequelize</span> = <span class="built_in">require</span>(<span class="string">&#x27;sequelize&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> env = process.<span class="property">env</span>.<span class="property">NODE_ENV</span> || <span class="string">&#x27;development&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">&#x27;../confing/config&#x27;</span>)[env];</span><br><span class="line"><span class="keyword">const</span> db = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> sequelize = <span class="keyword">new</span> <span class="title class_">Sequelize</span>(</span><br><span class="line">    config.<span class="property">database</span>, </span><br><span class="line">    config.<span class="property">username</span>, </span><br><span class="line">    config.<span class="property">password</span>, </span><br><span class="line">    config</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">db.<span class="property">sequelize</span> = sequelize;</span><br><span class="line">db.<span class="property">Sequelize</span> = <span class="title class_">Sequelize</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// model 정의</span></span><br><span class="line">db.<span class="property">User</span> = <span class="built_in">require</span>(<span class="string">&#x27;./user&#x27;</span>)(db); <span class="comment">// user model </span></span><br><span class="line">db.<span class="property">Post</span> = <span class="built_in">require</span>(<span class="string">&#x27;./post&#x27;</span>)(db); <span class="comment">// post model</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// model간 관계 선언</span></span><br><span class="line">db.<span class="property">User</span>.<span class="title function_">hasMany</span>(db.<span class="property">Post</span>);</span><br><span class="line">db.<span class="property">Post</span>.<span class="title function_">belongsTo</span>(db.<span class="property">User</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = db;</span><br></pre></td></tr></table></figure>
+<p><code>model/index.js</code> 에서 <code>config.json</code> 파일을 불러와 sequelize 인스턴스를 생성하고 정의된 <code>model</code>간 관계를 선언합니다.</p>
+<h4 id="app-js"><a class="header-anchor" href="#app-js"></a>app.js</h4>
+<blockquote>
+<p><code>sequelize.sync()</code> 메소드를 호출하여 데이터베이스완 연동합니다.</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sequelize = <span class="built_in">require</span>(<span class="string">&#x27;./models&#x27;</span>).<span class="property">sequelize</span>;</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line">sequelize.<span class="title function_">sync</span>();</span><br></pre></td></tr></table></figure>
+<h2 id="CRUD"><a class="header-anchor" href="#CRUD"></a>CRUD</h2>
+<blockquote>
+<p>findAll, destroy, update 같은 메소드들을 사용하여 database에 질의할 수 있습니다. 좀 더 자세한 사용은 아래 링크를 참조해 주세요.<br>
+<a target="_blank" rel="noopener" href="http://docs.sequelizejs.com/manual/tutorial/querying.html">doc querying</a></p>
+</blockquote>
+<h4 id="조회-Option-객체"><a class="header-anchor" href="#조회-Option-객체"></a>조회 Option 객체</h4>
+<ul>
+<li>attribute</li>
+<li>where</li>
+<li>order</li>
+<li>limit : // find 메소드랑 동일</li>
+<li>offset</li>
+</ul>
+<h4 id="Sequelize-Op-연산자"><a class="header-anchor" href="#Sequelize-Op-연산자"></a>Sequelize Op 연산자</h4>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://Op.gt">Op.gt</a> : 초과</li>
+<li>Op.gte : 이상</li>
+<li><a target="_blank" rel="noopener" href="http://Op.lt">Op.lt</a> : 미만</li>
+<li>Op.lte : 이하</li>
+<li><a target="_blank" rel="noopener" href="http://Op.ne">Op.ne</a>: 같지않음</li>
+<li>Op.or: 또는</li>
+<li><a target="_blank" rel="noopener" href="http://Op.in">Op.in</a>: 배열 요소중 하나</li>
+<li>Op.notln: 배열 요소와 모두 다름</li>
+</ul>
+<blockquote>
+<p>Controller 사용 예</p>
+</blockquote>
+<h4 id="routes-index-js"><a class="header-anchor" href="#routes-index-js"></a>routes/index.js</h4>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">User</span> = <span class="built_in">require</span>(<span class="string">&#x27;../models&#x27;</span>).<span class="property">User</span>;</span><br><span class="line"><span class="keyword">const</span> router = express.<span class="title class_">Router</span>();</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">get</span>(<span class="string">&#x27;/&#x27;</span>, <span class="title function_">async</span>(req, res, next) =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> users = <span class="keyword">await</span> <span class="title class_">User</span>.<span class="title function_">findAll</span>();</span><br><span class="line">        res.<span class="title function_">render</span>(<span class="string">&#x27;viewTemplate&#x27;</span>, &#123;users&#125;);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="title function_">next</span>(error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = router;</span><br></pre></td></tr></table></figure>
+<h3 id="READ"><a class="header-anchor" href="#READ"></a>READ</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">User</span>, <span class="title class_">Sequelize</span>: &#123; <span class="title class_">Op</span> &#125; &#125; = <span class="built_in">require</span>(<span class="string">&#x27;../models&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SELECT * FROM db.users LIMIT 1;</span></span><br><span class="line"><span class="title class_">User</span>.<span class="title function_">find</span>(&#123;&#125;) </span><br><span class="line"><span class="title class_">User</span>.<span class="title function_">findAll</span>(&#123;</span><br><span class="line">    <span class="attr">limit</span>: <span class="number">1</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SELECT * FROM db.users;</span></span><br><span class="line"><span class="title class_">User</span>.<span class="title function_">findAll</span>(&#123;&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SELECT name, married FROM db.users;</span></span><br><span class="line"><span class="title class_">User</span>.<span class="title function_">findAll</span>(&#123;</span><br><span class="line">    <span class="attr">attribute</span>: [<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;married&#x27;</span>],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SELECT name, married FROM db.users WHERE married=1 AND age &gt; 30 ORDER BY age DESC;</span></span><br><span class="line"><span class="title class_">User</span>.<span class="title function_">findAll</span>(&#123;</span><br><span class="line">    <span class="attr">attribute</span>: [<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;married&#x27;</span>],</span><br><span class="line">    <span class="attr">where</span>: &#123;</span><br><span class="line">        <span class="attr">married</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">age</span>:&#123; [<span class="title class_">Op</span>.<span class="property">gt</span>]: <span class="number">30</span> &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">order</span>: [[<span class="string">&#x27;age&#x27;</span>,<span class="string">&#x27;DESC&#x27;</span>]]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SELECT name, married FROM db.users WHERE married=0 OR age &gt; 30 ORDER BY age DESC;</span></span><br><span class="line"><span class="title class_">User</span>.<span class="title function_">findAll</span>(&#123;</span><br><span class="line">    <span class="attr">attribute</span>: [<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;married&#x27;</span>],</span><br><span class="line">    <span class="attr">where</span>: &#123;</span><br><span class="line">        [<span class="title class_">Op</span>.<span class="property">or</span>]: [&#123; <span class="attr">married</span>: <span class="number">0</span> &#125;, &#123; <span class="attr">age</span>: &#123; [<span class="title class_">Op</span>.<span class="property">gt</span>]: <span class="number">30</span> &#125; &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">order</span>: [[<span class="string">&#x27;age&#x27;</span>,<span class="string">&#x27;DESC&#x27;</span>]]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>N:M 관계에서 테이블 조회(get, set, add + 모델명의 복수형 메소드 사용 가능)</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">async</span>(req, res, next) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> tag = <span class="keyword">await</span> <span class="title class_">HashTag</span>.<span class="title function_">find</span>(&#123; <span class="attr">where</span>: &#123; <span class="attr">title</span>: <span class="string">&quot;dev&quot;</span> &#125; &#125;);</span><br><span class="line">    <span class="keyword">const</span> post = <span class="keyword">await</span> tag.<span class="title function_">getPosts</span>(); <span class="comment">// get + 모델명의 복수형</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="UPDATE"><a class="header-anchor" href="#UPDATE"></a>UPDATE</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// UPDATE db.users SET column=&quot;바꿀내용&quot; WHERE id=2;</span></span><br><span class="line"><span class="title class_">User</span>.<span class="title function_">update</span>(&#123;</span><br><span class="line">    <span class="attr">column</span>: <span class="string">&quot;바꿀내용&quot;</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    <span class="attr">where</span>: &#123; <span class="attr">id</span>: <span class="number">2</span> &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="string">``</span><span class="string">``</span></span><br><span class="line"></span><br><span class="line">### <span class="variable constant_">DELETE</span></span><br><span class="line"><span class="string">``</span><span class="string">`javascript</span></span><br><span class="line"><span class="string">// DELETE FROM db.users WHERE id=2;</span></span><br><span class="line"><span class="string">User.destroy(&#123;</span></span><br><span class="line"><span class="string">    where: &#123; id: 2 &#125;</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+<p>Sequelize는 ORM으로써 편리하게 사용할 수 있지만 모델링 및 SQL 문에 대한 이해를 가지고 사용하는 것이 좋을 것 같습니다. 좀 더 자세한 사용법은 <a target="_blank" rel="noopener" href="http://docs.sequelizejs.com/">Sequelize API</a> 문서를 참고해 주세요.</p>
+
+
+                
+            </div>
+
+            <div class="google-ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- adForPostDisplay -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3917275028032933"
+                    data-ad-slot="6434864533"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- Google Adsense Module -->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <!--<h3>코멘트:</h3>-->
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.linkedin.com/in/jaewon-jang-104836113/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:jw9651@naver.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Jang Jae Won<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="button__top">TOP</a>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Search -->
+
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'cresumerjang-github-io';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

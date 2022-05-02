@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000"/>
+
+    <!-- for NAVER search index -->
+    <meta name="naver-site-verification" content="08d0b9b1265a02d27eb8c25208f88e86d1681974" />
+    <!-- for Google Search Console -->
+    <meta name="google-site-verification" content="T73c2s_bs7sgnZsES1d9GN7taHGu6BhjE_Q_8EtUwtE" />
+    
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <meta name="keywords" content="html, css, javascript, frontend, backend, web developer, ui developer, server developer, reactjs, vuejs, redux, mobx, css in js, nodejs, postgresql, mysql, mariadb, mongodb, nosql, graphql, typescript, es6, ecma, ecma script">
+
+    <!--Author-->
+    
+        <meta name="author" content="Jang Jae Won"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="한 컴퓨터에서 SSH 를 이용해 여러개의 Github 계정 사용하기"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="웹 개발자 기술 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://cresumerjang.github.io/img/contact-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://cresumerjang.github.io/img/contact-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+
+    
+        <title>한 컴퓨터에서 SSH 를 이용해 여러개의 Github 계정 사용하기</title>
+    
+    
+    <!-- config 
+    itle_tag: "Superjang's Dev Talk",
+    keywords: '웹개발, 프론트개발, UI개발',
+    title: '웹 개발자 기술 블로그',
+    subtitle: '개발해서 내집 장만',
+    description: '웹 개발이 즐거운 개발자의 개발 이야기',
+    author: 'Jang Jae Won', -->
+    <!--  -->
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400|Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3917275028032933",
+          enable_page_level_ads: true
+     });
+</script>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-132451532-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/favicon.ico"/>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">cresumerjang.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <div id="site_search">
+                            <div class="form-group">
+                                <input type="text" id="local-search-input" name="q" results="0" autocomplete="off" placeholder="search" class="st-search-input st-default-search-input form-control"/>
+                            </div>  
+                            <div id="local-search-result"></div>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/common/cover/github-common.png')">
+    <div class="page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>한 컴퓨터에서 SSH 를 이용해 여러개의 Github 계정 사용하기</h1>
+                        
+                        <h2 class="post-subheading">
+                            Permission Error 없이 여러개의 Github 계정을 사용해 보자
+                        </h2>
+                        
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            
+                            
+                                2020-11-15
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+                <div class="post-tag-category-box">
+                    <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-categories">
+                        
+                            
+
+<a class="text--article-category icon category-dev" href="/categories/dev/">dev</a>
+
+                        
+                    </div>
+            
+                    <div class="col-lg-4 col-md-5 post-tags">
+                        
+                            
+
+
+<a class="text--article-tag icon tag-github" href="/tags/github/">#github</a> <a class="text--article-tag icon tag-ssh" href="/tags/ssh/">#ssh</a>
+
+
+                        
+                    </div>
+                </div>
+             
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>최근에 블로그를 github page 로 운영하기 위해서 github 계정을 하나 더 만들게 되었습니다. 물론, 하나의 계정으로 여러 github page 를 운용할 수는 있지만 용도를 명확히 하고 싶어서 저장소를 하나 더 만들기로 하였습니다.</p>
+<p>저 처럼 하나의 컴퓨터에서 n개 이상의 github 계정을 사용하는 경우 별도의 설정 없이 ssh-key 생성하여 github 에 등록하면 예상하지 못 한 <code>Permission</code> 에러를 마주하게 됩니다.<br>
+public key 를 등록 했는데도 말이죠.</p>
+<p>이를 해결하기 위한 방법을 하나씩 알아보도록 하겠습니다.</p>
+<h3 id="Step-Overview"><a class="header-anchor" href="#Step-Overview"></a>Step &amp; Overview</h3>
+<ol>
+<li>github 계정별 ssh-key 생성</li>
+<li>생성된 ssh-key github 에 등록</li>
+<li>ssh config 파일에 설정값 추가</li>
+<li>저장소별 git config 파일 수정</li>
+<li>ssh-agent 에 ssh-key 등록</li>
+<li>connection 테스트</li>
+</ol>
+<!-- 간략하게 요약하면 ssh-key pair 를 생성, public, private key 를 각각 github, ssh config 에 등록하면 됩니다. 1개만 등록할 경우와 다른 부분은 ssh config, git config 를 추가로 작성해 주는 부분인데요 이 부분을 제외하고 1개의 계정만 사용할 경우와 n개 이상을 사용할 경우 동작은 동일합니다. -->
+<p>설명 편의를 위해 <code>account</code>, <code>repository</code> 명을 아래와 같이 명칭하겠습니다.</p>
+<ul>
+<li><strong>Account A</strong>
+<ul>
+<li><strong>account</strong>: user-a</li>
+<li><strong>repository</strong>: <a href="mailto:git@github.com">git@github.com</a>:user-a/repo-a.git</li>
+</ul>
+</li>
+<li><strong>Account B</strong>
+<ul>
+<li><strong>account</strong>: user-b</li>
+<li><strong>repository</strong>: <a href="mailto:git@github.com">git@github.com</a>:user-b/repo-b.git</li>
+</ul>
+</li>
+</ul>
+<h3 id="STEP-1-github-계정별-ssh-key-생성"><a class="header-anchor" href="#STEP-1-github-계정별-ssh-key-생성"></a>STEP 1 - github 계정별 ssh-key 생성</h3>
+<p>ssh 로 github 을 사용하기 위한 ssh-key 를 아래 CLI 를 통해 생성할 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ssh-key 생성</span></span><br><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;your_email@example.com&quot;</span> </span><br></pre></td></tr></table></figure>
+<p>참고로 ssh-key 는 <code>./ssh</code> 위치에 생성해야 하며 해당 directory 없다면 직접 생성해 줍니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .ssh directory 생성</span></span><br><span class="line"><span class="built_in">cd</span> ~/ &amp;&amp; <span class="built_in">mkdir</span> .ssh</span><br></pre></td></tr></table></figure>
+<p>직접 생성해 봅시다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/ &amp;&amp; <span class="built_in">mkdir</span> .ssh</span><br><span class="line">ssh-keygen -t rsa -b 4096 -C <span class="string">&quot;user-a@blabla.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Account A 계정의 ssh key pair 생성을 위해 메일은 <code>user-a@blabla.com</code> 로 입력해 주었으며, 위 명령어를 실행하면 아래와 같은 화면이 나오게 됩니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br><span class="line"><span class="comment"># Enter file in which to save the key (/Users/blabla/.ssh/id_rsa): id_rsa_github_user-a</span></span><br><span class="line"><span class="comment"># Enter passphrase (empty for no passphrase): </span></span><br><span class="line"><span class="comment"># Enter same passphrase again: </span></span><br><span class="line"><span class="comment"># Your identification has been saved in id_rsa_github_user-a.</span></span><br><span class="line"><span class="comment"># Your public key has been saved in id_rsa_github_user-a.pub.</span></span><br><span class="line"><span class="comment"># The key fingerprint is:</span></span><br><span class="line"><span class="comment"># SHA256:abcabcabcabcabcabcabcabcabcabcabcabcabcabc user-a@blabla.com</span></span><br><span class="line"><span class="comment"># The key&#x27;s randomart image is:</span></span><br><span class="line"><span class="comment"># +---[RSA 4096]----+</span></span><br><span class="line"><span class="comment"># |   .o..          |</span></span><br><span class="line"><span class="comment"># |  .  +..         |</span></span><br><span class="line"><span class="comment"># |   . o+.. .      |</span></span><br><span class="line"><span class="comment"># |    +o.o.=       |</span></span><br><span class="line"><span class="comment"># |   +..o+E.o      |</span></span><br><span class="line"><span class="comment"># |  .  oBoB=o      |</span></span><br><span class="line"><span class="comment"># |  o .+oO+@o      |</span></span><br><span class="line"><span class="comment"># | o oo + Ooo      |</span></span><br><span class="line"><span class="comment"># |  .... . o       |</span></span><br><span class="line"><span class="comment"># +----[SHA256]-----+</span></span><br></pre></td></tr></table></figure>
+<p>위 화면에서 중요한 부분은 <code>Enter file in which to save the key (/Users/blabla/.ssh/id_rsa):</code> 이 부분으로, 구분할 수 있는 ssh-key 명을 입력하고 엔터를 쳐 주시면 됩니다. 실습에서는 <code>id_rsa_github_user-a</code> 로 작성하였습니다. 이후 ssh config 의 IdentityFile 값으로 해당 파일의 경로를 작성하게 됩니다.</p>
+<p>추가로 비밀번호를 입력할 수 있는데 이 부분은 필요하지 않으시면 엔터를 눌러 넘어가 주시면 key 생성이 완료됩니다.</p>
+<p>동일한 방법으로 Account B 를 위한 ssh-key 도 생성한 후 <code>ls</code> 명령어를 통해 확인해 보면 아래와 같이 ssh-key 가 생성된 것을 확인하실 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id_rsa_github_user-a        id_rsa_github_user-b</span><br><span class="line">id_rsa_github_user-a.pub    id_rsa_github_user-b.pub</span><br></pre></td></tr></table></figure>
+<p><code>*.pub</code> 확장자가 붙은 파일은 <strong>public key</strong> 이며, 붙지 않은 파일은 <strong>private key</strong> 입니다. <strong>private key</strong> 는 공개되지 않게 잘 관리해야하며, 개인 장비가 아니라면 key 생성시 비밀번호를 입력하는게 좋습니다.</p>
+<h3 id="STEP-2-생성된-ssh-key-github-에-등록"><a class="header-anchor" href="#STEP-2-생성된-ssh-key-github-에-등록"></a>STEP 2 - 생성된 ssh-key github 에 등록</h3>
+<p>이전 STEP 에서 정상적으로 key 가 생성된 것을 확인 하셨다면 github 사이트에 각 계정마다 public key 를 등록해 줘야합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; id_rsa_github_user-a.pub  </span><br></pre></td></tr></table></figure>
+<p>위 명령어를 통해 <code>*.pub</code> 확장자가 붙은 <code>id_rsa_github_user-a.pub</code>, <code>id_rsa_github_user-b.pub</code> 키를 각각 복사하여 해당 github 계정에 에 등록해<br>
+줍니다.</p>
+<p>ssh-key 등록하는 방법은 <a target="_blank" rel="noopener" href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</a><br>
+를 참고해서 진행합니다. 참고로 이미 등록된 key 는 계정이 다르더라도 등록하실 수 없습니다.</p>
+<h3 id="STEP-3-ssh-config-파일에-설정값-추가"><a class="header-anchor" href="#STEP-3-ssh-config-파일에-설정값-추가"></a>STEP 3 - ssh config 파일에 설정값 추가</h3>
+<p>이전 STEP 에서 github 에 public key 등록해 줬으니 이제 사용하는 장비의 ssh config 파일에 private key 를 등록할 차례입니다.</p>
+<!-- ssh 를 통해 각각의 계정의 github 저장소 사용시 해당 계정에 등록한 public key 와 매칭되는 key 가 사용되도록 하기 위해 ssh config 파일을 작성해 줘야합니다. -->
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.ssh/config</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># user-a </span></span><br><span class="line">Host github-user-a</span><br><span class="line">	HostName github.com</span><br><span class="line">	User git</span><br><span class="line">	IdentityFile /Users/blabla/.ssh/id_rsa_github_user-a</span><br><span class="line"></span><br><span class="line"><span class="comment"># user-b </span></span><br><span class="line">Host github-user-b</span><br><span class="line">	HostName github.com</span><br><span class="line">	User git</span><br><span class="line">	IdentityFile /Users/blabla/.ssh/id_rsa_github_user-b</span><br></pre></td></tr></table></figure>
+<p>위와 같이 ssh config 를 작성해 줍니다. 여기서 <code>Host</code> 에 작성된 값이 중요한데, git config 작성시 remote url 값을 해당 호스트 명으로 작성하지 않으면 Host 를 찾을 수 없다거나 Permission 에러가 발생할 수 있습니다.</p>
+<h3 id="STEP-4-저장소별-git-config-파일-수정"><a class="header-anchor" href="#STEP-4-저장소별-git-config-파일-수정"></a>STEP 4 - 저장소별 git config 파일 수정</h3>
+<p>서로 다른 계정의 github 저장소로 push 를 할 경우 github 에 등록된 public key 와 쌍이되는 private key 가 사용될 수 있도록 설정해 줘야합니다. 이를 위해 이전 STEP 에서 ssh config 에 Host 명과 사용될 private key 를 등록해 주었습니다.</p>
+<p>이번 STEP 에서는 private key 사용을 위해 git config 파일의 remote url 도메인을 ssh 에 등록된 Host 값으로 변경해 줍니다. Host 명을 참조하여 어떤 private key 를 사용할지 결정하기 때문에 ssh config 에 작성한 Host 명과 동일한 이름을 작성해 줘야합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github-user-a:user-a/repo-a.git</span><br></pre></td></tr></table></figure>
+<p>위 처럼 git cli 를 사용해서 값을 변경해 줘도 되지만 여기서는 config 파일을 직접 수정하여 변경해 보겠습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line">	repositoryformatversion = 0</span><br><span class="line">	filemode = <span class="literal">true</span></span><br><span class="line">	bare = <span class="literal">false</span></span><br><span class="line">	logallrefupdates = <span class="literal">true</span></span><br><span class="line">	ignorecase = <span class="literal">true</span></span><br><span class="line">	precomposeunicode = <span class="literal">true</span></span><br><span class="line">[remote <span class="string">&quot;origin&quot;</span>]</span><br><span class="line">	url = git@github-user-a:user-a/repo-a.git</span><br><span class="line">	fetch = +refs/heads/*:refs/remotes/origin/*</span><br><span class="line">[user]</span><br><span class="line">	email = user-a@blabla.com</span><br><span class="line">	name = user-a</span><br><span class="line">[branch <span class="string">&quot;main&quot;</span>]</span><br><span class="line">	remote = origin</span><br><span class="line">	merge = refs/heads/main</span><br></pre></td></tr></table></figure>
+<p>등록을 완료하였다면 각 저장소 directory 에서 아래 명령어를 통해 잘 등록되었는지 확인해 봅니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<p>등록한 remote url 이 아래와 같이 출력되되면 정상입니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin	git@github-user-a:user-a/repo-a.git (fetch)</span><br><span class="line">origin	git@github-user-a:user-a/repo-a.git (push)</span><br></pre></td></tr></table></figure>
+<p>간략하게 지금까지 진행한 내용을 확인해 보면 아래와 같습니다.</p>
+<ol>
+<li>ssh key pair 생성</li>
+<li>github 에 public key 등록</li>
+<li>ssh config 에 Host, ssh key 설정 추가</li>
+<li>git config 에 사용할 Host 등록</li>
+</ol>
+<p>사실 여기까지만 진행해도 해당 포스팅의 목적인 여러개의 github 계정을 사용하실 수 있습니다. 하지만 ssh key 에 비밀번호가 걸려있고 본인만 private 하게 사용하는 장비에서 좀 더 편리하게 사용하고 싶다면 다음 STEP 을 적용해 보시면 됩니다. 더이상 다른 설정은 필요하지 않으시다면 STEP6 로 넘어가시면 됩니다.</p>
+<h3 id="STEP-5-ssh-agent-에-ssh-key-등록"><a class="header-anchor" href="#STEP-5-ssh-agent-에-ssh-key-등록"></a>STEP 5 - ssh-agent 에 ssh-key 등록</h3>
+<p>ssh-agent 를 사용하면 매번 비밀번호를 입력하지 않고도 자유롭게 fetch, push 를 할수 있습니다. 참고로 ssh-agent 가 실행중이라면 한번이라도 push 를 할 경우 자동으로 key 가 등록되며, 사용하려는 key 에 비밀번호가 있는 경우 최초 한번만 아래와 같이 패스워드를 요구합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~/entry/personal/blog/cresumerjang.github.io-app(master) » git push</span><br><span class="line">Enter passphrase <span class="keyword">for</span> key <span class="string">&#x27;/Users/blabla/.ssh/id_rsa_github_user-a&#x27;</span>: </span><br></pre></td></tr></table></figure>
+<p>성공하면 마찬가지로 ssh-agent 에 key 가 등록되어 이후 부터는 비밀번호 입력 없이 사용할 수 있게 됩니다.</p>
+<p>ssh-agent 에 직접 key 등록을 위해 위 명령어를 사용해 ssh agent 를 실행해 줍니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># SSH 에이전트 백그라운드로 실행 </span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(ssh-agent -s)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>ssh-add 명령어로 STEP1 에서 생성한 저장소별 각각의 key 를 등록해 줍니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 각기 다른 ssh 키 등록</span></span><br><span class="line">ssh-add ~/.ssh/id_rsa_github_user-a</span><br><span class="line">ssh-add ~/.ssh/id_rsa_github_user-b</span><br></pre></td></tr></table></figure>
+<p><code>-l</code> option 을 사용해 ssh-agent 에 키가 잘 등록 되었는지 확인합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 등록된 키 리스트 확인</span></span><br><span class="line">ssh-add -l</span><br></pre></td></tr></table></figure>
+<p>아래와 같이 등록한 key 들이 출력되면 정상입니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4096 SHA256:abcabcabcabcabcabcabcabcabcabcabcabcabcabc user-a@blabla.com (RSA)</span><br><span class="line">4096 SHA256:defdefdefdefdefdefdefdefdefdefdefdefdefdef user-b@blabla.com (RSA)</span><br></pre></td></tr></table></figure>
+<h3 id="STEP-6-connection-테스트"><a class="header-anchor" href="#STEP-6-connection-테스트"></a>STEP 6 - connection 테스트</h3>
+<p>마지막으로 잘 연결 되는지 테스트해 볼 차례입니다.<br>
+아래 명령어로 연결이 되는지 테스트해 볼 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 연결 테스트</span></span><br><span class="line">ssh -T user@domain</span><br></pre></td></tr></table></figure>
+<p>직접 테스트해 봅시다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/root-repository/.git » ssh -T git@github-user-a</span><br></pre></td></tr></table></figure>
+<p>Account A 경우 ssh config Host 명을 <code>github-user-a</code> 이름으로 등록했기 때문에 위처럼 명령어를 실행합니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi user-a! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+<p>실행 결과로 위와 같은 내용이 출력되었다면 정상적으로 연결 된 것으로 모든 설정은 끝이 났습니다.<br>
+서로 다른 계정의 저장소 별로 작업 후 push 해 github 저장소에 정상적으로 반영되는지 확인해 봅니다.</p>
+<h3 id="Errors"><a class="header-anchor" href="#Errors"></a>Errors</h3>
+<p>위 STEP 들을 모두 마치면 정상적으로 n 개의 계정을 이용할 수 있어야 하지만 살다보면 예상하지 못한 경우들이 발생하기 마련입니다.</p>
+<p>아래는 제가 설정하면서 만났던 에러 메시들 입니다. 혹시나 여러 계정으로 push 가 안된다면 아래 동일한 메시지가 있는지 참고하셔서 문제를 해결해 보시면 좋을 것 같습니다.</p>
+<h4 id="Hostname-error"><a class="header-anchor" href="#Hostname-error"></a>Hostname error</h4>
+<p>git remote url 에 등록된 도메인이 ssh config 에 없을 경우 아래와 같은 error message 가 출력 됩니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh: Could not resolve hostname github-user-a: nodename nor servname provided, or not known</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+<p>이 경우 STEP3 를 참고하여 ssh config 에 설정을 추가해 줍니다.</p>
+<h4 id="Permission-error"><a class="header-anchor" href="#Permission-error"></a>Permission error</h4>
+<p>STEP6 에서 성공 메시지가 뜨더라도 ssh config Host 명과 git remote url 도메인이 다르면 fetch, push 간 permission 에러 메시지가 뜰 수 있습니다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ERROR: Permission to user-a/repo-a.git denied to <span class="variable">$&#123;theOtherUser&#125;</span>.</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+<p>혹시 Permission error 를 마주하게 된다면 STEP4 를 참고하여 ssh config Host 명과 git remote url 이 일치 하도록 수정해 줍니다.</p>
+<h3 id="End-4"><a class="header-anchor" href="#End-4"></a>End</h3>
+<p>궁금한 점이나 잘 못된 내용이 있으면 피드백 부탁드립니다.<br>
+읽어주셔서 감사합니다.</p>
+
+
+                
+            </div>
+
+            <div class="google-ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- adForPostDisplay -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3917275028032933"
+                    data-ad-slot="6434864533"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- Google Adsense Module -->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <!--<h3>코멘트:</h3>-->
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.linkedin.com/in/jaewon-jang-104836113/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:jw9651@naver.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Jang Jae Won<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="button__top">TOP</a>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Search -->
+
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'cresumerjang-github-io';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

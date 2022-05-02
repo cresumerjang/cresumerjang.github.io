@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000"/>
+
+    <!-- for NAVER search index -->
+    <meta name="naver-site-verification" content="08d0b9b1265a02d27eb8c25208f88e86d1681974" />
+    <!-- for Google Search Console -->
+    <meta name="google-site-verification" content="T73c2s_bs7sgnZsES1d9GN7taHGu6BhjE_Q_8EtUwtE" />
+    
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <meta name="keywords" content="html, css, javascript, frontend, backend, web developer, ui developer, server developer, reactjs, vuejs, redux, mobx, css in js, nodejs, postgresql, mysql, mariadb, mongodb, nosql, graphql, typescript, es6, ecma, ecma script">
+
+    <!--Author-->
+    
+        <meta name="author" content="Jang Jae Won"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Hexo 블로그 입문 가이드"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="웹 개발자 기술 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+    <!-- Title -->
+    
+
+    
+        <title>Hexo 블로그 입문 가이드</title>
+    
+    
+    <!-- config 
+    itle_tag: "Superjang's Dev Talk",
+    keywords: '웹개발, 프론트개발, UI개발',
+    title: '웹 개발자 기술 블로그',
+    subtitle: '개발해서 내집 장만',
+    description: '웹 개발이 즐거운 개발자의 개발 이야기',
+    author: 'Jang Jae Won', -->
+    <!--  -->
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400|Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3917275028032933",
+          enable_page_level_ads: true
+     });
+</script>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-132451532-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/favicon.ico"/>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">cresumerjang.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <div id="site_search">
+                            <div class="form-group">
+                                <input type="text" id="local-search-input" name="q" results="0" autocomplete="off" placeholder="search" class="st-search-input st-default-search-input form-control"/>
+                            </div>  
+                            <div id="local-search-result"></div>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('./post_main.png')">
+    <div class="page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Hexo 블로그 입문 가이드</h1>
+                        
+                        <h2 class="post-subheading">
+                            설치부터 배포까지 나만의 블로그를 운영해 보자
+                        </h2>
+                        
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            
+                            
+                                2019-01-17
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+                <div class="post-tag-category-box">
+                    <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-categories">
+                        
+                            
+
+<a class="text--article-category icon category-dev" href="/categories/dev/">dev</a>
+
+                        
+                    </div>
+            
+                    <div class="col-lg-4 col-md-5 post-tags">
+                        
+                            
+
+
+<a class="text--article-tag icon tag-hex" href="/tags/hex/">#hex</a> <a class="text--article-tag icon tag-blog" href="/tags/blog/">#blog</a>
+
+
+                        
+                    </div>
+                </div>
+             
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1>Why Blog</h1>
+<p>개발자로써 자신이 학습한 내용을 정리하고 공유하기 위한 플랫폼으로 블로그 만한게 없는 것 같습니다.<br>
+미래의 나를 위해서도 도움이 되지만 내가 학습하고 이해한 내용이 맞는지 다른 개발자들에게 검증을 받고 의견을 교환할 수 있는 채널이기도 합니다.</p>
+<p>4~5년 전부터 유료 호스팅에 wordpress 기반의 블로그를 운영해 왔습니다. 방문자들과 커뮤니케이션도 간간히 있었고 게시판과 광고도 붙이고 나름 저만의 컨텐츠는 쌓아왔습니다. 재미는 있었지만 점점 관리에 소홀해지고 도메인, 호스트 비용만 나가다 보니 불만이 쌓여져 갔습니다.</p>
+<p>새해를 맞아 같은 블로그지만 새로운 환경에서 새로운 마음가짐으 블로그를 운영하기 위해 <strong>Hexo</strong> 라는 프레임워크를 선택하게 되었고 꾸준히 관심을 가지고 운영해볼 생각입니다. 저처럼 블로그를 운영해 보고 싶으신 분들을 위해 <strong>Hexo + Gihub Page</strong> 로 블로그를 운영하는 방법을 정리해 봤습니다.</p>
+<blockquote>
+<p>다행히 Hexo에서 <code>wordpress migration</code>을 지원하네요 ^^<br>
+필요한 포스트들은 옮겨올 수 있도록 해야겠습니다.</p>
+</blockquote>
+<p>보시고 궁금한점 있으시면 언제든지 코멘트 남겨주세요 :)</p>
+<h1>Hexo ?</h1>
+<p>Hexo는 Markdonw 문법을 지원하는 블로그 프레임워입니다.</p>
+<h3 id="Hexo-장점"><a class="header-anchor" href="#Hexo-장점"></a>Hexo 장점</h3>
+<ol>
+<li>직접 html 태그를 생성할 필요 없이 잘 정리한 .md 파일을 .html 파일로 변환해준다.</li>
+<li>명령어 한줄로 Github, Heroku등 다양 서버에 배포가 가능하다.</li>
+<li>Wordpress와 같이 다양한 Theme와 Plugin이 있고 커스텀 할 수 있다.</li>
+<li>호스팅 비용이 무료다.(Hexo 때문에 무료인건 아니지만 github, heroku 등을 사용하여 블로그를 무료로 서비스할 수 있다.)</li>
+<li>저장소를 clone 받아 어디서든 포스팅을 작성하고 배포할 수 있다.</li>
+<li>간편하게 Google Analytics 붙여 사이트를 분석할 수 있다.</li>
+<li>Disqus를 붙여 간편하게 댓글 시스템을 사용할 수 있다.</li>
+<li>광고도 간편하게 붙일 수 있을 것 같다?</li>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/">Document</a>가 잘 정리되어 있으며 <a target="_blank" rel="noopener" href="https://hexo.io/ko/">한국어</a>도 지원한다.</li>
+<li>git으로 버전 관리가 가능하다.</li>
+</ol>
+<h1>Setup</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/">NodeJS</a> 설치</li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a> 설치</li>
+<li>Github에 포스트 버전 관리를 위한 저장소 생성
+<ul>
+<li>cresumerjang.github.io-src</li>
+</ul>
+</li>
+<li>Github에 포스트 배포(호스팅용) 저장소 생성
+<ul>
+<li>저장소명은 domain으로 쓸 이름(<a href="http://cresumerjang.github.io">cresumerjang.github.io</a>)으로 합니다.
+<ul>
+<li><img src="repo_name_for_hexo.png" alt="sad"></li>
+</ul>
+</li>
+<li>포스트 배포(호스팅용) 저장소 -&gt; settings -&gt; GitHub Pages 옵 활성화 합니다.
+<ul>
+<li><img src="github_page_active.png" alt="asd"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>위 4가지 작업을 마쳤으면 본격적으로 Hexo를 사용하기 위한 Setup을 합니다.</p>
+<p>우선 Hexo를 전역으로 설치합니다.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-<span class="keyword">cli</span> -<span class="keyword">g</span> --<span class="keyword">save</span></span><br></pre></td></tr></table></figure>
+<p>Hexo를 초기화하기 위해 아래의 명령을 수행합니다.</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hexo init &lt;folder&gt;</span></span><br><span class="line">hexo init myHexoBlog</span><br><span class="line"></span><br><span class="line"><span class="comment"># cd &lt;folder&gt;</span></span><br><span class="line">cd myHexoBlog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 포스트 버전 관리를 위해 만들어 두었던 저장소를 원격 저장소로 연결해 줍니다.</span></span><br><span class="line">git remote add origin https:<span class="regexp">//gi</span>thub.com<span class="regexp">/cresumerjang/</span>cresumerjang.github.io-src</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="comment"># 초기화에 필요한 package 설치</span></span><br><span class="line">npm install </span><br></pre></td></tr></table></figure>
+<p>초기화가 완료되면 다음과 같은 폴더 구조를 확인할 수 있습니다.</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├── _config<span class="variable">.yml</span> # 프레임워크 환경설정 파일</span><br><span class="line">├── <span class="keyword">package</span><span class="variable">.json</span> # 어플리케이션 데이터 파일</span><br><span class="line">├── scaffolds # 포스생성시 참조되는 레이아웃 위치 [page<span class="variable">.md</span>, post<span class="variable">.md</span>, draft<span class="variable">.md</span>]</span><br><span class="line">├── source # html 파일로 변환되어 public/ 폴더로 이동할 웹 사이트 컨텐츠(<span class="variable">.md</span>) 위치</span><br><span class="line">|   ├── _drafts # draft 레이아웃 사용시 위치하며 <span class="keyword">generate</span> 명령어 실행시 제외 됨, publish 명령어로 source/_posts/로 이동</span><br><span class="line">|   └── _posts # <span class="keyword">generate</span> 명령어로 public/ 폴더로 이동</span><br><span class="line">└── themes # 테마 설치 위치</span><br></pre></td></tr></table></figure>
+<h1>Commands</h1>
+<p>설정에 앞서 유용하거나 자주 사용하는 Hexo 명령어의 사용법에 대해서 알아보겠습니다<br>
+명령어에 대한 자세한 설명은 <a target="_blank" rel="noopener" href="https://hexo.io/ko/docs/commands">Hexo Command Documentation</a>에서 확인하실 수 있습니다.</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo</span> init<span class="meta"> [folder]</span></span><br></pre></td></tr></table></figure>
+<p>웹 사이트를 초기화합니다. folder가 준비되어 있지 않다면 Hexo는 현재 디렉토리에 웹 사이트를 세팅합니다.</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> [layout] &lt;<span class="built_in">title</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>새 글(article)을 생성합니다. layout이 준비되어 있지 않다면, Hexo는 _config.yml에 정의된 default_layout을 사용합니다. 만약 title에 공백이 포함된다면 따옴표로 감싸주세요.</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo clean</span></span><br></pre></td></tr></table></figure>
+<p>캐시 파일 (db.json) 및 생성된 파일들 (public) 을 삭제합니다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] <span class="tag">&lt;<span class="name">filename</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>publish 명령어는 draft 레이아웃으로 작성되어 source/_drafts 위치하고 있 초안 포스트를 source/_posts로 옮기는 작업을 합니다.<br>
+Hexo 실행 시 --draft 옵션을 추가하거나 _config.yml파일에서 render_drafts를 활성화 하면 draft를 렌더링할 수 있습니다.</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">generate</span></span><br><span class="line"></span><br><span class="line"># -d, --deploy	생성이 종료된 후 deploy 합니다.</span><br><span class="line"># -w, --watch	파일의 변경사항을 감시(watch)합니다.</span><br></pre></td></tr></table></figure>
+<p>source/_posts 아래 위치한 포스트들로 public/ 아래에 정적 파일들을 생성합니다.</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">server</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># -p, --port	기본 포트를 덮어씁니다.</span></span><br><span class="line"><span class="meta"># -s, --static 정적인 파일만 구동합니다.</span></span><br><span class="line"><span class="meta"># -l, --log Logger를 활성화 시킵니다. Logger 형식을 덮어씁니다.</span></span><br></pre></td></tr></table></figure>
+<p>로컬 서버를 구동시킵니다. 기본적으로 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 를 사용합니다.</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> list &lt;<span class="keyword">type</span>&gt;</span><br><span class="line"></span><br><span class="line"># <span class="type">Available</span> types: page, post, route, tag, category</span><br></pre></td></tr></table></figure>
+<p>아래와 같이 경로(route) 목록을 보여줍니다.</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo</span> list post</span><br><span class="line"><span class="attribute">2019</span>-<span class="number">01</span>-<span class="number">16</span>  <span class="number">2019</span> Todo list     _posts/<span class="number">2019</span>-Todo.md          my        todo, todo2019</span><br><span class="line"><span class="attribute">2019</span>-<span class="number">01</span>-<span class="number">17</span>  hexo start manual  _posts/hexo-start-manual.md  dev       hex, blog</span><br><span class="line"><span class="attribute">2019</span>-<span class="number">01</span>-<span class="number">17</span>  git revert         _posts/git-revert.md         dev       git, revert</span><br></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line"># -g, --<span class="keyword">generate</span> Deploy 하기 전에 <span class="keyword">generate</span>를 수행합니다.</span><br></pre></td></tr></table></figure>
+<p><code>_config.yml</code>의 <code>deploy</code> 설정을 참고하여 웹 사이트를 deploy 합니다.</p>
+<h1>Configuration</h1>
+<p>Root 디렉토리에 위치한 <code>_config.yml</code> 파일을 사용해 사이트 환경 설정을 수정할 수 있습니다.<br>
+각 설정값들에 대한 자세한 설명은 <a target="_blank" rel="noopener" href="https://hexo.io/ko/docs/configuration">Hexo Configuration Documentation</a>에서 확인하실 수 있으며, 아래는 제가 사용중인 <code>_config.yml</code> 파일 입니다.</p>
+<p>크게는 <code>#Site, #Url, #Theme, #Deploy, #Writing(post_asset_folder)</code> 정도 수정하였으며 좀 더 디테일한 설정은 Theme의 <code>_config.yml</code>과 각 Post 레이아웃 파일에서 추가로 설정할 수 있습니다.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hexo Configuration</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/configuration.html</span></span><br><span class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">http://</span> <span class="comment"># &lt;title&gt; 태그의 텍스트 노드로 들어가며 테마에 따라 UI에 표시</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">개발해서</span> <span class="string">내집</span> <span class="string">장만</span>  <span class="comment"># 테마에 따라 UI에 부주제로 표시</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">웹</span> <span class="string">개발이</span> <span class="string">즐거운</span> <span class="string">개발자의</span> <span class="string">개발</span> <span class="string">이야기</span> <span class="comment"># 보통 &lt;meta&gt; 태그 description 속성 값으로 사용</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">웹개발,</span> <span class="string">프론트개발,</span> <span class="string">UI개발</span> <span class="comment"># 보통 &lt;meta&gt; 태그 keywords 속성 값으로 사용</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Jang</span> <span class="string">Jae</span> <span class="string">Won</span> <span class="comment"># 보통 &lt;meta&gt; 태그 author 속성 값으로 사용</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">ko</span> <span class="comment"># &lt;html lang=&quot;ko&quot;&gt; 주사용 언어 값으로 사용, https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes 에서 사용 언 확인하여 사용할 수 있다.</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">Asia/Seoul</span> <span class="comment"># 타임존 https://en.wikipedia.org/wiki/List_of_tz_database_time_zones 에서 타임존 확인하여 사용할 수 있다.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://cresumerjang.github.io</span> </span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Directory</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span></span><br><span class="line"><span class="attr">tag_dir:</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">archive_dir:</span> <span class="string">archives</span></span><br><span class="line"><span class="attr">category_dir:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">code_dir:</span> <span class="string">downloads/code</span></span><br><span class="line"><span class="attr">i18n_dir:</span> <span class="string">:lang</span></span><br><span class="line"><span class="attr">skip_render:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Writing</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span> <span class="comment"># File name of new posts :year-:month-:day-:</span></span><br><span class="line"><span class="attr">default_layout:</span> <span class="string">post</span> <span class="comment"># 기본 포스트 레이아웃 /scaffolds 에 draft.md, page.md, post.md 3개 레이아웃을 수정할 수 있다.</span></span><br><span class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></span><br><span class="line"><span class="attr">external_link:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></span><br><span class="line"><span class="attr">filename_case:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span> <span class="comment"># 포스팅마다 개별 asset 디렉토리를 생성해 준다.</span></span><br><span class="line"><span class="attr">relative_link:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">future:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">highlight:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">tab_replace:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Home page setting</span></span><br><span class="line"><span class="comment"># path: Root path for your blogs index page. (default = &#x27;&#x27;)</span></span><br><span class="line"><span class="comment"># per_page: Posts displayed per page. (0 = disable pagination)</span></span><br><span class="line"><span class="comment"># order_by: Posts order. (Order by date descending by default)</span></span><br><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span></span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Date / Time format</span></span><br><span class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line"><span class="attr">date_format:</span> <span class="string">YYYY-MM-DD</span></span><br><span class="line"><span class="attr">time_format:</span> <span class="string">HH:mm:ss</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Pagination</span></span><br><span class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line"><span class="attr">per_page:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">pagination_dir:</span> <span class="string">page</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">clean-blog</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/cresumerjang/cresumerjang.github.io</span></span><br><span class="line">  <span class="attr">branch:</span></span><br><span class="line">  <span class="attr">message:</span></span><br></pre></td></tr></table></figure>
+<h1>Write &amp; Generate</h1>
+<p>포스트를 작성하는 방법을 알아보겠습니다.</p>
+<p>직접 마크다운 파일을 만들 필요없이 hexo 명령어를 통해서 선택한 layout 으로 파일을 생성합니다.<br>
+레이아웃에 따라서 바로 포스트를 생성할 수 도 있고 초안으로 포스트를 <code>source/_drafts</code>에 생성해 두었다가 <code>publish</code> 명령어를 사용해 <code>source/_posts</code>로 옮긴 후 <code>generate</code> 명령어를 사용해 <code>public/</code>로 내보낼 수 도 있습니다.</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> [layout] &lt;<span class="built_in">title</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>draft 를 사용한 경우 포스트 작성이 완료되면 아래의 <code>publish</code> 명령어를 실행해 줍니다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] <span class="tag">&lt;<span class="name">filename</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>publish</code> 명령어는 <code>source/_drafts</code>에 위치하고 있는 초안 포스트를 <code>source/_posts</code>로 옮기는 작업을 합니다.</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp; hexo <span class="keyword">generate</span></span><br></pre></td></tr></table></figure>
+<p><code>public/</code> 폴더를 지우고 <code>source/_drafts</code>에 위치하고 있는 포스트를 <code>html</code> 파일로 변환해 <code>public/</code>로 내보냅니다.</p>
+<h3 id="Layout"><a class="header-anchor" href="#Layout"></a>Layout</h3>
+<p>기본 layout은 post 이지만 _config.yml 파일의 default_layout 값을 변경하여 기본 layout을 <code>post, page, draft</code>중 하나로 변경할 수 있습니다.<br>
+<code>scaffolds/post.md</code> post layout 파일을 예시로 보겠습니다. <code>key : value</code> 형태(<code>YAML</code>)로 구성되어 있으며 이 부분을 <code>Front-matter</code>라고 부릅니다. 특정 속성에 변수를 할당하거나 기본 값을 설정해 둘 수 있습니다.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> &#123;&#123; <span class="string">title</span> &#125;&#125;</span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">date:</span> &#123;&#123; <span class="string">date</span> &#125;&#125;</span><br><span class="line"><span class="attr">updated:</span> &#123;&#123; <span class="string">updated</span> &#125;&#125;</span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="attr">cover:</span> <span class="string">/assets/contact-bg.jpg</span></span><br><span class="line"><span class="attr">share_cover:</span> <span class="string">/assets/contact-bg.jpg</span></span><br></pre></td></tr></table></figure>
+<h3 id="Font-matter-환경설정-및-기본-값"><a class="header-anchor" href="#Font-matter-환경설정-및-기본-값"></a>Font-matter 환경설정 및 기본 값</h3>
+<div class="table__custom">
+<table>
+<thead>
+<tr>
+<th>설정</th>
+<th>설명</th>
+<th>기본 값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layout</td>
+<td>레이아웃</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>타이틀</td>
+<td></td>
+</tr>
+<tr>
+<td>date</td>
+<td>발행일</td>
+<td>파일이 생성된 날짜</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>갱신일</td>
+<td>파일이 업로드된 날짜</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>포스트에서 comment 기능을 사용할지 여부</td>
+<td>true</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>태그 (page에서는 사용 불가능)</td>
+<td></td>
+</tr>
+<tr>
+<td>categories</td>
+<td>카테고리 (page에서는 사용 불가능)</td>
+<td></td>
+</tr>
+<tr>
+<td>permalink</td>
+<td>포스트의 기본 permalink를 override합니다.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>아래는 선택한 레이아웃에 따라 파일이 생성되는 위치입니다.</p>
+<div class="table__custom">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Layout</th>
+<th style="text-align:center">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">post</td>
+<td style="text-align:center">source/_posts</td>
+</tr>
+<tr>
+<td style="text-align:center">page</td>
+<td style="text-align:center">source</td>
+</tr>
+<tr>
+<td style="text-align:center">draft</td>
+<td style="text-align:center">source/_drafts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Filename"><a class="header-anchor" href="#Filename"></a>Filename</h3>
+<p>기본적으로, Hexo는 post의 제목을 파일명과 동일하게 사용합니다. _config.yml 파일의 new_post_name 설정을 변경하여 기본 파일명을 바꿀 수 있습니다. 예를 들어, :year-:month-:day-:title.md는 포스트가 생성된 날짜를 파일명의 접두사로 사용하게 합니다. 당신은 아래와 같은 placeholder를 사용할 수 있습니다.</p>
+<div class="table__custom">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Placeholder</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">:title</td>
+<td>Post 제목 (소문자, 공백은 ‘-‘하이픈으로 변경됩니다.)</td>
+</tr>
+<tr>
+<td style="text-align:center">:year</td>
+<td>연도를 생성합니다. 예. 2015</td>
+</tr>
+<tr>
+<td style="text-align:center">:month</td>
+<td>월을 생성합니다. (0이 붙습니다.), 예. 04</td>
+</tr>
+<tr>
+<td style="text-align:center">:i_month</td>
+<td>월을 생성합니다. (0이 붙지 않습니다.), 예. 4</td>
+</tr>
+<tr>
+<td style="text-align:center">:day</td>
+<td>일을 생성합니다. (0이 붙습니다.), 예. 07</td>
+</tr>
+<tr>
+<td style="text-align:center">:i_day</td>
+<td>일을 생성합니다. (0이 붙지 않습니다.), 예. 7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1>Deploy</h1>
+<p>Github 저장소에 배포를 위해서 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a>을 설치해 주고 메인 <code>_config.yml</code>에 deploy 환경을 설정합니다.</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<p><code>hexo-deployer-git</code> 설치</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;</span></span><br><span class="line">  <span class="attr">branch:</span> [<span class="string">branch</span>]</span><br><span class="line">  <span class="attr">message:</span> [<span class="string">message</span>]</span><br></pre></td></tr></table></figure>
+<p><code>_config.yml</code> 파일에 deploy 환경 설정</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo</span> </span><br></pre></td></tr></table></figure>
+<p>위 두작업이 완료되면 <code>deploy</code> 명령어로 github 저장소에 배포(실제로는 push 행위)합니다.</p>
+<p>해당 저장소의 Github 페이지 주수로 잘 배포되었는지 확인합니다.<br>
+<a href="https://cresumerjang.github.io/">https://cresumerjang.github.io/</a></p>
+<p>여기까지 진행하면 Hexo를 사용하여 블로그를 운영할 수 있습니다.<br>
+아래는 추가 Topic으로 하나씩 해결해 가면 다뤄볼 예정입니다.</p>
+<h1>Site Analytics</h1>
+<p>Google Analytics (미작성)</p>
+<h1>Advertisement</h1>
+<p>Google Ad (미작성)</p>
+<h1>Add Comment System to Hexo</h1>
+<p><a href="/2019/11/17/hexo-add-comments/">Hexo Disqus 댓글 기능 추가하기</a></p>
+
+
+                
+            </div>
+
+            <div class="google-ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- adForPostDisplay -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3917275028032933"
+                    data-ad-slot="6434864533"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- Google Adsense Module -->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <!--<h3>코멘트:</h3>-->
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.linkedin.com/in/jaewon-jang-104836113/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:jw9651@naver.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Jang Jae Won<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="button__top">TOP</a>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Search -->
+
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'cresumerjang-github-io';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000"/>
+
+    <!-- for NAVER search index -->
+    <meta name="naver-site-verification" content="08d0b9b1265a02d27eb8c25208f88e86d1681974" />
+    <!-- for Google Search Console -->
+    <meta name="google-site-verification" content="T73c2s_bs7sgnZsES1d9GN7taHGu6BhjE_Q_8EtUwtE" />
+    
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <meta name="keywords" content="html, css, javascript, frontend, backend, web developer, ui developer, server developer, reactjs, vuejs, redux, mobx, css in js, nodejs, postgresql, mysql, mariadb, mongodb, nosql, graphql, typescript, es6, ecma, ecma script">
+
+    <!--Author-->
+    
+        <meta name="author" content="Jang Jae Won"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="HTML5 Canvas"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="웹 개발자 기술 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+    <!-- Title -->
+    
+
+    
+        <title>HTML5 Canvas</title>
+    
+    
+    <!-- config 
+    itle_tag: "Superjang's Dev Talk",
+    keywords: '웹개발, 프론트개발, UI개발',
+    title: '웹 개발자 기술 블로그',
+    subtitle: '개발해서 내집 장만',
+    description: '웹 개발이 즐거운 개발자의 개발 이야기',
+    author: 'Jang Jae Won', -->
+    <!--  -->
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400|Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3917275028032933",
+          enable_page_level_ads: true
+     });
+</script>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-132451532-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/favicon.ico"/>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">cresumerjang.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <div id="site_search">
+                            <div class="form-group">
+                                <input type="text" id="local-search-input" name="q" results="0" autocomplete="off" placeholder="search" class="st-search-input st-default-search-input form-control"/>
+                            </div>  
+                            <div id="local-search-result"></div>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/hexo_main-bg.jpg')">
+    <div class="page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>HTML5 Canvas</h1>
+                        
+                        <h2 class="post-subheading">
+                            Canvas 렌더링과 성능 최적화
+                        </h2>
+                        
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            
+                            
+                                2019-02-20
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+                <div class="post-tag-category-box">
+                    <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-categories">
+                        
+                            
+
+<a class="text--article-category icon category-dev" href="/categories/dev/">dev</a> <a class="text--article-category icon category-frontend" href="/categories/dev/frontend/">frontend</a>
+
+                        
+                    </div>
+            
+                    <div class="col-lg-4 col-md-5 post-tags">
+                        
+                            
+
+
+<a class="text--article-tag icon tag-HTML5" href="/tags/HTML5/">#HTML5</a> <a class="text--article-tag icon tag-Canvas" href="/tags/Canvas/">#Canvas</a>
+
+
+                        
+                    </div>
+                </div>
+             
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h4 id="TRACK-2-DEVIEW-2018-책에서는-맛볼-수-없는-HTML5-Canvas-이야기-​-부제-Web-Worker를-이용해-캔버스-성능을-극대화하기"><a class="header-anchor" href="#TRACK-2-DEVIEW-2018-책에서는-맛볼-수-없는-HTML5-Canvas-이야기-​-부제-Web-Worker를-이용해-캔버스-성능을-극대화하기"></a>TRACK 2 : <a target="_blank" rel="noopener" href="https://deview.kr/2018/schedule/259">DEVIEW 2018 책에서는 맛볼 수 없는 HTML5 Canvas 이야기 ​(부제: Web Worker를 이용해 캔버스 성능을 극대화하기)</a></h4>
+<blockquote>
+<p>DEVIEW 2018 참석 후 관심있게 들었던 섹션을 정리하였습니다.</p>
+</blockquote>
+<ul>
+<li>브라우저 렌더링</li>
+<li>캔버스는 렌더링</li>
+<li>캔버스 애니메이션 문제점</li>
+<li>문제점 개선 방법</li>
+<li>새로운 API</li>
+</ul>
+<h2 id="브라우저-렌더링"><a class="header-anchor" href="#브라우저-렌더링"></a>브라우저 렌더링</h2>
+<p><img src="renderingElement.png" alt=""></p>
+<p>브라우저는 크게 Rendering Engine, Javascript Engine, Graphics Library 3가지 요소로 렌더링이 처리됩니다. 대략적인 흐름은 아래와 같습니다.(브라우저 렌더링 플로우 자체는 디테일하게 다루지 않습니다. <a href="/2019/02/20/browser-rendering-optmize/">브라우저는 어떻게 화면을 그릴까?</a> 포스팅을 참고해 주세요.)</p>
+<ol>
+<li>Rendering Engine이 렌더링을 처리합니다.<br>
+(Rendering Engine은 Javascript 를 해석할 수 없습니다.)</li>
+<li>Javascript 를 만나면 V8 에 해석 요청을 합니다.</li>
+<li>이후 Graphics Library를 통해 화면을 그립니다.</li>
+</ol>
+<h2 id="캔버스-렌더링"><a class="header-anchor" href="#캔버스-렌더링"></a>캔버스 렌더링</h2>
+<p>위 흐름을 보면 Canvas 에 무언가를 효율적으로 그리기 위해서는 HTML, CSS 보다는 Javascript 라는 것을 짐작할 수 있습니다. 실제로 캔버스 내부는 Javascript 코드로 그려지기 때문에 캔버스 렌더링은 브라우저 Rendering Engine 아닌 Javascript Engine에 의해 결정됩니다.</p>
+<h2 id="캔버스-애니메이션-문제점"><a class="header-anchor" href="#캔버스-애니메이션-문제점"></a>캔버스 애니메이션 문제점</h2>
+<p>다이나믹한 그래픽 처리를 위해 Canvas 가 나타났습니다. 애니메이션을 잘 처리하기 위한 목적으로 나온 태그이지만 현실은 다이나믹한 그래픽 처리에 어려움이 있습니다.</p>
+<p><img src="canvasRender.png" alt=""></p>
+<p>위 그림을 보면 렌더링 엔진, 자바스크립트 엔진, 그래픽스 라이브러리가 16.7ms를 넘어 처리되고 있습니다. 실제로 16.7ms 내에서 캔버스 코드가 실행되고 그림을 그려야 1프레임을 제대로 그릴 수 있지만 위 그림에서는 초과하여 실제로 프레임 드랍이 발생합니다.</p>
+<p>프레임 드랍이 발생하지 않게 하기 위해서는 Main Thread 에서 16.7ms 안에<br>
+dom, javascript, painting 을 처리하고 남는 시간에 캔버스 렌더링을 시도해야 합니다. 하지만 Main Thread 는 위 그림처럼 이미 많은 일을 하고 있는 경우가 많습니다.</p>
+<h2 id="문제점-개선-방법"><a class="header-anchor" href="#문제점-개선-방법"></a>문제점 개선 방법</h2>
+<h3 id="브라우저-관점에서-개선"><a class="header-anchor" href="#브라우저-관점에서-개선"></a>브라우저 관점에서 개선</h3>
+<p>Main Thread 에서 하던 일을 분담하는 방식입니다.<br>
+<img src="drawProcess.png" alt=""></p>
+<ol>
+<li>Main Thread 에서는 Recording 까지만 처합니다. (그림 그리는 방법 정의합니다.)</li>
+<li>Raster Thread 에서 생성된 Canvas layer를 bitmap 화 합니다. (전달 받은 방법에 따라 그림을 그림립니다.)</li>
+<li>Compositor Thread 에서 bitmap 들을 합쳐 하나의 큰 그림을 그리게 합니다. (그려진 그림들을 조합 합니다.)</li>
+</ol>
+<h3 id="웹-개발자-관점에서-개선"><a class="header-anchor" href="#웹-개발자-관점에서-개선"></a>웹 개발자 관점에서 개선</h3>
+<h4 id="풀-스크린으로-캔버스-렌더링하기"><a class="header-anchor" href="#풀-스크린으로-캔버스-렌더링하기"></a>풀 스크린으로 캔버스 렌더링하기</h4>
+<p>UI에 제약이 생기지만 Canvas를 풀 스크린으로 렌더링하면 핸들링할 Target DOM 이 없기 때문에 Main Thread 자원을 더 사용할 수 있으며 GPU 가속까지 붙이면 성능을 개선할 수 있습니다. 애니메이션을 전체 화면에서 처리할 경우는 고려해볼 수 있는 선택지 입니다.</p>
+<h4 id="Background-Canvas"><a class="header-anchor" href="#Background-Canvas"></a>Background Canvas</h4>
+<p>프리젠테이션용, 백그라운드용 캔버스를 두개 만듭니다. 백그라운드에서 여러 오브젝트를 다 그린다음 프레젠테이션 캔버스에 백그라운드 캔버스에서 그린 오브젝트를 가져와 한번에 한번에 엎어치기 하는 방식입니다.</p>
+<h5 id="Background-Canvas-2"><a class="header-anchor" href="#Background-Canvas-2"></a>Background Canvas</h5>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">backContext.<span class="title function_">drawRect</span>();</span><br><span class="line">backContext.<span class="title function_">drawOval</span>();</span><br><span class="line">backContext.<span class="title function_">drawTriangle</span>();</span><br></pre></td></tr></table></figure>
+<h5 id="Presentation-Canvas"><a class="header-anchor" href="#Presentation-Canvas"></a>Presentation Canvas</h5>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frontContext.<span class="title function_">drawImage</span>(backCanvas);</span><br></pre></td></tr></table></figure>
+<h2 id="새로운-캔버스-API"><a class="header-anchor" href="#새로운-캔버스-API"></a>새로운 캔버스 API</h2>
+<p>위와 같은 꼼수 없이 캔버스를 잘 그리기 위한 새로운 <a target="_blank" rel="noopener" href="https://www.google.com/search?q=Offscreen+Canvas+API&amp;oq=Offscreen+Canvas+API&amp;aqs=chrome..69i57.421j0j1&amp;sourceid=chrome&amp;ie=UTF-8">API</a> 가 고안되었습니다.</p>
+<h4 id="등장-배경"><a class="header-anchor" href="#등장-배경"></a>등장 배경</h4>
+<ul>
+<li>Javascript Engine과 Rendering Engine 사이의 Binding Overhead 발생<!-- (두엔진간 왔다갔다 overhead가 크다) --></li>
+<li>GPU 가속을 사용하더라도 Skia 내부의 Overhead 발생<!-- (GPU가속 쓰더라도 CPU가 써야하는 부분에서 페인팅 라이브러리 overhead 가 크다) -->
+<ul>
+<li>GPU가속 쓰더라도 CPU를 써야하는 부분에서 페인팅 라이브러리 overhead 발생</li>
+</ul>
+</li>
+<li>위 프로세스 처리 후 DOM Rendering 을 처리하기에도 벅찬 Main-Thread</li>
+</ul>
+<h4 id="요구-사항"><a class="header-anchor" href="#요구-사항"></a>요구 사항</h4>
+<ul>
+<li>Javascript 부하를 줄이기 위해 다른 Thread 에서 실행할 수 있으면 좋겠다.</li>
+<li>크진 않지만 Skia 의 부하를 줄이기 위해 다른 Thread 에서 실행하면 좋겠다.</li>
+<li>DOM Rendering 과 분리되면 좋겠다.</li>
+</ul>
+<h4 id="시도"><a class="header-anchor" href="#시도"></a>시도</h4>
+<ul>
+<li>이미 사용되고 있는 webWorker를 통하여 새로운 스레드 생성하여 처리 시도</li>
+</ul>
+<h4 id="이슈"><a class="header-anchor" href="#이슈"></a>이슈</h4>
+<ul>
+<li>webWorker 에서는 직접적으로 DOM 에 엑세스가 불가능 합니다.</li>
+<li>캔버스가 HTML(DOM) 이기에 메인 스레드에서 분리가 불가능 합니다.
+<ul>
+<li>(HTML 은 JS, CSS 등 다른 자원에서 DOM Tree 접근시 싱크가 맞아야 하는데 다른 스레드에서 처리하게 되면 싱크 이슈가 발생합니다.)</li>
+<li>React, Vue 와 같이 Shadow DOM 을 사용하게 되면 Atomic 하게 처리할 수 있습니다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="해결"><a class="header-anchor" href="#해결"></a>해결</h4>
+<ul>
+<li>Canvas를 DOM 에서 분리하는 새로운 offscreen canvas API 등장</li>
+<li><strong>Offscreen Canvas API</strong>
+<ul>
+<li>기존의 Canvas Rendering Logic은 고치지 않고 Thread만 옮겨가서 그대로 수행할 수 있습니다.</li>
+<li>Mozila와 크롬 69에 적용되어 있습니다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Todo-For-Main-Thread"><a class="header-anchor" href="#Todo-For-Main-Thread"></a>Todo For Main Thread</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> canvas = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(‘canvas’);</span><br><span class="line"><span class="keyword">const</span> offscreen = canvas.<span class="title function_">transferControlToOffscreen</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> worker = <span class="keyword">new</span> <span class="title class_">Worker</span>(‘canvas-worker.<span class="property">js</span>’);</span><br><span class="line">worker.<span class="title function_">postMessage</span>(&#123; <span class="attr">canvas</span>: offscreen &#125;, [offscreen]);</span><br></pre></td></tr></table></figure>
+<h3 id="Todo-For-Worker-Thread"><a class="header-anchor" href="#Todo-For-Worker-Thread"></a>Todo For Worker Thread</h3>
+<p>아래와 같이 워커 스레드에서 렌더링처리하면 메인 스레드의 스택과는 무관하게 렌더링 처리가 가능합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">self.<span class="property">onmessage</span> = <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> offscreen = event.<span class="property">data</span>.<span class="property">canvas</span>;</span><br><span class="line">    <span class="keyword">const</span> context = canvas.<span class="title function_">getContext</span>(‘2d’);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">time</span>) &#123;</span><br><span class="line">      <span class="title function_">drawSomething</span>(context);</span><br><span class="line">      <span class="title function_">requestAnimationFrame</span>(render);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">requestAnimationFrame</span>(render);</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="기존-방식의-Canvas-사용"><a class="header-anchor" href="#기존-방식의-Canvas-사용"></a>기존 방식의 Canvas 사용</h4>
+<p><img src="oldCanvas.png" alt=""></p>
+<h4 id="Offscreen-Canvas-사용"><a class="header-anchor" href="#Offscreen-Canvas-사용"></a>Offscreen Canvas 사용</h4>
+<p><img src="newCanvas.png" alt=""></p>
+<h3 id="정리"><a class="header-anchor" href="#정리"></a>정리</h3>
+<p>Offscreen Canvas 를 이용하면 Canvas 에 그림을 그리기 위한 로직을 Main Thread 에서 분리하여 처리할 수 있고 이를 통해 캔버스의 성능을 향상 시킬 수 있습니다.</p>
+
+
+                
+            </div>
+
+            <div class="google-ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- adForPostDisplay -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3917275028032933"
+                    data-ad-slot="6434864533"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- Google Adsense Module -->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <!--<h3>코멘트:</h3>-->
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.linkedin.com/in/jaewon-jang-104836113/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:jw9651@naver.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Jang Jae Won<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="button__top">TOP</a>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Search -->
+
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'cresumerjang-github-io';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>

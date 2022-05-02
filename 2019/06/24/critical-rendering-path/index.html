@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000"/>
+
+    <!-- for NAVER search index -->
+    <meta name="naver-site-verification" content="08d0b9b1265a02d27eb8c25208f88e86d1681974" />
+    <!-- for Google Search Console -->
+    <meta name="google-site-verification" content="T73c2s_bs7sgnZsES1d9GN7taHGu6BhjE_Q_8EtUwtE" />
+    
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <meta name="keywords" content="html, css, javascript, frontend, backend, web developer, ui developer, server developer, reactjs, vuejs, redux, mobx, css in js, nodejs, postgresql, mysql, mariadb, mongodb, nosql, graphql, typescript, es6, ecma, ecma script">
+
+    <!--Author-->
+    
+        <meta name="author" content="Jang Jae Won"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="웹 브라우저는 렌더링 프로세스"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="웹 개발자 기술 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://cresumerjang.github.io/assets/contact-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://cresumerjang.github.io/assets/contact-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+
+    
+        <title>웹 브라우저는 렌더링 프로세스</title>
+    
+    
+    <!-- config 
+    itle_tag: "Superjang's Dev Talk",
+    keywords: '웹개발, 프론트개발, UI개발',
+    title: '웹 개발자 기술 블로그',
+    subtitle: '개발해서 내집 장만',
+    description: '웹 개발이 즐거운 개발자의 개발 이야기',
+    author: 'Jang Jae Won', -->
+    <!--  -->
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400|Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3917275028032933",
+          enable_page_level_ads: true
+     });
+</script>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-132451532-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/favicon.ico"/>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">cresumerjang.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <div id="site_search">
+                            <div class="form-group">
+                                <input type="text" id="local-search-input" name="q" results="0" autocomplete="off" placeholder="search" class="st-search-input st-default-search-input form-control"/>
+                            </div>  
+                            <div id="local-search-result"></div>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/hexo_main-bg.jpg')">
+    <div class="page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>웹 브라우저는 렌더링 프로세스</h1>
+                        
+                        <h2 class="post-subheading">
+                            웹 성능 최적화에 필요한 브라우저의 모든 것
+                        </h2>
+                        
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            
+                            
+                                2019-06-24
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+                <div class="post-tag-category-box">
+                    <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-categories">
+                        
+                            
+
+<a class="text--article-category icon category-dev" href="/categories/dev/">dev</a> <a class="text--article-category icon category-frontend" href="/categories/dev/frontend/">frontend</a>
+
+                        
+                    </div>
+            
+                    <div class="col-lg-4 col-md-5 post-tags">
+                        
+                            
+
+
+<a class="text--article-tag icon tag-web browser rendering" href="/tags/web-browser-rendering/">#web browser rendering</a> <a class="text--article-tag icon tag-critial rendering path" href="/tags/critial-rendering-path/">#critial rendering path</a>
+
+
+                        
+                    </div>
+                </div>
+             
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- # 성능 최적화 Part 1 - 브라우저 렌더링 방식 이해하기 -->
+<p>웹의 초창기에는 마크업 문서 작성시 <code>&lt;body&gt;</code> 태그를 빼 먹거나, 닫아야 하는 태그를 닫지 않으면 브라우저가 HTML 을 제대로 파싱하지 못하였습니다. 때문에 종종 화면에 깨진 UI 가 표시되기도 하였습니다. 하지만 오늘 날 대부분의 모던 브라우저는 예외 처리가 아주 잘 되어 있어 대부분의 좋지 못한 경우에도 예상한 <code>DOM Tree</code> 를 만들어 줍니다. 오히려 예전보다 덜 신경쓰며 작업 해도 브라우저가 예상한 화면으로 잘 렌더링 해주는거죠.</p>
+<p>이처럼 브라우저의 성능이 점점 향상되고 스마트해 짐에 따라 렌더링 방법을 이해하지 않고 작업해도 대부분의 웹 페이지와 애플리케이션은 잘 동작합니다. 그런데도 우리는 <strong>왜</strong> 브라우저의 렌더링 프로세스에 대해 알고 있어야 할까요?</p>
+<p>사용자가 웹 페이지를 이탈하지 않고 서비스에 더 오래 머물게 하는 중요한 요소중 하나인 <strong>웹 애플리케이션 응답 속도</strong> 때문입니다.</p>
+<p><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/progressive-rendering.png" alt=""></p>
+<p>속도 개선을 위한 성능 최적화 작업은 <code>Backend</code>, <code>Frontend</code> 모든 영역에서 작업 되어야 하지만 드라마틱한 개선을 위해서는 브라우저 렌더링 최적화가 반드시 고려되어야 합니다.</p>
+<p><code>Critical Rendering Path</code> 라는 <strong>브라우저 렌더링 과정</strong>을 이해하고 각 단계에서 어떤 일이 일어나는지 파악할 수 있어야 <strong>브라우저 렌더링 최적화</strong>를 통한 어플리케이션의 <strong>응답 속도를 개선</strong>할 수 있기 때문에 브라우저 렌더링 과정에 대해 이해하는 것은 생각보다 중요합니다.</p>
+<h2 id="How-does-web-browser-work"><a class="header-anchor" href="#How-does-web-browser-work"></a>How does web browser work?</h2>
+<p>아래 이미지는 웹 브라우저가 서버로 요청을 보내고 응답 받아 화면을 그리는 일련의 과정으로 <code>Backend Time</code>, <code>Frontend Time</code> 으로 구분하여 웹 브라우저가 어떻게 화면을 표시하는지 보여주고 있습니다.</p>
+<p><img src="./process_model.png" alt=""></p>
+<blockquote>
+<p>이번 포스트에는 브라우저의 렌더링 방식에 대해서 알아보기 위한 포스트로 <code>Frontend Time</code> 을 중점적으로 다룹니다.</p>
+</blockquote>
+<ul>
+<li><strong>Backend Time</strong>
+<ul>
+<li>렌더링 준비 단계로 HTML 및 기타 <strong>Resources</strong> 를 <strong>수신</strong>합니다.</li>
+</ul>
+</li>
+<li><strong>Frontend Time</strong>
+<ul>
+<li>렌더링 실행 단계로 <strong>Render Tree</strong> 를 생성하고 <strong>Layout</strong> 및 <strong>Paint</strong> 를 시도합니다.</li>
+</ul>
+</li>
+</ul>
+<p>간략하게 웹 브라우저가 동작하는 과정을 살펴봤습니다. 이제 <code>Frontend Time</code> 에서 일어나는 렌더링 과정에 대해 알아보도록 하겠습니다.</p>
+<h2 id="Critical-Rendering-Path"><a class="header-anchor" href="#Critical-Rendering-Path"></a>Critical Rendering Path</h2>
+<p>웹 브라우저의 렌더링 과정을 <strong>Critical Rendering Path(CRP)</strong> 라고 하며 아래 이미지와 같은 과정을 거쳐 그래픽 요소를 화면에 그리게 됩니다.</p>
+<p><img src="./oldBrowserRenderFlow.png" alt=""></p>
+<p>CRP 각 과정에서 처리되는 내용을 간략하게 살펴보면 아래와 같습니다.</p>
+<ol>
+<li>HTML 마크업을 처리하고 DOM 트리를 빌드합니다.
+<ul>
+<li><strong>Parse HTML</strong></li>
+<li><strong>Build DOM Tree</strong></li>
+</ul>
+</li>
+<li>CSS 마크업을 처리하고 CSSOM 트리를 빌드합니다.
+<ul>
+<li><strong>Parse Stylesheet</strong></li>
+<li><strong>Build CSSOM Tree</strong></li>
+</ul>
+</li>
+<li>DOM 및 CSSOM을 결합하여 렌더링 트리를 형성합니다.
+<ul>
+<li><strong>Calculate Style</strong></li>
+<li><strong>Build Render Tree</strong> (DOM + CSSOM)</li>
+</ul>
+</li>
+<li>렌더링 트리에서 레이아웃을 실행하여 각 노드의 기하학적 형태를 계산합니다.
+<ul>
+<li><strong>Layout</strong></li>
+<li><strong>Update Layer Tree</strong></li>
+</ul>
+</li>
+<li>개별 노드를 화면에 페인트합니다.
+<ul>
+<li><strong>Paint</strong></li>
+<li><strong>Raster</strong></li>
+<li><strong>Composit Layer</strong></li>
+</ul>
+</li>
+</ol>
+<p>페이지 초기 렌더링 이후 UI의 상태가 변경되어도 위 프로세스의 <strong>전체</strong> 혹은 <strong>일부</strong>를 거쳐 화면이 그려지게 됩니다. 따라서 <strong>Critical Rendering Path</strong> 를 최적화(1단계~5단계를 수행할 때 걸린 총 시간 최소화) 하면 초기 컨텐츠를 화면에 빠르게 렌더링할 수 있을 뿐만 아니라 초기 렌더링 후 화면 업데이트 시간도 줄일 수 있습니다.</p>
+<p><strong>Critical Rendering Path</strong> 의 각 프로세스에 대해 좀 더 자세히 알아보겠습니다.</p>
+<h3 id="Build-DOM-Tree"><a class="header-anchor" href="#Build-DOM-Tree"></a>Build DOM Tree</h3>
+<p><strong>Document Object Model</strong> 은 브라우저가 웹 페이지를 잘 핸들링 하기 위해 필요한 객체입니다. 브라우저는 수신받은 HTML 을 가지고 <strong>Bytes &gt; Characters &gt; Tokens &gt; Nodes &gt; DOM</strong> 의 과정을 거쳐 DOM Tree 를 만듭니다.</p>
+<p><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/full-process.png" alt=""></p>
+<ol>
+<li><strong>변환</strong> (Bytes -&gt; Characters)
+<ul>
+<li>브라우저가 HTML의 원시 바이트를 디스크나 네트워크에서 읽어와서, 해당 파일에 대해 지정된 인코딩(예: UTF-8)에 따라 개별 문자로 변환합니다.</li>
+</ul>
+</li>
+<li><strong>토큰화</strong> (Character -&gt; Tokens)
+<ul>
+<li>브라우저가 문자열을 W3C HTML5 표준에 지정된 고유 토큰으로 변환합니다(예: <code>&lt;html&gt;</code>, <code>&lt;body&gt;</code> 및 꺽쇠괄호로 묶인 기타 문자열). 각 토큰은 특별한 의미와 고유한 규칙을 가집니다.</li>
+</ul>
+</li>
+<li><strong>렉싱</strong> (Tokens -&gt; Nodes)
+<ul>
+<li>방출된 토큰은 해당 속성 및 규칙을 정의하는 '객체’로 변환됩니다.</li>
+</ul>
+</li>
+<li><strong>DOM 생성</strong> (Nodes -&gt; DOM)
+<ul>
+<li>마지막으로, HTML 마크업이 여러 태그(일부 태그는 다른 태그 안에 포함되어 있음) 간의 관계를 정의하기 때문에 생성된 객체는 트리 데이터 구조 내에 연결됩니다. 이 트리 데이터 구조에는 원래 마크업에 정의된 상위-하위 관계도 포합됩니다. 즉, HTML 객체는 body 객체의 상위이고, body 는 paragraph 객체의 상위인 식입니다.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Build-CSSOM-Tree"><a class="header-anchor" href="#Build-CSSOM-Tree"></a>Build CSSOM Tree</h3>
+<p>수신된 CSS 규칙을 브라우저가 이해하고 처리할 수 있는 형식으로 변환하기 HTML 과 동일한 프로세스(<strong>Bytes &gt; Characters &gt; Tokens &gt; Nodes &gt; CSSOM</strong>)가 적용됩니다.</p>
+<p><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/cssom-construction.png" alt=""></p>
+<h3 id="Build-Render-Tree"><a class="header-anchor" href="#Build-Render-Tree"></a>Build Render Tree</h3>
+<p><strong>DOM</strong> 은 컨텐츠, <strong>CSSOM</strong> 은 스타일 규칙을 설명하는 독립적인 객체입니다. 각각의 객체를 가지고 <strong>화면에 픽셀을 찍기위해</strong>서는 두 객체를 합쳐 <strong>Render Tree</strong> 를 만들어야 합니다.<br>
+웹 브라우저는 아래 과정을 거쳐 DOM, CSSOM 을 Render Tree 로 만듭니다.</p>
+<p><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/render-tree-construction.png" alt=""></p>
+<ol>
+<li><strong>DOM 트리의 루트에서 시작하여 표시되는 노드 각각을 트래버스합니다.</strong>
+<ul>
+<li>일부 노드는 표시되지 않으며(예: 스크립트 태그, 메타 태그, display none 속성을 가진 요소 등), 렌더링된 출력에 반영되지 않으므로 Render Tree 에서는 생략됩니다.</li>
+<li>필요에 따라 1개 이상의 <strong>Layer</strong> 가 만들어집니다.</li>
+<li>Layer 중간에 GPU 처리가 필요하면 <strong>Graphic Layer</strong> 가 만들어집니다.</li>
+</ul>
+</li>
+<li><strong>표시된 각 노드에 대해 적절하게 일치하는 CSSOM 규칙을 찾아 적용합니다.</strong></li>
+<li><strong>표시된 노드를 콘텐츠 및 계산된 스타일과 함께 내보냅니다.</strong></li>
+</ol>
+<p>해당 프로세스의 최종 출력은 화면에 표시되는 모든 노드의 콘텐츠 및 스타일 정보를 모두 포함하는 Render Tree 입니다. Render Tree 가 생성되면 <strong>‘Layout’</strong> 단계를 진행합니다.</p>
+<h3 id="Layout-Reflow"><a class="header-anchor" href="#Layout-Reflow"></a>Layout (Reflow)</h3>
+<p>Render Tree 에는 노드와 노드의 스타일만 계산되어 있습니다. Layout 에서는 화면에 표시될 노드의 정확한 위치 및 크기를 계산합니다.</p>
+<p>페이지에서 각 객체의 정확한 크기와 위치를 파악하기 위해 브라우저는 Render Tree 루트에서 부터 Render Tree 를 탐색하며 각 노드의 Box Type 을 확인합니다. Type이  Block 이면 세로로 Inline 이면 가로로 Box의 위치를 계산합니다.</p>
+<p><img src="http://blog.4psa.com/wp-content/uploads/block-inline1.png" alt=""></p>
+<p>최종 output 위와 같은 <strong>box model</strong> 로 각 Box 들의 크기 위치 높이를 가지게 됩니다.</p>
+<p><img src="http://blog.4psa.com/wp-content/uploads/3.png" alt=""></p>
+<p>이로써 노드와 계산된 스타일 그리고 화면 내에서 각 노드의 정확한 위치를 얻게됩니다.<br>
+Layout 과정이 완료되면 브라우저가 Paint 이벤트를 발생시켜 노드를 픽셀로 변화하는 <strong>‘Paint’</strong> 단계가 실행됩니다.</p>
+<h3 id="Paint-Rasterize-Composite-Layer-Repaint"><a class="header-anchor" href="#Paint-Rasterize-Composite-Layer-Repaint"></a>Paint, Rasterize, Composite Layer (Repaint)</h3>
+<p>Layout 과정을 거쳐 화면에 UI를 화면에 표현하기 위한 계산이 끝나면 Paint 과정을 거칩니다. Layout 과정에서 Render Layer가 2개 이상 생성되면 각각의 Layer 를 Painting 한 뒤 하나의 이미지로 Composite하는 과정을 추가로 거쳐 브라우저에 표현합니다.</p>
+<p><img src="./pipeLine.png" alt=""></p>
+<ul>
+<li><strong>Paint / Rasterize</strong>
+<ul>
+<li>Paint 는 Render Tree 를 화면의 픽셀로 변환하는 프로세스입니다. 이는 텍스트, 색, 이미지, 경계 및 그림자 등 요소의 모든 시각적 부분을 그리는 작업을 포함합니다.<br>
+그리기는 일반적으로 레이어라고 하는 다수의 표면에서 수행됩니다. 흔히 painting 또는 rasterizing 라고 하며 실제로 픽셀을 채우는 작업은 rasterize 라고 하며 paint 는 그릴 호출 목록을 생성합니다.</li>
+</ul>
+</li>
+<li><strong>Composite</strong>
+<ul>
+<li>사용된 HTML이나 CSS 속성에 따라 여러개의 Layer 가 생성된 경우, 생성된 Layer 들을 합성하여 한장의 bitmap 으로 만드는 과정입니다. 각 Layer 별로 paint 되기 때문에 불필요한 painting 을 줄여 효율 적으로 그릴 수 있습니다.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>‘<a target="_blank" rel="noopener" href="http://mozilla.org">mozilla.org</a>’ Rendering Visualization</strong><br>
+영상을 통해 Render Tree 생성 이후 Layout, Paint(Rasterize), Composite Layer 과정을 시각적으로 확인해 볼 수 있습니다.</p>
+</blockquote>
+<iframe style="width:100%; min-height:300px;" src="https://www.youtube.com/embed/ZTnIxIA5KGw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2 id="Update-UI"><a class="header-anchor" href="#Update-UI"></a>Update UI</h2>
+<p>자바스크립트, CSS 또는 웹 애니메이션을 사용하여 시각적 변경을 수행할 때 주어진 프레임에 대해 아래의 프로세스 전체 또는 일부를 거쳐 화면이 업데이트 됩니다.</p>
+<p><img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-full.jpg" alt=""></p>
+<ul>
+<li><strong>자바스크립트</strong>
+<ul>
+<li>일반적으로 자바스크립트는 jQuery의 animate 함수, 데이터 집합 정렬 또는 페이지에 DOM 요소 추가 등 시각적 변화를 일으키는 작업을 처리하는 데 사용됩니다. 하지만 반드시 자바스크립트로 시각적 변화를 트리거할 필요는 없습니다. CSS Animations, Transitions 및 Web Animations API도 널리 사용됩니다.</li>
+</ul>
+</li>
+<li><strong>스타일 계산</strong>
+<ul>
+<li>이는 .headline 또는 .nav &gt; .nav__item 등의 매칭 선택기에 따라 어떤 CSS 규칙을 어떤 요소에 적용할지 계산하는 프로세스입니다. 여기에서 규칙이 알려지면 적용되고 각 요소의 마지막 스타일이 계산됩니다.</li>
+</ul>
+</li>
+<li><strong>레이아웃</strong>
+<ul>
+<li>브라우저가 요소에 어떤 규칙을 적용할지 알게 되면 화면에서 얼마의 공간을 차지하고 어디에 배치되는지 계산하기 시작할 수 있습니다. 웹의 레이아웃 모델은 한 요소가 다른 요소에 영향을 줄 수 있음을 의미합니다. 예를 들어, <body> 요소의 너비는 일반적으로 하위 요소의 너비 등 트리의 위아래 모든 곳에 영향을 주며, 따라서 이 프로세스는 브라우저에 상당한 영향을 줄 수 있습니다.</li>
+</ul>
+</li>
+<li><strong>페인트</strong>
+<ul>
+<li>페인트는 픽셀을 채우는 프로세스입니다. 이는 텍스트, 색, 이미지, 경계 및 그림자 등 요소의 모든 시각적 부분을 그리는 작업을 포함합니다. 그리기는 일반적으로 레이어라고 하는 다수의 표면에서 수행됩니다.</li>
+</ul>
+</li>
+<li><strong>합성(Compositing)</strong>
+<ul>
+<li>페이지의 여러 부분이 잠재적으로 여러 레이어로 그려졌기 때문에 페이지가 정확히 렌더링되려면 정확한 순서로 화면에 그려야 합니다. 실수로 한 요소가 다른 요소 위에 잘못 나타날 수 있기 때문에 이는 다른 요소와 겹치는 요소가 있는 경우에 특히 중요합니다.</li>
+</ul>
+</li>
+</ul>
+<p><strong>시각적 변경이 발생할 경우 처리 방법에 따라 아래 3가지 프로세스를 타게 됩니다.</strong></p>
+<blockquote>
+<p>주어진 CSS 속성을 변경하는 아래 세 가지 경우 중 어느 버전이 트리거될지 알고 싶은 경우 <a target="_blank" rel="noopener" href="http://csstriggers.com">csstriggers.com</a> 을 통해 어떤 속성 어떤 과정에 영향을 주는지 알 수 있습니다.</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>JS / CSS &gt; 스타일 &gt; 레이아웃 &gt; 페인트 &gt; 합성</strong><br>
+<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-full.jpg" alt=""><br>
+레이아웃 너비, 높이, 왼쪽 또는 상단 위치 등 요소의 기하학적 형태에 영향을 주는 ‘layout’ 속성을 변경하면 브라우저가 다른 모든 요소를 확인하고 페이지에 대해 '리플로우’를 수행해야 합니다. 영향을 받은 영역이 있으면 다시 페인트해야 하고 최종적으로 페인트한 요소는 다시 합성해야 합니다.<br>
+<br/></p>
+</li>
+<li>
+<p><strong>JS / CSS &gt; 스타일 &gt; 페인트 &gt; 합성</strong><br>
+<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-no-layout.jpg" alt=""><br>
+페이지의 레이아웃에 영향을 주지 않는 배경 이미지, 텍스트 색상 또는 그림자 등의 ‘paint only’ 속성을 변경하면, 브라우저가 레이아웃을 건너뛰되 페인트 작업은 여전히 수행합니다.<br>
+<br/></p>
+</li>
+<li>
+<p><strong>JS / CSS &gt; 스타일 &gt; 합성</strong><br>
+<img src="https://developers.google.com/web/fundamentals/performance/rendering/images/intro/frame-no-layout-paint.jpg" alt=""><br>
+레이아웃과 페인트가 필요 없는 속성을 변경하면 브라우저가 합성 단계로 건너뜁니다.<br>
+이 최종 버전은 앱의 수명 주기에서 애니메이션이나 스크롤처럼 많은 부담을 주는 시점에 가장 이상적이고 비용이 가장 적게 드는 버전입니다.</p>
+</li>
+</ul>
+<h2 id="TIP"><a class="header-anchor" href="#TIP"></a>TIP</h2>
+<p>앞에서 <code>Critical Rendering Path</code> 살펴 보았습니다. 지금부터는 웹 브라우저 렌더링 최적화에 도움이 되는 몇가지 팁을 알아보도록 하겠습니다.</p>
+<ul>
+<li>
+<h3 id="Navigation-Timing-API"><a class="header-anchor" href="#Navigation-Timing-API"></a>Navigation Timing API</h3>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Navigation_timing">Navigation Timing API</a> 를 사용하면 <code>Frontend Time</code> 의 내부 렌더링 프로세스를 들여다 볼 수 있습니다. 렌더링 프로세스를 추적하고 개선점을 찾고 싶다면 해당 <strong>Navigation Timing API</strong> 를 사용해 볼 수 있습니다.</p>
+<p><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/dom-navtiming.png" alt=""></p>
+<p>위 이미지는 <strong>Navigation Timing API</strong> 을 통해 확인할 수 있는 <code>Frontend Time</code> 의 각 단계를 나타내는 이미지로 각 라벨이 가지는 의미는 아래와 같습니다.</p>
+<ul>
+<li><strong>Processing</strong>
+<ul>
+<li><strong>domLoading</strong>
+<ul>
+<li>브라우저가 처음 수신한 HTML 문서 바이트의 <strong>파싱을 시작하려고 하는 상태</strong>입니다.</li>
+</ul>
+</li>
+<li><strong>domInteractive</strong>
+<ul>
+<li>브라우저가 파싱을 완료한 시점 즉, <strong>DOM이 준비된 상태</strong>입니다.</li>
+<li>파서 차단 자바스크립트가 없으면 domInteractive 직후에 DOMContentLoaded 이벤트가 발생할 것입니다.</li>
+</ul>
+</li>
+<li><strong>domContentLoaded</strong>
+<ul>
+<li>DOM이 준비되고 자바스크립트 실행을 차단하는 스타일시트가 없는 상태입니다. 즉, <strong>DOM 및 CSSOM이 모두 준비된 상태</strong>로 <strong>렌더링 트리를 생성</strong>할 수 있습니다.</li>
+<li>많은 자바스크립트 프레임워크가 자체 로직을 실행하기 전에 이 이벤트를 기다립니다.</li>
+</ul>
+</li>
+<li><strong>domComplete</strong>
+<ul>
+<li>페이지 및 해당 하위의 <strong>모든 리소스가 준비된 상태</strong>입니다.</li>
+<li>이름이 의미하는 바와 같이, 모든 처리가 완료되고 페이지의 모든 리소스(이미지 등) 다운로드가 완료되었습니다( 예: 로딩 스피너가 회전을 멈춤).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Load</strong>
+<ul>
+<li><strong>loadEvent</strong>
+<ul>
+<li>각 페이지 로드의 최종 단계로, 브라우저가 추가 <strong>애플리케이션 로직을 트리거할 수 있는 상태</strong>로 onload 이벤트를 발생시킵니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="Parser-Render-Blocking-Point-Check"><a class="header-anchor" href="#Parser-Render-Blocking-Point-Check"></a>Parser / Render Blocking Point Check</h3>
+<p>파싱, 렌더링이 차단되는 지점을 확인합니다.</p>
+<p><img src="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/images/analysis-dom-css-js.png" alt=""></p>
+<ul>
+<li>Javascript 를 명시적으로 비동기로 호출하지 않은 경우 DOM 생성을 차단합니다.</li>
+<li>HTML 문서 내 Inline 으로 작성된 Javascript 를 찾게되면 DOM 생성을 차단합니다.</li>
+<li>Parsing 중 CSS 를 만나면 DOM 생성을 차단하고 CSS 파일을 읽어 CSSOM 을 만듭니다.</li>
+</ul>
+</li>
+<li>
+<h3 id="Layer-활용하기"><a class="header-anchor" href="#Layer-활용하기"></a>Layer 활용하기</h3>
+<p>렌더링시 Painting, Rasterizing 할 대상 영역을 나누어 놓은 것을 Layer 라고 합니다.<br>
+Layer 를 사용하면 reflow 발생 시 global layouting 이 아닌 incremental layouting 을 발생시킬 수 있기 때문에 효율적으로 화면을 그릴 수 있습니다.</p>
+<ul>
+<li><strong>Layer 생성 조건</strong>
+<ul>
+<li>position 관련 속성</li>
+<li>overflow, alpha 값</li>
+<li>css filter</li>
+<li>3D transform, animation</li>
+<li><code>&lt;canvas&gt;</code>, <code>&lt;video&gt;</code></li>
+<li>scrollbar가 존재하는 경우 별도의 layer 생성하여 처리</li>
+<li>같은 z-index의 레이어가 겹치는 경우 별도의 layer 생성하여 처리</li>
+</ul>
+</li>
+<li><strong>Graphic Layer 생성 조건</strong>
+<ul>
+<li>css 3d transform이나 perspective 속성 사용 경우</li>
+<li>css animation 함수나 필터 함수 사용 경우</li>
+<li>video, canvas 사용 경우</li>
+<li>자식 요소가 레이어로(UI) 사용된 경우</li>
+<li>z-index가 낮은 형제 요소가 레이어로 사용된 경우</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="마무리"><a class="header-anchor" href="#마무리"></a>마무리</h2>
+<p>지금까지 웹 브라우저 렌더링 과정에 대해 알아봤습니다. 사실 UI 렌더링은 웹 브라우저가 잘 처리해 주고 있기 때문에 많은 프론트 개발자 분들이 등한시 할 수 있는 부분 이기도 합니다. 하지만 앞에서 살펴보았듯이 생각보다 중요한 부분이기 때문에 알아두면 좋을 것 같습니다.</p>
+<p>잘 못된 내용이나 개선점이 있으면 피드백을 남겨주시면 반영하도록 하겠습니다.<br>
+읽어주셔서 감사합니다.</p>
+
+
+                
+            </div>
+
+            <div class="google-ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- adForPostDisplay -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3917275028032933"
+                    data-ad-slot="6434864533"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- Google Adsense Module -->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <!--<h3>코멘트:</h3>-->
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.linkedin.com/in/jaewon-jang-104836113/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:jw9651@naver.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Jang Jae Won<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="button__top">TOP</a>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Search -->
+
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'cresumerjang-github-io';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
