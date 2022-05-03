@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000"/>
+
+    <!-- for NAVER search index -->
+    <meta name="naver-site-verification" content="08d0b9b1265a02d27eb8c25208f88e86d1681974" />
+    <!-- for Google Search Console -->
+    <meta name="google-site-verification" content="T73c2s_bs7sgnZsES1d9GN7taHGu6BhjE_Q_8EtUwtE" />
+    
+    <!--Description-->
+
+    
+
+
+     
+
+
+        
+        <meta name="description" content="ESLint, Prettier 로 프로젝트 관리하기 - 3편 | config, eslint, prettier, husky, lint-staged"/>
+    
+
+    <meta name="keywords" content="html, css, javascript, frontend, backend, web developer, ui developer, server developer, reactjs, vuejs, redux, mobx, css in js, nodejs, postgresql, mysql, mariadb, mongodb, nosql, graphql, typescript, es6, ecma, ecma script">
+
+    <!--Author-->
+    
+        <meta name="author" content="Jang Jae Won"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Husky, lint-staged 프로젝트에 적용하기"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="웹 개발이 즐거운 개발자의 개발 이야기"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="웹 개발자 기술 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://cresumerjang.github.io/img/author.jpg"/>
+    
+
+    <!-- Title -->
+    
+
+    
+        <title>Husky, lint-staged 프로젝트에 적용하기</title>
+    
+    
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400|Roboto:100" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3917275028032933",
+          enable_page_level_ads: true
+     });
+</script>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-132451532-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+    <link rel="icon" href="/favicon.ico"/>
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">cresumerjang.github.io</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <div id="site_search">
+                            <div class="form-group">
+                                <input type="text" id="local-search-input" name="q" results="0" autocomplete="off" placeholder="search" class="st-search-input st-default-search-input form-control"/>
+                            </div>  
+                            <div id="local-search-result"></div>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/hexo_main-bg.jpg')">
+    <div class="page-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Husky, lint-staged 프로젝트에 적용하기</h1>
+                        
+                        <h2 class="post-subheading">
+                            ESLint, Prettier 로 프로젝트 관리하기 - 3편
+                        </h2>
+                        
+                        <span class="meta">
+                            <!-- Date and Author -->
+                            
+                            
+                                2022-05-03
+                            
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+            
+                <div class="post-tag-category-box">
+                    <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-categories">
+                        
+                            
+
+<a class="text--article-category icon category-dev" href="/categories/dev/">dev</a> <a class="text--article-category icon category-frontend" href="/categories/dev/frontend/">frontend</a>
+
+                        
+                    </div>
+            
+                    <div class="col-lg-4 col-md-5 post-tags">
+                        
+                            
+
+
+<a class="text--article-tag icon tag-config" href="/tags/config/">#config</a> <a class="text--article-tag icon tag-eslint" href="/tags/eslint/">#eslint</a> <a class="text--article-tag icon tag-prettier" href="/tags/prettier/">#prettier</a> <a class="text--article-tag icon tag-husky" href="/tags/husky/">#husky</a> <a class="text--article-tag icon tag-lint-staged" href="/tags/lint-staged/">#lint-staged</a>
+
+
+                        
+                    </div>
+                </div>
+             
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>이전 편에서 프로젝트에 ESLint 와 Prettier 를 적용하는 방법에 대해서 알아봤습니다. 이번 편에서는 프로젝트에 적용한 ESLint 와 Prettier 를 자동으로 실행시키는 방법에 대해 알아보도록 하겠습니다.</p>
+<blockquote>
+<p>이번 편에서는 편의상 ESLint 와 Prettier 를 실행하는 것을 '최적화’라고 부르도록 하겠습니다.</p>
+</blockquote>
+<h1>ESLint, Prettier 실행 자동화 하기</h1>
+<p>앞 두편에서 살펴본 내용으로도 프로젝트를 최적화할 수 있지만 이를 위한 ESLint, Prettier 를 직접 실행해 줘야한다는 번거로움이 있습니다. 실수로 최적화를 실행하지 않고 커밋해버릴 위험도 있습니다.</p>
+<p>자동화를 통해 이런 위험을 제거하고 좀 더 효율적으로 프로젝트 최적화를 수행할 수 있도록 할 수 있습니다.</p>
+<blockquote>
+<p>'자동화’란 최적화를 위한 스크립트를 직접 실행시켜줄 필요 없는 환경을 말합니다.</p>
+</blockquote>
+<p>프로젝트에서 자동화를 설정할 수 있는 포인트는 아래와 같이 두군데가 있습니다.</p>
+<ol>
+<li>Editor, IDE에 eslint, prettier 자동화 설정하기</li>
+<li>git hook을 활용하여 commit 실행하기 전에 eslint, prettier 실행하기</li>
+</ol>
+<p>첫번째 방법의 경우 vscode(Editor), webstorm(IDE) 같은 툴에서 제공하는 eslint, prettier 플러그인을 설치하고 설정에서 <code>format on save</code>, <code>run eslint on save</code> 와 같은 관련 옵션을 활성화 시켜주면 됩니다.</p>
+<p>관련한 방법은 구글링으로 쉽게 찾을 수 있기 때문에 이정도로만 알아보고 두번째 방법에 대해 알아보도록 하겠습니다.</p>
+<p>두번째 방법은 git 으로 버전관리를 하는 경우에 유효한 방법입니다. (git 을 사용하지 않는 프로젝트는 거의 없을거라 대부분 경우에 적용할 수 있을 것 같습니다.)</p>
+<p>git 에서 어떤 이벤트가 발생했을 때 특정 스크립트를 실행할 수 있도록 훅을 제공해 줍니다. 저장소에서 <code>.git/hooks</code> 디렉토리를 보면 많은 훅 sample 파일이 존재합니다.</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">applypatch-msg.<span class="keyword">sample</span>     pre-<span class="keyword">merge</span>-commit.<span class="keyword">sample</span></span><br><span class="line">commit-msg.<span class="keyword">sample</span>         pre-push.<span class="keyword">sample</span></span><br><span class="line">fsmonitor-watchman.<span class="keyword">sample</span> pre-rebase.<span class="keyword">sample</span></span><br><span class="line"><span class="keyword">post</span>-<span class="keyword">update</span>.<span class="keyword">sample</span>        pre-receive.<span class="keyword">sample</span></span><br><span class="line">pre-applypatch.<span class="keyword">sample</span>     prepare-commit-msg.<span class="keyword">sample</span></span><br><span class="line">pre-commit.<span class="keyword">sample</span>         <span class="keyword">update</span>.<span class="keyword">sample</span></span><br></pre></td></tr></table></figure>
+<p>위 훅들 중에서 최적화를 실행하기 가장 좋은 훅은 커밋 워크플로 훅으로 분류되는 <code>pre-commit</code> 훅입니다. 커밋할 때 가장먼저 호출되는 훅으로 커밋 메시지를 작성하기 전에 호출되기 때문에 해당 훅을 사용하여 최적화 스크립트를 실행하기에 가장 좋습니다.</p>
+<p>훅 파일을 직접 설정하는 방법은 번거롭기 때문에 저희는 <code>husky</code> 와 <code>lint-staged</code> 라는 패키지를 사용하여 훅을 활용해 보도록 하겠습니다. (git hook 에 대한 자세한 내용이 궁금하시다면 <a target="_blank" rel="noopener" href="https://git-scm.com/book/ko/v2/Git%EB%A7%9E%EC%B6%A4-Git-Hooks">git hook 공식문서</a>를 참고해 주세요.)</p>
+<h2 id="husky-lint-staged"><a class="header-anchor" href="#husky-lint-staged"></a>husky &amp; lint-staged</h2>
+<p><a target="_blank" rel="noopener" href="https://typicode.github.io/husky/#/">husky</a>는 모든 git hook 을 지원하며 손쉽게 git hook 사용할 수 있게해주는 패키지입니다.</p>
+<p>이전에는 husky 설치 이후에 npm script 에 prepare 스크립트 추가 및 <code>.husky/</code> 디렉토리 하위에 hook 파일 생성등 다양한 작업을 해줘야 했었는데 이번에 찾아보니 husky 설치, 설정은 물론 lint-staged 까지 한방에 처리해주는 <a target="_blank" rel="noopener" href="https://github.com/okonet/lint-staged#installation-and-setup">패키지</a>가 있어 해당 패키지를 활용해 보도록 하겠습니다.</p>
+<p>참고로 <a target="_blank" rel="noopener" href="https://github.com/okonet/lint-staged">lint-staged</a> 는 staged 된 파일을 대상으로 특정 스크립트를 실행할 수 있게 해주는 패키지 입니다.</p>
+<h3 id="Install-5"><a class="header-anchor" href="#Install-5"></a>Install</h3>
+<p>아래 명령어를 사용하여 <code>lint-staged</code> 패키지를 설치합니다.</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx <span class="symbol">mrm@</span><span class="number">2</span> lint-staged</span><br></pre></td></tr></table></figure>
+<p>패키지 설치가 완료되면 <code>package.json</code> 에 아래와 같은 내용이 추가됩니다.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;prepare&quot;</span><span class="punctuation">:</span> <span class="string">&quot;husky install&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;husky&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^7.0.4&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;lint-staged&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^12.4.1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lint-staged&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;*.js&quot;</span><span class="punctuation">:</span> <span class="string">&quot;eslint --cache --fix&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>그리고 아래 이미지와 같이 프로젝트 <code>root/</code> 에 <code>pre-commit</code> 스크립트가 담겨져 있는 <code>.husky/</code> 디렉토리가 생성됩니다.</p>
+<img src="img/husky.png" width="300"/>
+<h3 id="Configuration-File-5"><a class="header-anchor" href="#Configuration-File-5"></a>Configuration File</h3>
+<p>최종적으로 자동화를 위한 설정 파일들을 작성해 보도록 하겠습니다.</p>
+<p><strong>package.json</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;lint:fix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;eslint --fix &#x27;./src/**/*.&#123;js,jsx,ts,tsx&#125;&#x27;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;prettier:fix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;prettier --write &#x27;./src/**/*.&#123;js,jsx,ts,tsx&#125;&#x27;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;check-conflict-formatting-rules&quot;</span><span class="punctuation">:</span> <span class="string">&quot;npx eslint-config-prettier &#x27;./src/**/*.&#123;js,jsx,ts,tsx&#125;&#x27;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;prepare&quot;</span><span class="punctuation">:</span> <span class="string">&quot;husky install&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;eslint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^8.13.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eslint-config-airbnb&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^19.0.4&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eslint-config-prettier&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^8.5.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;eslint-plugin-prettier&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^4.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;husky&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^7.0.4&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;lint-staged&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^12.4.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;prettier&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.6.2&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lint-staged&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;./src/**/*.&#123;js,jsx,ts,tsx&#125;&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;npm run check-conflict-formatting-rules&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;npm run prettier:fix&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;npm run lint:fix&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>.eslintrc.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&quot;airbnb&quot;</span>, <span class="string">&quot;prettier&quot;</span>],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&quot;no-unused-vars&quot;</span>: [</span><br><span class="line">      <span class="string">&quot;error&quot;</span>,</span><br><span class="line">      &#123; <span class="attr">vars</span>: <span class="string">&quot;all&quot;</span>, <span class="attr">args</span>: <span class="string">&quot;after-used&quot;</span>, <span class="attr">ignoreRestSiblings</span>: <span class="literal">false</span> &#125;,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;no-console&quot;</span>: [<span class="string">&quot;error&quot;</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>.prettierrc.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">semi</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">tabWidth</span>: <span class="number">4</span>,</span><br><span class="line">  <span class="attr">singleQuote</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Practice-3"><a class="header-anchor" href="#Practice-3"></a>Practice</h3>
+<p>모든 설정이 완료되었습니다. <code>src/</code> 디렉토리 아래 스크립트 파일 수정 후 <code>git add --a</code>, <code>git commit -m&quot;message&quot;</code> 실행시 <code>husky</code> 에 의해 <code>pre-commit</code> 훅이 실행되고, 훅에 의해 <code>lint-staged</code> 에 설정한 스크립트가 동작하면서 아래와 같이 최적화 자동화가 실행됩니다.</p>
+<img src="img/husky-lint-staged.gif" width="420"/>
+<h1>End</h1>
+<p>궁금한 점이나 잘 못된 내용이 있으면 피드백 부탁드립니다.<br>
+읽어주셔서 감사합니다.</p>
+
+
+                
+            </div>
+
+            <div class="google-ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- adForPostDisplay -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3917275028032933"
+                    data-ad-slot="6434864533"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!-- Google Adsense Module -->
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <!--<h3>코멘트:</h3>-->
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                        <li>
+                            <a href="https://twitter.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/cresumerjang" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://www.linkedin.com/in/jaewon-jang-104836113/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:jw9651@naver.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2022 Jang Jae Won<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="button__top">TOP</a>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Search -->
+
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">      
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'cresumerjang-github-io';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
