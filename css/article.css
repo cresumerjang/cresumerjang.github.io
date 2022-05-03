@@ -1,5 +1,10 @@
 article .container {
-  font-weight: 300;
+  font-weight: 400;
+}
+article .container .row code {
+  color: #1980ff;
+  padding: 2px 5px;
+  background: #f2f5f9;
 }
 article .container .row img {
   max-width: 100% !important;
@@ -30,8 +35,8 @@ article .container .row blockquote {
   padding: 0 20px;
   margin: 20px 0;
   text-align: left;
-  color: #c8c8c8;
-  border-left: 5px solid #e2e2e2;
+  color: #1980ff;
+  border-left: 5px solid #1980ff;
 }
 article .container .row blockquote p {
   margin: 0;
