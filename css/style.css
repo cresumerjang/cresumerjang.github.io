@@ -614,11 +614,13 @@ article .container .row code {
   color: #1980ff;
   padding: 2px 5px;
   background: #f2f5f9;
+  font-weight: 400;
 }
 article .container .row img {
   max-width: 100% !important;
   height: auto;
   display: inline-block;
+  border-radius: 0.3em;
 }
 article .container .row .video-container {
   position: relative;
