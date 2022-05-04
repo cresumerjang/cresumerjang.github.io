@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>http://cresumerjang.github.io/2019/06/20/javascript-prototype/</loc>
+        <lastmod>2022-05-04T23:53:44.300Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://cresumerjang.github.io/2022/05/03/eslint-prettier-3/</loc>
         <lastmod>2022-05-03T13:21:37.256Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,14 +51,6 @@
     <url>
         <loc>http://cresumerjang.github.io/2020/12/01/javascript-promise/</loc>
         <lastmod>2020-12-04T02:27:53.807Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://cresumerjang.github.io/2019/06/20/javascript-prototype/</loc>
-        <lastmod>2020-12-02T07:03:49.322Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

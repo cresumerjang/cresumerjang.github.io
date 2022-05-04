@@ -277,10 +277,10 @@
 <p>이제부터 코드 퀄리티, 포맷팅 관리를 위한 툴을 알아보고 설정 및 사용법, 자동화하는 방법까지 하나씩 알아보도록 하겠습니다.</p>
 <h1>코드 퀄리티 관리</h1>
 <p>코드 퀄리티 관리는 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/eslint">ESLint</a>라는 패키지를 사용하여 관리합니다. ESLint 는 코드 퀄리티 관리를 위해 가장 많이 사용되는 패키지로 해당 패키지를 사용하여 코드 퀄리티 관리를 위한 규칙을 설정하고 해당 규칙을 강제로 적용하거나 관련 리포트를 제공받아 코드 퀄리티를 관리할 수 있습니다.</p>
-<h3 id="Install"><a class="header-anchor" href="#Install"></a>Install</h3>
+<h3 id="Install-3"><a class="header-anchor" href="#Install-3"></a>Install</h3>
 <p><code>ESLint</code> 를 프로젝트의 <code>devDependencies</code> 패키지로 설치합니다.</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> i -D eslint</span><br></pre></td></tr></table></figure>
-<h3 id="Configuration-File"><a class="header-anchor" href="#Configuration-File"></a>Configuration File</h3>
+<h3 id="Configuration-File-3"><a class="header-anchor" href="#Configuration-File-3"></a>Configuration File</h3>
 <p>ESLint 설정을 위해 설정 파일을 생성해 줘야 하는데 아래와 같이 간단한 명령어를 통해 기본적인 설정 파일을 생성할 수 있습니다.</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init @eslint/config</span><br></pre></td></tr></table></figure>
 <p>위 명령어를 실행하면 아래와 같이 단계별로 선택지가 나오며 최종 선택까지 완료하면 <code>.eslintrc.js</code> 와 같은 설정 파일이 <code>root/</code> 디렉토리에 생성됩니다.</p>
@@ -348,10 +348,10 @@
 <!-- 살펴본 것과 같이 설정 파일에 간한한 설정을 추가하는 것 만으로도 코드 퀄리티를 높ㅇ -->
 <h1>코드 포맷팅 관리</h1>
 <p>코드 포맷팅 관리는 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/prettier">Prettier</a> 라는 패키지를 사용하여 관리합니다. 작업자가 여러명인 프로젝트에서도 일관된 코드 스타일을 유지시켜주는 역할을 합니다.</p>
-<h3 id="Install-2"><a class="header-anchor" href="#Install-2"></a>Install</h3>
+<h3 id="Install-4"><a class="header-anchor" href="#Install-4"></a>Install</h3>
 <p><code>Prettier</code> 를 프로젝트의 <code>devDependencies</code> 패키지로 설치합니다.</p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -D <span class="comment">--save-exact prettier</span></span><br></pre></td></tr></table></figure>
-<h3 id="Configuration-File-2"><a class="header-anchor" href="#Configuration-File-2"></a>Configuration File</h3>
+<h3 id="Configuration-File-4"><a class="header-anchor" href="#Configuration-File-4"></a>Configuration File</h3>
 <p>Prettier 설정은 <code>package.json</code> 이나 <code>.prettierrc.js</code> 와 같은 별도의 설정 파일을 생성하여 사용하는데 지원 형식은 아래와 같습니다.</p>
 <ul>
 <li><code>package.json</code> 파일 내 <code>&quot;prettier&quot;</code> 키에 설정</li>
